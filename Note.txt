@@ -1,0 +1,5 @@
+Nguyên tắc làm việc:
+	1. Folder đã install các nuget. các bạn vui lòng không thay đổi version của tên Folder.
+	2. Mỗi Tuần sẽ update database 1 lần. (Việc thay đổi dữ liệu bảng nhằm thống nhất hệ thống chương trình)
+	3. 
+
