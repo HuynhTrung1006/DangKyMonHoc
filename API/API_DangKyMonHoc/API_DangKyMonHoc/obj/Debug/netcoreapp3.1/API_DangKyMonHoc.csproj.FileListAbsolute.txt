@@ -51,3 +51,13 @@ G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\ru
 G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.pdb
 G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\API_DangKyMonHoc.deps.json
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\API_DangKyMonHoc.runtimeconfig.json
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\API_DangKyMonHoc.runtimeconfig.dev.json
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\API_DangKyMonHoc.dll
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\API_DangKyMonHoc.pdb
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.csproj.CoreCompileInputs.cache
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.MvcApplicationPartsAssemblyInfo.cache
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.dll
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.pdb
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.genruntimeconfig.cache
