@@ -53,6 +53,7 @@ namespace API_DangKyMonHoc.Controllers
                 var checkSinhVien = _repository.getElementById(sv.MsSv);
                 if (checkSinhVien != null) return NotFound();
 
+                sv.Matkhau = BCrypt.Net.BCrypt.HashPassword(sv.Matkhau + sv.MsSv);
                 _repository.postSinhVien(sv);
                 return Ok();
             }

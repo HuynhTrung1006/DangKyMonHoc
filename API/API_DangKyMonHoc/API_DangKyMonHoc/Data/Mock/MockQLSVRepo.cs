@@ -55,7 +55,7 @@ namespace API_DangKyMonHoc.Data
 
         public void postSinhVien(SinhVien sv)
         {
-             _db.SinhViens.Add(sv);
+            _db.SinhViens.Add(sv);
             _db.SaveChanges();
         }
 

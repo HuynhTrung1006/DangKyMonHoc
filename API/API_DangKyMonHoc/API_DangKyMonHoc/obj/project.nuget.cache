@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "K2rL2OyV/H68R/aU/dVaRP9nRYaLvwRoHu1cd2K+bcB1kJNWhdxyvpkSP2zwCyTerC3hjJ/7jkSi7uqziDyJOA==",
+  "dgSpecHash": "aLXiZd7rCYPD1kwgdCzURApkYd21mdfr3vGEHYHZiAycY94QWvjrUX9jXFzXAFfP4O353nLAfgXg9yxNOMxqYQ==",
   "success": true,
   "projectFilePath": "G:\\Luan_Van\\Git\\API\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\bcrypt.net-next\\4.0.2\\bcrypt.net-next.4.0.2.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Admin\\.nuget\\packages\\microsoft.data.sqlclient\\2.0.1\\microsoft.data.sqlclient.2.0.1.nupkg.sha512",

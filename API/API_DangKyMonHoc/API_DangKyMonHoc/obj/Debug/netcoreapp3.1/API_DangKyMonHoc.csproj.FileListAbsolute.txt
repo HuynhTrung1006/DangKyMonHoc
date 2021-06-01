@@ -56,8 +56,9 @@ G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\AP
 G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\API_DangKyMonHoc.runtimeconfig.dev.json
 G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\API_DangKyMonHoc.dll
 G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\API_DangKyMonHoc.pdb
-G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.csproj.CoreCompileInputs.cache
-G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.MvcApplicationPartsAssemblyInfo.cache
 G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.dll
 G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.pdb
 G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.genruntimeconfig.cache
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\bin\Debug\netcoreapp3.1\BCrypt.Net-Next.dll
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.csproj.CoreCompileInputs.cache
+G:\Luan_Van\Git\API\API_DangKyMonHoc\API_DangKyMonHoc\obj\Debug\netcoreapp3.1\API_DangKyMonHoc.MvcApplicationPartsAssemblyInfo.cache
