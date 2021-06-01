@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using API_DangKyMonHoc.Data.Interface;
+using API_DangKyMonHoc.Data.Mock;
 using API_DangKyMonHoc.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
@@ -30,6 +32,7 @@ namespace API_DangKyMonHoc
             services.AddControllers();
 
             services.AddDbContext<DangKyMonHocContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DangKyMonHocConnection")));
+            services.AddScoped<IKhoaRepo, MockKhoaRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
