@@ -12,7 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using WPF_Admin_DangKyMonHoc.View;
 namespace WPF_Admin_DangKyMonHoc
 {
     /// <summary>
@@ -24,5 +24,26 @@ namespace WPF_Admin_DangKyMonHoc
         {
             InitializeComponent();
         }
-    }
+
+		private void btnQLNV_Click(object sender, RoutedEventArgs e)
+		{
+
+            View.QLNV_View view = new QLNV_View();
+            view.Show();
+		}
+
+		private void btnQLGV_Click(object sender, RoutedEventArgs e)
+		{
+            View.QLGV_View view = new View.QLGV_View();
+            view.Show();
+        }
+
+		private void btnDangXuat_Click(object sender, RoutedEventArgs e)
+		{
+            this.Close();
+            View.SignIn_View view = new SignIn_View();
+            view.Show();
+
+		}
+	}
 }

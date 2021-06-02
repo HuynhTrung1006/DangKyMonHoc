@@ -1,0 +1,19 @@
+﻿<Window x:Class="WPF_Admin_DangKyMonHoc.View.SignIn_View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Admin_DangKyMonHoc.View"
+        mc:Ignorable="d"
+        Title="SignIn_View" Height="450" Width="800">
+    <Grid>
+        <TextBlock HorizontalAlignment="Left" Margin="218,68,0,0" TextWrapping="Wrap" Text="Tài khoản : " VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" Margin="218,112,0,0" TextWrapping="Wrap" Text="Mật khẩu :" VerticalAlignment="Top"/>
+        <TextBox HorizontalAlignment="Left" Height="23" Margin="322,64,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Name="txtTaikhoan"/>
+        <Button Content="Đăng nhập" HorizontalAlignment="Left" Margin="342,176,0,0" VerticalAlignment="Top" Width="75" Name="btnDangNhap" Click="btnDangNhap_Click"/>
+        <PasswordBox HorizontalAlignment="Left" Margin="322,114,0,0" VerticalAlignment="Top" Width="120" Name="txtMatkhau"/>
+        <Label Content="TRƯỜNG ĐẠI HỌC CÔNG NGHỆ SÀI GÒN" HorizontalAlignment="Left" Margin="267,12,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.904,0.578"/>
+
+
+    </Grid>
+</Window>

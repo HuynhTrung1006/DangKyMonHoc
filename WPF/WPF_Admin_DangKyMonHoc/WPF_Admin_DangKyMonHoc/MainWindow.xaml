@@ -6,7 +6,10 @@
         xmlns:local="clr-namespace:WPF_Admin_DangKyMonHoc"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+    <StackPanel>
+        <Button Content="Quan ly nhan vien" Name="btnQLNV" Click="btnQLNV_Click"/>
+        <Button Content="Quan ly giang vien" Name="btnQLGV" Click="btnQLGV_Click"/>
+        <Button Content="Đăng xuất" Name="btnDangXuat" Click="btnDangXuat_Click"/>
+
+    </StackPanel>
 </Window>

@@ -29,7 +29,7 @@ namespace API_DangKyMonHoc
         {
             services.AddControllers();
 
-            services.AddDbContext<DangKyMonHocContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DangKyMonHocConnection")));
+           services.AddDbContext<DangKyMonHocContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DangKyMonHocConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

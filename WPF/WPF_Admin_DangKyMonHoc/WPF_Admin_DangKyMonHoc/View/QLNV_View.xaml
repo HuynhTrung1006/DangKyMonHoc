@@ -1,0 +1,77 @@
+﻿<Window x:Class="WPF_Admin_DangKyMonHoc.View.QLNV_View"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Admin_DangKyMonHoc.View"
+        mc:Ignorable="d"
+        Title="QLNV_View" Height="450" Width="800" Loaded="Window_Loaded">
+    <StackPanel>
+        <Grid>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="2*"/>
+                <ColumnDefinition Width="0.25*"/>
+                <ColumnDefinition/>
+
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Mã nhân viên :"/>
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="Họ và Tên : "/>
+            <TextBlock Grid.Column="0" Grid.Row="2" Text="Ngày sinh : "/>
+            <TextBlock Grid.Column="0" Grid.Row="3" Text="Trạng thái :  "/>
+            <TextBlock Grid.Column="0" Grid.Row="2" Text="Ngày sinh : "/>
+            <TextBlock Grid.Column="3" Grid.Row="0" Text="Số điện thoại :"/>
+            <TextBlock Grid.Column="3" Grid.Row="1" Text="Email :"/>
+            <TextBlock Grid.Column="3" Grid.Row="2" Text="Chức vụ :"/>
+            <TextBlock Grid.Column="3" Grid.Row="3" Text="Mật khẩu :"/>
+
+
+
+            <TextBox Grid.Column="1" Grid.Row="0" Name="txtMaNV"/>
+            <TextBox Grid.Column="1" Grid.Row="1"  Name="txtTenNV"/>
+            <DatePicker Grid.Column="1" Grid.Row="2" Name="dpNgaysinh"/>
+            <WrapPanel Grid.Column="1 " Grid.Row="3">
+                <RadioButton Content="Hoạt động" Name="radHD" IsChecked="True"/>
+                <RadioButton Content="Ngưng hoạt động" Name="radNHD" />
+            </WrapPanel>
+            <TextBox Grid.Column="1" Grid.Row="4" Name="txtDiaChi"/>
+            <TextBox Grid.Column="4" Grid.Row="0" Name="txtSodt"/>
+            <TextBox Grid.Column="4" Grid.Row="1" Name="txtEmail"/>
+            <TextBox Grid.Column="4" Grid.Row="2" Name="txtChucvu"/>
+            <TextBox Grid.Column="4" Grid.Row="3" Name="txtMatkhau"/>
+            <Button Grid.Column="6" Grid.Row="1" Name="btnThem" Content="Thêm" Click="btnThem_Click"/>
+            <Button Grid.Column="6" Grid.Row="2" Name="btnXoa" Content="Xóa" Click="btnXoa_Click"/>
+            <Button Grid.Column="6" Grid.Row="3" Name="btnSua" Content="Sửa" Click="btnSua_Click"/>
+
+
+        </Grid>
+        <DataGrid AutoGenerateColumns="False" Name="dgNhanVien" SelectionChanged="dgNhanVien_SelectionChanged">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã nhân viên" Binding="{Binding MaNv}"/>
+                <DataGridTextColumn Header="Họ tên" Binding="{Binding TenNv}"/>
+                <DataGridTextColumn Header="Ngày sinh" Binding="{Binding NgaysinhNv}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding EmailNv}"/>
+                <DataGridTextColumn Header="Số điện thoại" Binding="{Binding SdtNv}"/>
+                <DataGridTextColumn Header="Chức vụ" Binding="{Binding Chucvu}"/>
+                <DataGridTextColumn Header="Mật khẩu" Binding="{Binding MatKhau}"/>
+                <DataGridTextColumn Header="Trạng thái" Binding="{Binding Trangthai}"/>
+
+
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>
