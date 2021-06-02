@@ -24,5 +24,13 @@ namespace WPF_Admin_DangKyMonHoc
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            WPF_Khoa wf = new WPF_Khoa();
+            this.Hide();
+
+            wf.ShowDialog();
+        }
     }
 }

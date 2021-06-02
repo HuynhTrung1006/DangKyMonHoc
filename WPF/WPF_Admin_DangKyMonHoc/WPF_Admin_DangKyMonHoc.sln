@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Admin_DangKyMonHoc", "WPF_Admin_DangKyMonHoc\WPF_Admin_DangKyMonHoc.csproj", "{344BE8E9-5231-40C5-8D6D-6C606766CE3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF_Admin_DangKyMonHoc", "WPF_Admin_DangKyMonHoc\WPF_Admin_DangKyMonHoc.csproj", "{3A80FF03-56C3-4900-B86A-B073D7411B26}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{344BE8E9-5231-40C5-8D6D-6C606766CE3F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{344BE8E9-5231-40C5-8D6D-6C606766CE3F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{344BE8E9-5231-40C5-8D6D-6C606766CE3F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{344BE8E9-5231-40C5-8D6D-6C606766CE3F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A80FF03-56C3-4900-B86A-B073D7411B26}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A80FF03-56C3-4900-B86A-B073D7411B26}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A80FF03-56C3-4900-B86A-B073D7411B26}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A80FF03-56C3-4900-B86A-B073D7411B26}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {397F3C08-12C4-43D5-866C-83436D3CB979}
+		SolutionGuid = {822DD5CA-FB5E-4C3F-8479-B25CA938E469}
 	EndGlobalSection
 EndGlobal

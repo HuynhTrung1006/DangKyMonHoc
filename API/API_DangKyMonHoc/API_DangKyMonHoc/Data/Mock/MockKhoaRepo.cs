@@ -50,7 +50,7 @@ namespace API_DangKyMonHoc.Data.Mock
         {
             var check = getByElementID(k.MaKhoa);
             if (check == null) return false;
-            _db.Khoas.Update(k);
+           check.TenKhoan=k.TenKhoan;
             _db.SaveChanges();
             return true;
         }

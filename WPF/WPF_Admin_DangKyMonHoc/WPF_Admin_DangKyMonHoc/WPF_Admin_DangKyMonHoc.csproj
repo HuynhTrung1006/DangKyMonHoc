@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{344BE8E9-5231-40C5-8D6D-6C606766CE3F}</ProjectGuid>
+    <ProjectGuid>{3A80FF03-56C3-4900-B86A-B073D7411B26}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>WPF_Admin_DangKyMonHoc</RootNamespace>
     <AssemblyName>WPF_Admin_DangKyMonHoc</AssemblyName>
@@ -61,6 +61,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ModelClass\Khoa.cs" />
+    <Compile Include="WPF_Khoa.xaml.cs">
+      <DependentUpon>WPF_Khoa.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XuLy\XuLyKhoa.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -73,6 +78,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="WPF_Khoa.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -101,9 +110,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ModelsClass\" />
-    <Folder Include="XuLy\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
