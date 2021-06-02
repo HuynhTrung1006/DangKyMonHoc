@@ -24,5 +24,12 @@ namespace WPF_Admin_DangKyMonHoc
         {
             InitializeComponent();
         }
+
+        private void Button_QLSV_Click(object sender, RoutedEventArgs e)
+        {
+            WPF_QLSV n = new WPF_QLSV();
+            this.Close();
+            n.ShowDialog();
+        }
     }
 }

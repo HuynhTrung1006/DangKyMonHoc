@@ -1,0 +1,58 @@
+﻿<Window x:Class="WPF_Admin_DangKyMonHoc.WPF_QLSV"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Admin_DangKyMonHoc"
+        mc:Ignorable="d"
+        Title="WPF_QLSV" Height="635.412" Width="944.118" Loaded="Window_Loaded">
+    <Grid Margin="0,0,0,6">
+        <DataGrid HorizontalAlignment="Left" Margin="30,237,0,30" Width="876"
+                  Name="dg_sinhvien" AutoGenerateColumns="False" SelectedValuePath="MsSv" SelectionChanged="dg_sinhvien_SelectionChanged"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="MSSV" Binding="{Binding MsSv}"/>
+                <DataGridTextColumn Header="Họ và Tên" Binding="{Binding TenSv}"/>
+                <DataGridTextColumn Header="Địa Chỉ" Binding="{Binding Diachi}"/>
+                <DataGridTextColumn Header="Ngày Sinh" Binding="{Binding Ngaysinh}"/>
+                <DataGridTextColumn Header="Phái" Binding="{Binding Phai}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="CMND" Binding="{Binding Cmnd}"/>
+                <DataGridTextColumn Header="Hệ Đào Tạo" Binding="{Binding Hedaotao}"/>
+                <DataGridTextColumn Header="Mật Khẩu" Binding="{Binding Matkhau}"/>
+                <DataGridTextColumn Header="Trạng Thái" Binding="{Binding Trangthai}"/>
+                <DataGridTextColumn Header="Khoa" Binding="{Binding MaKhoa}"/>
+                <DataGridTextColumn Header="Lớp" Binding="{Binding MaLop}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="Mã Sinh Viên" HorizontalAlignment="Left" Height="26" Margin="10,28,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Họ và Tên" HorizontalAlignment="Left" Height="26" Margin="10,59,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Địa Chỉ" HorizontalAlignment="Left" Height="26" Margin="10,90,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Email" HorizontalAlignment="Left" Height="26" Margin="10,121,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Phái" HorizontalAlignment="Left" Height="26" Margin="10,152,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="CMND" HorizontalAlignment="Left" Height="26" Margin="10,183,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Ngày Sinh" HorizontalAlignment="Left" Height="26" Margin="397,28,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Mật Khẩu" HorizontalAlignment="Left" Height="26" Margin="397,59,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Khoa" HorizontalAlignment="Left" Height="26" Margin="397,90,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Lớp" HorizontalAlignment="Left" Height="26" Margin="397,121,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Hệ Đào Tạo" HorizontalAlignment="Left" Height="26" Margin="397,152,0,0" VerticalAlignment="Top" Width="81"/>
+        <Label Content="Trạng Thái" HorizontalAlignment="Left" Height="26" Margin="397,183,0,0" VerticalAlignment="Top" Width="81"/>
+        <TextBox Name="txt_mssv" HorizontalAlignment="Left" Height="26" Margin="123,28,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <TextBox Name="txt_hoten" HorizontalAlignment="Left" Height="26" Margin="123,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <TextBox Name="txt_diachi" HorizontalAlignment="Left" Height="26" Margin="123,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <TextBox Name="txt_email" HorizontalAlignment="Left" Height="26" Margin="123,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <TextBox Name="txt_cmnd" HorizontalAlignment="Left" Height="26" Margin="123,183,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <TextBox Name="txt_matkhau" HorizontalAlignment="Left" Height="26" Margin="478,59,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <TextBox Name="txt_hedaotao" HorizontalAlignment="Left" Height="26" Margin="478,152,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <RadioButton Name="rad_Nam" Content="Nam" HorizontalAlignment="Left" Height="26" Margin="123,152,0,0" VerticalAlignment="Top" Width="113"/>
+        <RadioButton Name="rad_Nu" Content="Nữ" HorizontalAlignment="Left" Height="26" Margin="192,152,0,0" VerticalAlignment="Top" Width="117"/>
+        <DatePicker Name="Date_ngaysinh" HorizontalAlignment="Left" Height="26" Margin="478,28,0,0" VerticalAlignment="Top" Width="245"/>
+        <CheckBox Name="check_hoatdong" Content="Hoạt Động" HorizontalAlignment="Left" Height="20" Margin="478,189,0,0" VerticalAlignment="Top" Width="88" Checked="CheckBox_Checked"/>
+        <TextBox Name="txt_khoa" HorizontalAlignment="Left" Height="26" Margin="478,90,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <TextBox Name="txt_lop" HorizontalAlignment="Left" Height="26" Margin="478,121,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="245"/>
+        <Button Content="Thêm" HorizontalAlignment="Left" Height="26" Margin="790,28,0,0" VerticalAlignment="Top" Width="103" Click="btn_Them_Click"/>
+        <Button Content="Xóa" HorizontalAlignment="Left" Height="26" Margin="790,59,0,0" VerticalAlignment="Top" Width="103" Click="btn_Xoa_Click"/>
+        <Button Content="Sửa" HorizontalAlignment="Left" Height="26" Margin="790,90,0,0" VerticalAlignment="Top" Width="103" Click="btn_Sua_Click"/>
+        <Button Content="Thoát" HorizontalAlignment="Left" Height="26" Margin="790,191,0,0" VerticalAlignment="Top" Width="103" Click="btn_Thoat_Click"/>
+    </Grid>
+</Window>

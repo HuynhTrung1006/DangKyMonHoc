@@ -31,8 +31,7 @@ namespace API_DangKyMonHoc.Data
                 return false;
             }
             _db.Remove(checkSV);
-            _db.Add(sv);
-            _db.SaveChanges();
+            postSinhVien(sv);
             return true;
         }
 

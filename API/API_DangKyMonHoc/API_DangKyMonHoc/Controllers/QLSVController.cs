@@ -76,6 +76,7 @@ namespace API_DangKyMonHoc.Controllers
         {
             if (ModelState.IsValid)
             {
+                sv.Matkhau = BCrypt.Net.BCrypt.HashPassword(sv.Matkhau + sv.MsSv);
                 bool isEditSV=_repository.editSinhVien(sv);
                 if(isEditSV==false)
                 {
