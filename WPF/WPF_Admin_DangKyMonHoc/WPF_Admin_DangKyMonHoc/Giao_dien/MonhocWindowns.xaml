@@ -1,0 +1,55 @@
+﻿<Window x:Class="WPF_Admin_DangKyMonHoc.Giao_dien.MonhocWindowns"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_Admin_DangKyMonHoc.Giao_dien"
+        mc:Ignorable="d"
+      Title="MainWindow" Height="450" Width="800" Loaded="Window_Loaded">
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition/>
+
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Column="0" Grid.Row="0" Text="Mã số môn học"/>
+            <TextBlock Grid.Column="0" Grid.Row="1" Text="Tên môn học"/>
+            <TextBlock Grid.Column="0" Grid.Row="2" Text="Số TC"/>
+            <TextBlock Grid.Column="0" Grid.Row="3" Text="Hệ số HP"/>
+            <TextBlock Grid.Column="0" Grid.Row="4" Text="Thưc hành"/>
+            <TextBlock Grid.Column="0" Grid.Row="5" Text="Mã khối"/>
+            <TextBox Grid.Column="1" Grid.Row="0" Name="txtMsmh" />
+            <TextBox Grid.Column="1" Grid.Row="1" Name="txtTenmh"/>
+            <TextBox Grid.Column="1" Grid.Row="2" Name="txtSoTC" />
+            <TextBox Grid.Column="1" Grid.Row="3" Name="txtHeSoHp" />
+            <CheckBox Content="" Name="ChTH" Grid.Column="1" Grid.Row="4" />
+            <TextBox Grid.Column="1" Grid.Row="5" Name="txtMaKhoi" />
+            <Button Grid.Column="2" Grid.Row="0" Name="btnThem" Content="Thêm" Click="btnThem_Click"/>
+            <Button Grid.Column="2" Grid.Row="1" Name="btnXoa" Content="Xóa" Click="btnXoa_Click"/>
+            <Button Grid.Column="2" Grid.Row="2" Name="btnSua" Content="Sửa" Click="btnSua_Click"/>
+            
+
+        </Grid>
+        <DataGrid Name="DTmonhoc" AutoGenerateColumns="False" SelectedValuePath="Msmh" SelectionChanged="DTmonhoc_SelectionChanged"
+                  >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã số môn học" Binding="{Binding MaMh}" />
+                <DataGridTextColumn Header="Tên môn học" Binding="{Binding TenMh}"/>
+                <DataGridTextColumn Header="Số TC" Binding="{Binding Sotc}"/>
+                <DataGridTextColumn Header="Hệ số Học Phần" Binding="{Binding HeSoHp}"/>
+                <DataGridTextColumn Header="Thực Hành" Binding="{Binding ThucHanh}"/>
+                <DataGridTextColumn Header="Mã Khối" Binding="{Binding MaKhoi}"/>
+            </DataGrid.Columns>
+        </DataGrid>
+    </StackPanel>
+</Window>

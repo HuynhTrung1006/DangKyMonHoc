@@ -13,5 +13,6 @@ namespace WPF_Admin_DangKyMonHoc
     /// </summary>
     public partial class App : Application
     {
+
     }
 }

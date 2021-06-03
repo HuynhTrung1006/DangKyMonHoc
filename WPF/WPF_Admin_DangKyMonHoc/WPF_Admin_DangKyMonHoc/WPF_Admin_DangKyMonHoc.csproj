@@ -61,6 +61,22 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Giao_dien\LopWindowns.xaml.cs">
+      <DependentUpon>LopWindowns.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Giao_dien\MonhocWindowns.xaml.cs">
+      <DependentUpon>MonhocWindowns.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="XuLy\CXuLyLop.cs" />
+    <Compile Include="XuLy\CXuLyMonHoc.cs" />
+    <Page Include="Giao_dien\LopWindowns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Giao_dien\MonhocWindowns.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -75,6 +91,8 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Lop.cs" />
+    <Compile Include="Models\MonHoc.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -101,9 +119,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ModelsClass\" />
-    <Folder Include="XuLy\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

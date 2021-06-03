@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF_Admin_DangKyMonHoc;
+using WPF_Admin_DangKyMonHoc.Giao_dien;
 
 namespace WPF_Admin_DangKyMonHoc
 {
@@ -23,6 +25,19 @@ namespace WPF_Admin_DangKyMonHoc
         public MainWindow()
         {
             InitializeComponent();
+        }
+        private void btnMonhoc_Click(object sender, RoutedEventArgs e)
+        {
+            Giao_dien.MonhocWindowns w = new MonhocWindowns();
+            w.Show();
+        }
+
+        private void btnLop_Click(object sender, RoutedEventArgs e)
+        {
+            Giao_dien.LopWindowns w = new LopWindowns();
+            w.Show();
+
+
         }
     }
 }
