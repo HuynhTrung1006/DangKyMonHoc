@@ -10,13 +10,14 @@ namespace API_DangKyMonHoc.Models
         public Khoa()
         {
             GiangViens = new HashSet<GiangVien>();
-            SinhViens = new HashSet<SinhVien>();
+            Nganhs = new HashSet<Nganh>();
         }
 
         public string MaKhoa { get; set; }
-        public string TenKhoan { get; set; }
+        public string TenKhoa { get; set; }
+        public string TenVietTat { get; set; }
 
         public virtual ICollection<GiangVien> GiangViens { get; set; }
-        public virtual ICollection<SinhVien> SinhViens { get; set; }
+        public virtual ICollection<Nganh> Nganhs { get; set; }
     }
 }

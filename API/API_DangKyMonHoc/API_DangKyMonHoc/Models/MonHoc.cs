@@ -7,13 +7,25 @@ namespace API_DangKyMonHoc.Models
 {
     public partial class MonHoc
     {
+        public MonHoc()
+        {
+            ChiTietPdks = new HashSet<ChiTietPdk>();
+            LopMonHocs = new HashSet<LopMonHoc>();
+        }
+
         public string MaMh { get; set; }
         public string TenMh { get; set; }
-        public byte Sotc { get; set; }
-        public byte HeSoHp { get; set; }
-        public bool ThucHanh { get; set; }
+        public byte Sotinchi { get; set; }
+        public byte HesoHp { get; set; }
+        public bool Thuchanh { get; set; }
+        public string MonTq { get; set; }
+        public string MaSh { get; set; }
         public string MaKhoi { get; set; }
 
         public virtual KhoiKienThuc MaKhoiNavigation { get; set; }
+        public virtual ChiTietCtdt ChiTietCtdt { get; set; }
+        public virtual MonHocDuocMo MonHocDuocMo { get; set; }
+        public virtual ICollection<ChiTietPdk> ChiTietPdks { get; set; }
+        public virtual ICollection<LopMonHoc> LopMonHocs { get; set; }
     }
 }

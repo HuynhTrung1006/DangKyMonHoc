@@ -15,7 +15,7 @@ namespace API_DangKyMonHoc.Models
         public string MaKhoi { get; set; }
         public string TenKhoi { get; set; }
         public string TenChuyenMon { get; set; }
-        public bool? BatBuoc { get; set; }
+        public bool? Batbuoc { get; set; }
 
         public virtual ICollection<MonHoc> MonHocs { get; set; }
     }

@@ -9,11 +9,15 @@ namespace API_DangKyMonHoc.Models
     {
         public string MaNv { get; set; }
         public string TenNv { get; set; }
-        public string EmailNv { get; set; }
-        public string SdtNv { get; set; }
-        public DateTime? NgaysinhNv { get; set; }
-        public string Chucvu { get; set; }
-        public string MatKhau { get; set; }
-        public bool? Trangthai { get; set; }
+        public string Email { get; set; }
+        public string Diachi { get; set; }
+        public string Sdt { get; set; }
+        public DateTime Ngaysinh { get; set; }
+        public string Matkhau { get; set; }
+        public bool Trangthai { get; set; }
+        public string Hinhanh { get; set; }
+        public string MaChucVu { get; set; }
+
+        public virtual ChucVu MaChucVuNavigation { get; set; }
     }
 }
