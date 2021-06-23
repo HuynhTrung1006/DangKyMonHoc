@@ -261,3 +261,69 @@ Create table BangDiem(
 	trangthai bit not null
 
 );
+
+-------------------Quan Ly Diem----------------------
+Create table ThongTinMonHoc(
+	maTTMH char(5) primary key,
+	phantramGK int, 
+	phantramCK int,
+	phantramQT int,
+	sotiet int
+);
+
+alter table MonHoc
+	add maTTMH char(5),
+	CONSTRAINT fk_MonHoc_TTMonHoc
+	FOREIGN KEY (maTTMH)
+	REFERENCES PhieuDangKy(maTTMH)
+;
+
+alter table BangDiem
+	add diemGK float
+;
+alter table BangDiem
+	add diemCK float
+;
+alter table BangDiem
+	add diemQT float
+;
+alter table BangDiem
+	add diemTK1 float
+;
+alter table BangDiem
+	add diemTK2 float
+;
+alter table BangDiem
+	add diemTK3 float
+;
+alter table BangDiem
+	add ketqua bit
+;
+
+Create table PhucKhao(
+	maPhucKhao char(10) primary key,
+	ngaykhoitao date not null,
+	maSV char(10),
+	CONSTRAINT fk_PhucKhao_SinhVien
+	FOREIGN KEY (maSV)
+	REFERENCES SinhVien(maSV)
+);
+
+create table ChiTietPhucKhao(
+	ID_BD int primary key identity(1,1),
+	ID int,
+	CONSTRAINT fk_CTPK_CTBD
+	FOREIGN KEY (ID)
+	REFERENCES BangDiem(ID),
+	
+	maPhucKhao char(10),
+	CONSTRAINT fk_CTPK_PK
+	FOREIGN KEY (maPhucKhao)
+	REFERENCES PhucKhao(maPhucKhao)
+);
+
+alter table MonHoc
+	add	CONSTRAINT fk_MonHoc_TTMonHoc
+	FOREIGN KEY (maTTMH)
+	REFERENCES ThongTinMonHoc(maTTMH)
+;
