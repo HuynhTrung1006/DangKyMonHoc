@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Luan_Van\\Git\\API\\API\\API\\API.csproj": {}
+    "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API\\API\\API.csproj": {}
   },
   "projects": {
-    "G:\\Luan_Van\\Git\\API\\API\\API\\API.csproj": {
+    "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API\\API\\API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Luan_Van\\Git\\API\\API\\API\\API.csproj",
+        "projectUniqueName": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API\\API\\API.csproj",
         "projectName": "API",
-        "projectPath": "G:\\Luan_Van\\Git\\API\\API\\API\\API.csproj",
+        "projectPath": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API\\API\\API.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "G:\\Luan_Van\\Git\\API\\API\\API\\obj\\",
+        "outputPath": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API\\API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -29,6 +29,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +41,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -74,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
