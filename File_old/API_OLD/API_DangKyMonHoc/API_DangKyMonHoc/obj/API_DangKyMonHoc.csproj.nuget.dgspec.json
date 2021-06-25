@@ -1,0 +1,104 @@
+{
+  "format": 1,
+  "restore": {
+<<<<<<< HEAD:API/API_DangKyMonHoc/API_DangKyMonHoc/obj/API_DangKyMonHoc.csproj.nuget.dgspec.json
+    "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj": {}
+  },
+  "projects": {
+    "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj",
+        "projectName": "API_DangKyMonHoc",
+        "projectPath": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API_DangKyMonHoc\\API_DangKyMonHoc\\obj\\",
+=======
+    "G:\\Luan_Van\\Git\\File_old\\API_OLD\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj": {}
+  },
+  "projects": {
+    "G:\\Luan_Van\\Git\\File_old\\API_OLD\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "G:\\Luan_Van\\Git\\File_old\\API_OLD\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj",
+        "projectName": "API_DangKyMonHoc",
+        "projectPath": "G:\\Luan_Van\\Git\\File_old\\API_OLD\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "G:\\Luan_Van\\Git\\File_old\\API_OLD\\API_DangKyMonHoc\\API_DangKyMonHoc\\obj\\",
+>>>>>>> b336cf18c5df751b856203d8beb96113cc07aab5:File_old/API_OLD/API_DangKyMonHoc/API_DangKyMonHoc/obj/API_DangKyMonHoc.csproj.nuget.dgspec.json
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
+          "dependencies": {
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[5.0.6, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[5.0.6, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
