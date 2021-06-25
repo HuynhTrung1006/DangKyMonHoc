@@ -6075,11 +6075,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "G:\\Luan_Van\\Git\\MVC_Core\\MVC_DangKyMonHoc\\MVC_DangKyMonHoc\\MVC_DangKyMonHoc.csproj",
+      "projectUniqueName": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\MVC_Core\\MVC_DangKyMonHoc\\MVC_DangKyMonHoc\\MVC_DangKyMonHoc.csproj",
       "projectName": "MVC_DangKyMonHoc",
-      "projectPath": "G:\\Luan_Van\\Git\\MVC_Core\\MVC_DangKyMonHoc\\MVC_DangKyMonHoc\\MVC_DangKyMonHoc.csproj",
+      "projectPath": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\MVC_Core\\MVC_DangKyMonHoc\\MVC_DangKyMonHoc\\MVC_DangKyMonHoc.csproj",
       "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-      "outputPath": "G:\\Luan_Van\\Git\\MVC_Core\\MVC_DangKyMonHoc\\MVC_DangKyMonHoc\\obj\\",
+      "outputPath": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\MVC_Core\\MVC_DangKyMonHoc\\MVC_DangKyMonHoc\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -6097,6 +6097,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {}
         }
       },
@@ -6108,6 +6109,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
             "target": "Package",
@@ -6132,7 +6134,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
       }
     }
   }
