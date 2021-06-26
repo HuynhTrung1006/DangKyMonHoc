@@ -29,7 +29,15 @@ namespace API
         {
             services.AddControllers();
 
-            services.AddDbContext<DangKyMonHocContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DangKyMonHocConnection")));
+            services.AddDbContext<DangKyMonHocContext>(item => 
+            {
+                item.UseSqlServer(Configuration.GetConnectionString("DangKyMonHocConnection"));
+                item.EnableSensitiveDataLogging();
+            });
+            //services.AddDbContext<DangKyMonHocContext>(options => {
+            //    options.UseSqlServer(Configuration.GetConnectionString("DangKyMonHocConnection"));
+            //    options.EnableSensitiveDataLogging(true);
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
