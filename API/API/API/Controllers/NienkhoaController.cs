@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,60 +12,64 @@ namespace API.Controllers
     [ApiController]
     public class NienkhoaController : ControllerBase
     {
-        private Models.DangKyMonHocContext dc = new Models.DangKyMonHocContext();
-        [HttpGet]
-        public IActionResult getDSNienkhoa()
-        {
+		private DangKyMonHocContext db = new DangKyMonHocContext();
+		[HttpGet]
+		public IEnumerable<NienKhoa> getAll()
+		{
+			return db.NienKhoas.ToList();
+		}
+		[HttpGet("{id}")]
+		public async Task<ActionResult<NienKhoa>> getNienkhoa(string id)
+		{
 
-            var list = dc.NienKhoas.ToList();
-
-            return Ok(list);
-        }
-        [HttpPost]
-        public IActionResult postDSNienkhoa(Models.NienKhoa n)
-        {
-            if (ModelState.IsValid == false) return BadRequest();
-            Models.NienKhoa temp = dc.NienKhoas.Find(n.MaNk);
-            if (temp != null) return BadRequest();
-            Models.NienKhoa a = new Models.NienKhoa
-            {
-                MaNk = n.MaNk,
-                TenNk = n.TenNk
-             
+			NienKhoa a = await db.NienKhoas.FindAsync(id);
+			if (a != null)
+				return Ok(a);
+			else
+				return NotFound();
 
 
-            };
-            dc.NienKhoas.Add(a);
-            dc.SaveChanges();
-            return Ok();
+		}
+		[HttpPost]
+		public async Task<IActionResult> postNienkhoa(NienKhoa nk)
+		{
+			if (ModelState.IsValid)
+			{
+				db.NienKhoas.Add(nk);
+				await db.SaveChangesAsync();
+				return Ok();
+			}
+			return BadRequest();
+		}
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> deleteNienkhoa(string id)
+		{
+			var lop = db.Lops.SingleOrDefault(x => x.MaNk == id);
+			
+			if (lop !=null)
+				return BadRequest();
+			NienKhoa a = await db.NienKhoas.FindAsync(id);
+			if (a == null)
+			{
+				return NotFound();
+			}
+			db.NienKhoas.Remove(a);
+			await db.SaveChangesAsync();
+			return Ok();
+		}
+		[HttpPut]
+		public async Task<IActionResult> PutNienkhoa(NienKhoa nienkhoa)
+		{
+			NienKhoa nk = await db.NienKhoas.FindAsync(nienkhoa.MaNk);
+			if (nk == null)
+				return NotFound();
+		
+			nk.TenNk = nienkhoa.TenNk;
+			
+			await db.SaveChangesAsync();
+			return Ok();
 
-        }
-        [HttpDelete("{id}")]
-        public IActionResult deleteNienkhoa(string id)
-        {
-            Models.NienKhoa n = dc.NienKhoas.Find(id);
-            if (n == null) return NotFound();
-            foreach (var t in dc.NienKhoaCdks.Where(x => x.MaCdk == id))
-            {
-                return BadRequest();
-            }
-            dc.NienKhoas.Remove(n);
-            dc.SaveChanges();
-            return Ok();
-        }
-        [HttpPut]
-        public IActionResult putNienkhoa(Models.NienKhoa n)
-        {
-            if (ModelState.IsValid == false) return BadRequest();
-            Models.NienKhoa temp = dc.NienKhoas.Find(n.MaNk);
-            if (temp == null) return NotFound();
-          
-            temp.TenNk = n.TenNk;
-      
 
-
-            dc.SaveChanges();
-            return Ok();
-        }
-    }
+		}
+	}
 }

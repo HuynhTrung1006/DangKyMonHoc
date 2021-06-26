@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,74 +12,76 @@ namespace API.Controllers
     [ApiController]
     public class SinhvienController : ControllerBase
     {
-        private Models.DangKyMonHocContext dc = new Models.DangKyMonHocContext();
-        [HttpGet]
-        public IActionResult getDSSinhvien()
-        {
+		DangKyMonHocContext db = new DangKyMonHocContext();
+		[HttpGet]
+		public IEnumerable<SinhVien> getDSSv()
+		{
+			return db.SinhViens.ToList();
+		}
+		[HttpGet("{id}")]
+		public async Task<ActionResult<SinhVien>> getSv(string id)
+		{
+			SinhVien a = await db.SinhViens.FindAsync(id);
+			if (a == null)
+				return NotFound();
+			return Ok(a);
 
-            var list = dc.SinhViens.ToList();
+		}
+		[HttpPost]
+		public async Task<IActionResult> postSv(SinhVien a)
+		{
+			if (ModelState.IsValid)
+			{
+				var lop = db.Lops.FirstOrDefault(x => x.MaLop == a.MaLop);
+				var nganh = db.Nganhs.FirstOrDefault(x => x.MaNganh == lop.MaNganh);
+				var ctdt = db.ChuongTrinhDaoTaos.FirstOrDefault(x => x.MaNganh == nganh.MaNganh);
+			
+				var nienkhoa = db.NienKhoas.FirstOrDefault(x => x.MaNk == lop.MaNk);
+				a.MaSv = ctdt.MaDt.Trim() + nganh.MaKhoa.Trim() +nienkhoa.MaNk.Trim() + a.MaSv.Trim();
+				
 
-            return Ok(list);
-        }
-        [HttpPost]
-        public IActionResult postDSSinhvien(Models.SinhVien s)
-        {
-            if (ModelState.IsValid == false) return BadRequest();
-            Models.SinhVien temp = dc.SinhViens.Find(s.MaSv);
-            if (temp != null) return BadRequest();
-            Models.SinhVien a = new Models.SinhVien
-            {
-                MaSv = s.MaSv,
-                TenSv = s.TenSv,
-                Diachi = s.Diachi,
-                Ngaysinh=s.Ngaysinh,
-                Phai=s.Phai,
-                Email=s.Email,
-                Cnmd=s.Cnmd,
-                Hinhanh=s.Hinhanh,
-                Matkhau=s.Matkhau,
-                MaLop=s.MaLop
+				db.SinhViens.Add(a);
+				await db.SaveChangesAsync();
+				return Ok();
 
+			}
+			return BadRequest();
+		}
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> DeleteSinhvien(string id)
+		{
 
-            };
-            dc.SinhViens.Add(a);
-            dc.SaveChanges();
-            return Ok();
+			var phieudangky= db.PhieuDangKies.FirstOrDefault(x => x.MaSv == id);
+			var phucKhao = db.PhucKhaos.FirstOrDefault(x => x.MaSv == id);
+			if (phieudangky != null || phucKhao != null)
+				return BadRequest();
+			SinhVien a = await db.SinhViens.FindAsync(id);
+			if (a == null)
+			{
+				return NotFound();
+			}
+			db.SinhViens.Remove(a);
+			await db.SaveChangesAsync();
+			return Ok();
+		}
+		[HttpPut]
 
-        }
-        [HttpDelete("{id}")]
-        public IActionResult deleteSinhvien(string id)
-        {
-            Models.SinhVien n = dc.SinhViens.Find(id);
-            if (n == null) return NotFound();
-            foreach (var t in dc.Lops.Where(x => x.MaLop == id))
-            {
-                return BadRequest();
-            }
-            dc.SinhViens.Remove(n);
-            dc.SaveChanges();
-            return Ok();
-        }
-        [HttpPut]
-        public IActionResult putSinhvien(Models.SinhVien s)
-        {
-            if (ModelState.IsValid == false) return BadRequest();
-            Models.SinhVien temp = dc.SinhViens.Find(s.MaSv);
-            if (temp == null) return NotFound();
-
-                temp.TenSv = s.TenSv;
-                temp.Diachi = s.Diachi;
-                temp.Ngaysinh = s.Ngaysinh;
-                temp.Phai = s.Phai;
-                temp.Email = s.Email;
-                temp.Cnmd = s.Cnmd;
-                temp.Hinhanh = s.Hinhanh;
-                temp.Matkhau = s.Matkhau;
-                temp.MaLop = s.MaLop;
-
-
-            dc.SaveChanges();
-            return Ok();
-        }
-    }
+		public async Task<IActionResult> PutSinhvien(SinhVien a)
+		{
+			SinhVien b = await db.SinhViens.FindAsync(a.MaSv);
+			if (b == null)
+				return BadRequest();
+			b.TenSv = a.TenSv;
+			b.Email = a.Email;
+			b.Cnmd = a.Cnmd;
+			b.Diachi = a.Diachi;
+			b.Ngaysinh = a.Ngaysinh;
+			b.Phai = a.Phai;
+			b.Matkhau = a.Matkhau;
+			b.Hinhanh = a.Hinhanh;
+			b.MaLop = a.MaLop;
+			await db.SaveChangesAsync();
+			return Ok();
+		}
+	}
 }

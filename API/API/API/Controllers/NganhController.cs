@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,62 +12,67 @@ namespace API.Controllers
     [ApiController]
     public class NganhController : ControllerBase
     {
-        private Models.DangKyMonHocContext dc = new Models.DangKyMonHocContext();
+        private Models.DangKyMonHocContext db = new Models.DangKyMonHocContext();
         [HttpGet]
-        public IActionResult getDSMganh()
-        {
+		
+		public IEnumerable<Nganh> getAll()
+		{
+			return db.Nganhs.ToList();
+		}
+		[HttpGet("{id}")]
+		public async Task<ActionResult<Nganh>> getNganh(string id)
+		{
 
-            var list = dc.Nganhs.ToList();
-
-            return Ok(list);
-        }
-        [HttpPost]
-        public IActionResult postDSNganh(Models.Nganh n)
-        {
-            if (ModelState.IsValid == false) return BadRequest();
-            Models.Nganh temp = dc.Nganhs.Find(n.MaNganh);
-            if (temp != null) return BadRequest();
-            Models.Nganh a = new Models.Nganh
-            {
-              MaNganh=n.MaNganh,
-              TenNganh=n.TenNganh,
-              MaKhoa=n.MaKhoa
+			Nganh a = await db.Nganhs.FindAsync(id);
+			if (a != null)
+				return Ok(a);
+			else
+				return NotFound();
 
 
-            };
-            dc.Nganhs.Add(a);
-            dc.SaveChanges();
-            return Ok();
+		}
+		[HttpPost]
+		public async Task<IActionResult> postNganh(Nganh nganh)
+		{
+			if (ModelState.IsValid)
+			{
+				db.Nganhs.Add(nganh);
+				await db.SaveChangesAsync();
+				return Ok();
+			}
+			return BadRequest();
+		}
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> deleteNganh(string id)
+		{
+			var chuongtrinhdaotao = db.ChuongTrinhDaoTaos.FirstOrDefault(x => x.MaNganh == id);
+			var lop = db.Lops.FirstOrDefault(x => x.MaNganh == id);
+			if (chuongtrinhdaotao != null || lop != null)
+				return BadRequest();
+			Nganh a = await db.Nganhs.FindAsync(id);
+			if (a == null)
+			{
+				return NotFound();
+			}
+			db.Nganhs.Remove(a);
+			await db.SaveChangesAsync();
+			return Ok();
+		}
+		[HttpPut]
+		public async Task<IActionResult> PutNganh(Nganh nganh)
+		{
+			Nganh n = await db.Nganhs.FindAsync(nganh.MaNganh);
+			if (n == null)
+				return NotFound();
+		
+			n.TenNganh = nganh.TenNganh;
+			n.MaKhoa = nganh.MaKhoa;
+			await db.SaveChangesAsync();
+			return Ok();
 
-        }
-        [HttpDelete("{id}")]
-        public IActionResult deleteLop(string id)
-        {
-            Models.Nganh n = dc.Nganhs.Find(id);
-            if (n == null) return NotFound();
-            foreach (var t in dc.Khoas.Where(x => x.MaKhoa == id))
-            {
-                return BadRequest();
-            }
-            dc.Nganhs.Remove(n);
-            dc.SaveChanges();
-            return Ok();
-        }
-        [HttpPut]
-        public IActionResult putNganh(Models.Nganh n)
-        {
-            if (ModelState.IsValid == false) return BadRequest();
-            Models.Nganh temp = dc.Nganhs.Find(n.MaNganh);
-            if (temp == null) return NotFound();
-          
-            temp.TenNganh = n.TenNganh;
-            temp.MaKhoa = n.MaKhoa;
 
+		}
 
-            dc.SaveChanges();
-            return Ok();
-        }
-
-    }
+	}
 }
 

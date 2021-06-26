@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -11,66 +12,66 @@ namespace API.Controllers
     [ApiController]
     public class LopController : ControllerBase
     {
-        private Models.DangKyMonHocContext dc = new Models.DangKyMonHocContext();
-        [HttpGet]
-        public IActionResult getDSLop()
-        {
+		private DangKyMonHocContext db = new DangKyMonHocContext();
+		[HttpGet]
+		public IEnumerable<Lop> getAll()
+		{
+			return db.Lops.ToList();
+		}
+		[HttpGet("{id}")]
+		public async Task<ActionResult<Lop>> getlop(string id)
+		{
 
-            var list = dc.Lops.ToList();
-
-            return Ok(list);
-        }
-        [HttpPost]
-        public IActionResult postDSLop(Models.Lop l)
-        {
-            if (ModelState.IsValid == false) return BadRequest();
-            Models.Lop temp = dc.Lops.Find(l.MaLop);
-            if (temp != null) return BadRequest();
-            Models.Lop a = new Models.Lop
-            {
-                MaLop = l.MaLop,
-                TenLop = l.TenLop,
-                Siso=l.Siso,
-                MaNganh=l.MaNganh,
-                MaNk=l.MaNk
-                
-
-            };
-            dc.Lops.Add(a);
-            dc.SaveChanges();
-            return Ok();
-
-        }
-        [HttpDelete("{id}")]
-        public IActionResult deleteLop(string id)
-        {
-            Models.Lop l = dc.Lops.Find(id);
-            if (l == null) return NotFound();
-            foreach (var t in dc.SinhViens.Where(x => x.MaLop == id))
-            {
-                return BadRequest();
-            }
-            dc.Lops.Remove(l);
-            dc.SaveChanges();
-            return Ok();
-        }
-        [HttpPut]
-        public IActionResult putLop(Models.Lop l)
-        {
-            if (ModelState.IsValid == false) return BadRequest();
-            Models.Lop temp = dc.Lops.Find(l.MaLop);
-            if (temp == null) return NotFound();
-            temp.MaLop = l.MaLop;
-            temp.TenLop = l.TenLop;
-            temp.Siso = l.Siso;
-            temp.MaNganh = l.MaNganh;
-            temp.MaNk = l.MaNk;
+			Lop a = await db.Lops.FindAsync(id);
+			if (a != null)
+				return Ok(a);
+			else
+				return NotFound();
 
 
-            dc.SaveChanges();
-            return Ok();
-        }
+		}
+		[HttpPost]
+		public async Task<IActionResult> postlop(Lop lop)
+		{
+			if (ModelState.IsValid)
+			{
+				db.Lops.Add(lop);
+				await db.SaveChangesAsync();
+				return Ok();
+			}
+			return BadRequest();
+		}
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> deletelop(string id)
+		{
+			var sinhvien = db.SinhViens.SingleOrDefault(x => x.MaLop == id);
+			if (sinhvien != null)
+				return BadRequest();
+			Lop a = await db.Lops.FindAsync(id);
+			if (a == null)
+			{
+				return NotFound();
+			}
+			db.Lops.Remove(a);
+			await db.SaveChangesAsync();
+			return Ok();
+		}
+		[HttpPut]
+		public async Task<IActionResult> Putlop(Lop lop)
+		{
+			Lop l = await db.Lops.FindAsync(lop);
+			if (l == null)
+				return NotFound();
+			l.TenLop = lop.TenLop;
+			l.Siso = lop.Siso;
+			l.MaNganh = lop.MaNganh;
+			l.MaNk = lop.MaNk;
+			await db.SaveChangesAsync();
+			return Ok();
 
-    }
+
+		}
+
+	}
 }
 
