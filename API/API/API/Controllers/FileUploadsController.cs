@@ -27,7 +27,10 @@ namespace API.Controllers
             {
                 if (objectFile.files.Length>0)
                 {
-                    string path = _webHostEnvironment.WebRootPath + "\\uploads\\";//AppDomain.CurrentDomain.BaseDirectory + @"IMG\"; API/bin/debug/IMG/?
+                    //string path = _webHostEnvironment.WebRootPath + "\\uploads\\";
+                    string path = Environment.CurrentDirectory + "\\uploads\\"+objectFile.name+"\\"; //API/bin/debug/IMG/?
+                    //path = AppDomain.CurrentDomain.BaseDirectory;
+                    //path = AppDomain.CurrentDomain.BaseDirectory + @"IMG\";
                     if (!Directory.Exists(path))
                     {
                         Directory.CreateDirectory(path);
