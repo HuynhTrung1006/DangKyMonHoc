@@ -1,6 +1,19 @@
 {
   "format": 1,
   "restore": {
+<<<<<<< HEAD:API/API_DangKyMonHoc/API_DangKyMonHoc/obj/API_DangKyMonHoc.csproj.nuget.dgspec.json
+    "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj": {}
+  },
+  "projects": {
+    "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj",
+        "projectName": "API_DangKyMonHoc",
+        "projectPath": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj",
+        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
+        "outputPath": "D:\\Luanvan7đ\\Git_QLĐ\\Git_luanvan\\DangKyMonHoc\\API\\API_DangKyMonHoc\\API_DangKyMonHoc\\obj\\",
+=======
     "G:\\Luan_Van\\Git\\File_old\\API_OLD\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj": {}
   },
   "projects": {
@@ -12,6 +25,7 @@
         "projectPath": "G:\\Luan_Van\\Git\\File_old\\API_OLD\\API_DangKyMonHoc\\API_DangKyMonHoc\\API_DangKyMonHoc.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
         "outputPath": "G:\\Luan_Van\\Git\\File_old\\API_OLD\\API_DangKyMonHoc\\API_DangKyMonHoc\\obj\\",
+>>>>>>> b336cf18c5df751b856203d8beb96113cc07aab5:File_old/API_OLD/API_DangKyMonHoc/API_DangKyMonHoc/obj/API_DangKyMonHoc.csproj.nuget.dgspec.json
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -29,6 +43,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,6 +55,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
@@ -80,7 +96,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.103\\RuntimeIdentifierGraph.json"
         }
       }
     }
