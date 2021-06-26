@@ -49,12 +49,10 @@ namespace API.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-<<<<<<< HEAD
-                optionsBuilder.UseSqlServer("Server=LAPTOP-9D8IC3BJ\\SQLEXPRESS;Database=DangKyMonHoc;\nTrusted_Connection=True;");
-=======
-                optionsBuilder.UseSqlServer("Server=DESKTOP-RNF172K;Database=DangKyMonHoc;Trusted_Connection=True;");
->>>>>>> NhanhHiuHiu
+//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+
+                optionsBuilder.UseSqlServer("Server=HUYNHTRUNG1006\\SQLEXPRESS;Database=DangKyMonHoc;\nTrusted_Connection=True;");
+
             }
         }
 
