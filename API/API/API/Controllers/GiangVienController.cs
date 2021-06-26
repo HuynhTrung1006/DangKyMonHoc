@@ -1,0 +1,78 @@
+﻿using API.Models;
+using Microsoft.AspNetCore.Mvc;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+
+namespace API.Controllers
+{
+	[Route("api/[controller]")]
+	[ApiController]
+	public class GiangVienController : ControllerBase
+	{
+		DangKyMonHocContext db = new DangKyMonHocContext();
+		[HttpGet]
+		public IEnumerable<GiangVien> getDSGv()
+		{
+			return db.GiangViens.ToList();
+		}
+		[HttpGet("{id}")]
+		public async Task<ActionResult<GiangVien>> getGv(string id)
+		{
+			GiangVien a = await db.GiangViens.FindAsync(id);
+			if (a == null)
+				return NotFound();
+			return Ok(a);
+
+		}
+		[HttpPost]
+		public async Task<IActionResult> postGv(GiangVien a)
+		{
+			if (ModelState.IsValid)
+			{
+				//oUser.Password = BCrypt.Net.BCrypt.HashPassword(oUser.Password);
+				//Global.Users.Add(oUser);
+				//return oUser;
+				a.MaGv = a.MaChucVu.Trim() + a.MaGv.Trim();
+				
+				db.GiangViens.Add(a);
+				await db.SaveChangesAsync();
+				return Ok();
+
+			}
+			return BadRequest();
+		}
+		[HttpDelete("{id}")]
+		public async Task<IActionResult> DeleteGiangVien(string id)
+		{
+			
+			var Gv = await db.GiangViens.FindAsync(id);
+			if (Gv == null)
+				return NotFound();
+			db.GiangViens.Remove(Gv);
+			await db.SaveChangesAsync();
+			return Ok();
+		}
+		[HttpPut]
+
+		public async Task<IActionResult> PutGiangVien(GiangVien a)
+		{
+			GiangVien b = await db.GiangViens.FindAsync(a.MaGv);
+			if (b == null)
+				return BadRequest();
+			b.TenGv = a.TenGv;
+			b.Email = a.Email;
+			b.MaChucVu = a.MaChucVu;
+			b.Sdt = a.Sdt;
+			b.Ngaysinh = a.Ngaysinh;
+			b.Hocham = a.Hocham;
+			b.MaKhoa = a.MaKhoa;
+			b.MaChucVu = a.MaChucVu;
+			b.Hinhanh = a.Hinhanh;
+			await db.SaveChangesAsync();
+			return Ok();
+		}
+	}
+}
+
