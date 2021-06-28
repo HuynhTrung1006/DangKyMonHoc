@@ -5,8 +5,43 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_DangKyMonHoc"
         mc:Ignorable="d"
+        
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+         TextElement.FontWeight="Regular"
+         TextElement.FontSize="13"
+         TextOptions.TextFormattingMode="Ideal"
+         TextOptions.TextRenderingMode="Auto"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Column="0">
+            <Grid.RowDefinitions>
+                <RowDefinition></RowDefinition>
+                <RowDefinition></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Button
+            Style="{StaticResource MaterialDesignRaisedAccentButton}"
+            Width="100"
+            ToolTip="Resource name: MaterialDesignRaisedAccentButton">  
+                    ACCENT
+                </Button>
+            </Grid>
+            <Grid Grid.Row="1">
+                <Button
+        Style="{StaticResource MaterialDesignRaisedAccentButton}"
+        Width="100"
+        ToolTip="Resource name: MaterialDesignRaisedAccentButton">  
+                    ACCENT
+                </Button>
+            </Grid>
+        </Grid>
+        <Grid Grid.Column="1">
+            
+        </Grid>
+        
     </Grid>
 </Window>

@@ -13,7 +13,6 @@ G:\Luan_Van\Git\WPF\WPF_DangKyMonHoc\obj\Debug\netcoreapp3.1\MainWindow.baml
 G:\Luan_Van\Git\WPF\WPF_DangKyMonHoc\obj\Debug\netcoreapp3.1\Wpf_DangKyMonHoc.g.resources
 G:\Luan_Van\Git\WPF\WPF_DangKyMonHoc\obj\Debug\netcoreapp3.1\Wpf_DangKyMonHoc.AssemblyInfoInputs.cache
 G:\Luan_Van\Git\WPF\WPF_DangKyMonHoc\obj\Debug\netcoreapp3.1\Wpf_DangKyMonHoc.AssemblyInfo.cs
-G:\Luan_Van\Git\WPF\WPF_DangKyMonHoc\obj\Debug\netcoreapp3.1\Wpf_DangKyMonHoc.csproj.CoreCompileInputs.cache
 G:\Luan_Van\Git\WPF\WPF_DangKyMonHoc\obj\Debug\netcoreapp3.1\Wpf_DangKyMonHoc.dll
 G:\Luan_Van\Git\WPF\WPF_DangKyMonHoc\obj\Debug\netcoreapp3.1\Wpf_DangKyMonHoc.pdb
 G:\Luan_Van\Git\WPF\WPF_DangKyMonHoc\obj\Debug\netcoreapp3.1\Wpf_DangKyMonHoc.genruntimeconfig.cache
