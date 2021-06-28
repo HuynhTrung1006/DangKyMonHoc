@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DKMH\\Wpf_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj": {}
+    "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj": {}
   },
   "projects": {
-    "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DKMH\\Wpf_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj": {
+    "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DKMH\\Wpf_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj",
+        "projectUniqueName": "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj",
         "projectName": "Wpf_DangKyMonHoc",
-        "projectPath": "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DKMH\\Wpf_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj",
+        "projectPath": "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj",
         "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DKMH\\Wpf_DangKyMonHoc\\obj\\",
+        "outputPath": "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
