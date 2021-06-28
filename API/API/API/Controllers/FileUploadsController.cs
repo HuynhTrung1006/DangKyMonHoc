@@ -53,5 +53,41 @@ namespace API.Controllers
                 //throw;
             }
         }
+
+        [HttpDelete]
+        public string Delete([FromForm] FileUpload objectFile)
+        {
+            try
+            {
+                if (objectFile.files.Length > 0)
+                {
+                    //string path = _webHostEnvironment.WebRootPath + "\\uploads\\";
+                    string path = Environment.CurrentDirectory + "\\uploads\\" + objectFile.name + "\\"+objectFile.files.FileName; //API/bin/debug/IMG/?
+                    //path = AppDomain.CurrentDomain.BaseDirectory;
+                    //path = AppDomain.CurrentDomain.BaseDirectory + @"IMG\";
+                    //if (!Directory.Exists(path))
+                    //{
+                    //    Directory.CreateDirectory(path);
+                    //}
+                    //using (FileStream fileStream = System.IO.File.Delete(path.))
+                    //{
+                    //    objectFile.files.CopyTo(fileStream);
+                    //    fileStream.Flush();
+                    //    return "Uploaded";
+                    //}
+                    System.IO.File.Delete(path);
+                    return "Success";
+                }
+                else
+                {
+                    return "Not Uploaded";
+                }
+            }
+            catch (Exception ex)
+            {
+                return ex.Message;
+                //throw;
+            }
+        }
     }
 }

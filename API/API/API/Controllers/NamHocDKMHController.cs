@@ -62,7 +62,9 @@ namespace API.Controllers
         {
             var checkCV = await _db.NamHocDkmhs.FindAsync(cv.MaNh.Trim());
             if (checkCV == null) return NotFound();
-            _db.NamHocDkmhs.Update(cv);
+
+            checkCV.TenNh = cv.TenNh;
+            _db.NamHocDkmhs.Update(checkCV);
             await _db.SaveChangesAsync();
             return Ok();
         }

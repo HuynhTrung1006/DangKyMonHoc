@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using API.XuLy;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace API.Controllers
     public class SinhvienController : ControllerBase
     {
         private Models.DangKyMonHocContext dc = new Models.DangKyMonHocContext();
+        private readonly Input_Ma xuly = new Input_Ma();
         [HttpGet]
         public IActionResult getDSSinhvien()
         {
@@ -26,22 +28,10 @@ namespace API.Controllers
             if (ModelState.IsValid == false) return BadRequest();
             Models.SinhVien temp = dc.SinhViens.Find(s.MaSv);
             if (temp != null) return BadRequest();
-            Models.SinhVien a = new Models.SinhVien
-            {
-                MaSv = s.MaSv,
-                TenSv = s.TenSv,
-                Diachi = s.Diachi,
-                Ngaysinh=s.Ngaysinh,
-                Phai=s.Phai,
-                Email=s.Email,
-                Cnmd=s.Cnmd,
-                Hinhanh=s.Hinhanh,
-                Matkhau=s.Matkhau,
-                MaLop=s.MaLop
 
-
-            };
-            dc.SinhViens.Add(a);
+            s.MaSv = xuly.maSinhVien(s.MaSv, s.MaLop);
+            s.Matkhau = xuly.hashPassword(s.Matkhau);
+            dc.SinhViens.Add(s);
             dc.SaveChanges();
             return Ok();
 

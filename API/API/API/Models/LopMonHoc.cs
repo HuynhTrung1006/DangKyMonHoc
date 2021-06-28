@@ -9,9 +9,9 @@ namespace API.Models
     {
         public string MaLmh { get; set; }
         public string TenLmh { get; set; }
-        public int Sisi { get; set; }
         public string MaCdk { get; set; }
         public string MaMh { get; set; }
+        public int? Siso { get; set; }
 
         public virtual CongDangKy MaCdkNavigation { get; set; }
         public virtual MonHoc MaMhNavigation { get; set; }

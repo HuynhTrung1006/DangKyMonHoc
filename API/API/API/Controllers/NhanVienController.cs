@@ -4,6 +4,7 @@ using System.Linq;
 using System.Security.Cryptography;
 using System.Threading.Tasks;
 using API.Models;
+using API.XuLy;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -15,7 +16,7 @@ namespace API.Controllers
     public class NhanVienController : ControllerBase
     {
 		private DangKyMonHocContext _db = new DangKyMonHocContext();
-
+		private readonly Input_Ma xuly = new Input_Ma();
 		[HttpGet]
 		public IEnumerable<NhanVien> GetDSNV()
 		{
@@ -31,26 +32,7 @@ namespace API.Controllers
 				return Ok(a);
 
 		}
-		//Hash password
-		public string encode(string password)
-		{
-			// generate a 128-bit salt using a secure PRNG
-			byte[] salt = new byte[128 / 8];
-			//using (var rng = RandomNumberGenerator.Create())
-			//{
-			//	rng.GetBytes(salt);
-			//}
-			
-
-			// derive a 256-bit subkey (use HMACSHA1 with 10,000 iterations)
-			string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-				password: password,
-				salt: salt,
-				prf: KeyDerivationPrf.HMACSHA1,
-				iterationCount: 10000,
-				numBytesRequested: 256 / 8));
-			return hashed;
-		}
+		
 
 		[HttpPost]
 		public async Task<ActionResult<NhanVien>> PostNhanvien(NhanVien a)
@@ -62,7 +44,7 @@ namespace API.Controllers
 
 			//Xu ly du lieu: 
 			 // cau truc NV001 (nv: ma chuc vu)
-			a.Matkhau = encode(a.Matkhau);//encode pass
+			a.Matkhau = xuly.hashPassword(a.Matkhau);//BCrypt
 
 			_db.NhanViens.Add(a);
 			await _db.SaveChangesAsync();
@@ -85,9 +67,16 @@ namespace API.Controllers
 			var nv = await _db.NhanViens.FindAsync(a.MaNv);
 			if (nv == null)
 				return NotFound();
-
-			a.Matkhau = encode(a.Matkhau);
-			_db.NhanViens.Update(a);
+			nv.TenNv = a.TenNv;
+			nv.Diachi = a.Diachi;
+			nv.Ngaysinh = a.Ngaysinh;
+			nv.Sdt = a.Sdt;
+			nv.Phai = a.Phai;
+			nv.Email = a.Email;
+			nv.Trangthai = a.Trangthai;
+			nv.Hinhanh = a.Hinhanh;
+			nv.Matkhau = xuly.hashPassword(a.Matkhau);
+			_db.NhanViens.Update(nv);
 			await _db.SaveChangesAsync();
 			return Ok();
 

@@ -1,4 +1,5 @@
 ﻿using API.Models;
+using API.XuLy;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ namespace API.Controllers
 	public class GiangVienController : ControllerBase
 	{
 		DangKyMonHocContext db = new DangKyMonHocContext();
+		private readonly Input_Ma xuly = new Input_Ma();
 		[HttpGet]
 		public IEnumerable<GiangVien> getDSGv()
 		{
@@ -35,7 +37,8 @@ namespace API.Controllers
 				//Global.Users.Add(oUser);
 				//return oUser;
 				a.MaGv = a.MaChucVu.Trim() + a.MaGv.Trim();
-				
+				a.Matkhau = xuly.hashPassword(a.Matkhau);
+
 				db.GiangViens.Add(a);
 				await db.SaveChangesAsync();
 				return Ok();

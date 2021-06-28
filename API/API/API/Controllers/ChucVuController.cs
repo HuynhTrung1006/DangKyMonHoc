@@ -62,7 +62,9 @@ namespace API.Controllers
         {
             var checkCV = await _db.ChucVus.FindAsync(cv.MaChucVu.Trim());
             if (checkCV == null) return NotFound();
-            _db.ChucVus.Update(cv);
+
+            checkCV.TenChucVu = cv.TenChucVu;
+            _db.ChucVus.Update(checkCV);
             await _db.SaveChangesAsync();
             return Ok();
         }

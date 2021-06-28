@@ -17,6 +17,7 @@ namespace API.Models
         public bool Trangthai { get; set; }
         public string Hinhanh { get; set; }
         public string MaChucVu { get; set; }
+        public bool Phai { get; set; }
 
         public virtual ChucVu MaChucVuNavigation { get; set; }
     }

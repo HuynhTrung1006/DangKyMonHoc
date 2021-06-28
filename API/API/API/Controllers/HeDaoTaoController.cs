@@ -60,7 +60,9 @@ namespace API.Controllers
         {
             var checkCV = await _db.HeDaoTaos.FindAsync(cv.MaDt.Trim());
             if (checkCV == null) return NotFound();
-            _db.HeDaoTaos.Update(cv);
+
+            checkCV.TenDt = cv.TenDt;
+            _db.HeDaoTaos.Update(checkCV);
             await _db.SaveChangesAsync();
             return Ok();
         }

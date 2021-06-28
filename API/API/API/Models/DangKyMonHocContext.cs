@@ -1,7 +1,6 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata;
-using Microsoft.Extensions.Options;
 
 #nullable disable
 
@@ -50,12 +49,8 @@ namespace API.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-//#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
-
-
-                optionsBuilder.UseSqlServer("Server=HUYNHTRUNG1006\\SQLEXPRESS;Database=DangKyMonHoc;\nTrusted_Connection=True;");
-
-
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
+                optionsBuilder.UseSqlServer("Server=HUYNHTRUNG1006\\SQLExpress;Database=DangKyMonHoc;Trusted_Connection=True;");
             }
         }
 
@@ -601,7 +596,7 @@ namespace API.Models
                     .HasColumnName("maMH")
                     .IsFixedLength(true);
 
-                entity.Property(e => e.Sisi).HasColumnName("sisi");
+                entity.Property(e => e.Siso).HasColumnName("siso");
 
                 entity.Property(e => e.TenLmh)
                     .IsRequired()
@@ -849,6 +844,8 @@ namespace API.Models
                     .HasColumnType("date")
                     .HasColumnName("ngaysinh");
 
+                entity.Property(e => e.Phai).HasColumnName("phai");
+
                 entity.Property(e => e.Sdt)
                     .IsRequired()
                     .HasMaxLength(11)
@@ -1045,6 +1042,8 @@ namespace API.Models
                     .IsRequired()
                     .HasMaxLength(50)
                     .HasColumnName("tenSV");
+
+                entity.Property(e => e.Trangthai).HasColumnName("trangthai");
 
                 entity.HasOne(d => d.MaLopNavigation)
                     .WithMany(p => p.SinhViens)
