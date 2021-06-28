@@ -1,0 +1,21 @@
+Nguyên tắc làm việc
+	1.API
+		- Đặt tên controller: *Controller.cs (* là tên).
+		- MODELS: DangKyMonHocDbContext, chỉnh sửa trong file connectionstring: tên Máy cá nhân để đăng nhập.
+		- Database: Mỗi Thứ 3 hàng tuần sẽ xuất File Backup_*.bak để lưu dữ liêu (* là ngày tháng vd: 2205- ngày 22 tháng 5)
+		- Nuget: Đã add rồi và không thay đổi Version khi làm việc.
+	2.WPF 
+		- Xử lý API trong file XuLy. Tạo file theo dạng: XuLy*.cs trong * là tên giống Controller API.
+		- Khi xử lý giao diên WPF vui lòng tạo cửa sổ mới do cửa sổ default dùng để tạo trang Đăng Nhập.
+		- File ModelsClass: dùng để cấu hình class cần dùng. Tên giống như tên của models API.
+	3.GIT
+		- Tạo nhánh riêng ví dụ Quản lý Sinh Vien: git branch QLSV. Sau khi tạo thực hiện chức năng. Ngày họp Demo cả nhóm
+			và thực hiện merge vào nhánh master.
+		- Kiểm tra nhánh trước khi code hoặc thực hiện chức năng.
+		- Cú pháp Commit: Chức năng, thực hiện những gì.
+	4.Một số lệch cần có 
+		4.1 API
+			- kết nối database: Scaffold-DbContext "Server=HUYNHTRUNG1006\SQLExpress;Database=DangKyMonHoc;
+				Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models
+
+			- Update database:Scaffold-DbContext "Server=HUYNHTRUNG1006\SQLExpress;Database=DangKyMonHoc;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force

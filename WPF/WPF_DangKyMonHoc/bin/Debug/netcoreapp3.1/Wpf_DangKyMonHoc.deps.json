@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v3.1",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v3.1": {
+      "Wpf_DangKyMonHoc/1.0.0": {
+        "runtime": {
+          "Wpf_DangKyMonHoc.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "Wpf_DangKyMonHoc/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
