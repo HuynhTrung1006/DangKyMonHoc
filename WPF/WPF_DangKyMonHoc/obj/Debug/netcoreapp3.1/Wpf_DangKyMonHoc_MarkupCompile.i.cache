@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-G:\Luan_Van\Git\WPF\WPF_DangKyMonHoc\Wpf_DKMH\Wpf_DangKyMonHoc\obj\Debug\netcoreapp3.1\
+E:\Nam 4\LUAN VAN TOT NGHIEP\DOANLAMLAI\DangKyMonHoc\WPF\WPF_DangKyMonHoc\obj\Debug\netcoreapp3.1\
 Wpf_DangKyMonHoc
 none
 false
-TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
-G:\Luan_Van\Git\WPF\WPF_DangKyMonHoc\Wpf_DKMH\Wpf_DangKyMonHoc\App.xaml
-11151548125
+TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
+E:\Nam 4\LUAN VAN TOT NGHIEP\DOANLAMLAI\DangKyMonHoc\WPF\WPF_DangKyMonHoc\App.xaml
+151574300518
 
-5-1893815767
-1921654412462
-MainWindow.xaml;
+191615029119
+195-1048487460
+AfterLogin.xaml;ChucnangphuWindows\Hedaotao_Window.xaml;ChucnangphuWindows\HocKyCTDT_Window.xaml;ChucnangphuWindows\HocKyDKMH_Window.xaml;ChucnangphuWindows\Khoikienthuc_Window.xaml;ChucnangphuWindows\NamhocDKNH_Window.xaml;DangNhapWindow.xaml;DetailWindows\ChitietCTDT_Window.xaml;DetailWindows\Monhocduocmo_Window.xaml;FixAfterLogin.xaml;MainWindow.xaml;Page_QLChuongTrinhDaoTao.xaml;Page_QLCongDangKy.xaml;Page_QLGiangVien.xaml;Page_QLMonhoc.xaml;
 
-False
+True
 

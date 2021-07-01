@@ -6,4 +6,17 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Assets\Logo_STU.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\Logo_STU.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="HamburgerMenu" Version="0.1.0" />
+    <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
+  </ItemGroup>
+
 </Project>

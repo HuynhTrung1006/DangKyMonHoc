@@ -1,0 +1,71 @@
+﻿<Window x:Class="Wpf_DangKyMonHoc.DetailWindows.ChitietCTDT_Window"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Wpf_DangKyMonHoc.DetailWindows"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+
+        mc:Ignorable="d"
+        Title="ChitietCTDT_Window" Height="450" Width="800">
+    <StackPanel>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="150"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition Width="20"/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                    <RowDefinition/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="ID :"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Left" VerticalAlignment="Center"
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã CTDT :"/>
+                <TextBox  Grid.Row="0" Grid.Column="0" HorizontalAlignment="Right" Width="125" />
+                <TextBox  Grid.Row="1" Grid.Column="0" HorizontalAlignment="Right" Width="125" />
+                <TextBlock Grid.Row="0" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã môn học :"/>
+                <TextBlock Grid.Row="1" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center"
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã học kỳ :"/>
+                <TextBox  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Width="125" />
+                <TextBox  Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" Width="125" />
+
+                <materialDesign:Card HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Margin="0,0,37,0">
+                    <WrapPanel  >
+                        <Button  Content="Thêm" ></Button>
+                        <TextBlock Text=" " Width="5"></TextBlock>
+                        <Button Content="Sửa" ></Button>
+                        <TextBlock Text=" " Width="5"></TextBlock>
+                        <Button  Content="Xóa"></Button>
+                    </WrapPanel>
+                </materialDesign:Card>
+
+            </Grid>
+            <materialDesign:Card Grid.Row="1" HorizontalAlignment="Stretch">
+                <ScrollViewer VerticalScrollBarVisibility="Auto">
+                    <ListView >
+                        <ListView.View>
+                            <GridView>
+                                <GridViewColumn Header="ID " ></GridViewColumn>
+                                <GridViewColumn Header="Mã CTDT" ></GridViewColumn>
+                                <GridViewColumn Header="Mã môn học" ></GridViewColumn>
+                                <GridViewColumn Header="Mã học kỳ"></GridViewColumn>
+
+                            </GridView>
+                        </ListView.View>
+                    </ListView>
+                </ScrollViewer>
+            </materialDesign:Card>
+        </Grid>
+    </StackPanel>
+
+</Window>
