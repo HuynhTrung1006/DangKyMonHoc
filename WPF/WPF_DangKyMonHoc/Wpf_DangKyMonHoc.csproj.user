@@ -7,7 +7,57 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="PageQL\QuanLyGiangVien.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PageQL\QuanLyLop.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PageQL\QuanLyNhanVien.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="PageQL\QuanLySinhVien.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowQL\QuanLyChucVu.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowQL\QuanLyKhoa.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowQL\QuanLyNganh.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="WindowQL\QuanLyNienKhoa.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PageQL\QuanLyGiangVien.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PageQL\QuanLyLop.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PageQL\QuanLyNhanVien.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="PageQL\QuanLySinhVien.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowQL\QuanLyChucVu.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowQL\QuanLyKhoa.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowQL\QuanLyNganh.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="WindowQL\QuanLyNienKhoa.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

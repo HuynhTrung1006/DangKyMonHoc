@@ -1,5 +1,5 @@
 ﻿Wpf_DangKyMonHoc
-1.0.0.0
+
 
 winexe
 C#
@@ -12,7 +12,7 @@ TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1
 G:\Luan_Van\Git\WPF\WPF_DangKyMonHoc\App.xaml
 91282874172
 
-13-1551870370
+11-575765314
 1941474748043
 MainWindow.xaml;PageQL\QuanLyGiangVien.xaml;PageQL\QuanLyLop.xaml;PageQL\QuanLyNhanVien.xaml;PageQL\QuanLySinhVien.xaml;WindowQL\QuanLyChucVu.xaml;WindowQL\QuanLyKhoa.xaml;WindowQL\QuanLyNganh.xaml;WindowQL\QuanLyNienKhoa.xaml;
 

@@ -5,8 +5,82 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_DangKyMonHoc"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        
+         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        TextElement.Foreground="{DynamicResource MaterialDesignBody}"
+     TextElement.FontWeight="Regular"
+     TextElement.FontSize="13"
+     TextOptions.TextFormattingMode="Ideal"
+     TextOptions.TextRenderingMode="Auto"
+     Background="{DynamicResource MaterialDesignPaper}"
+     FontFamily="{DynamicResource MaterialDesignFont}"
+        WindowState="Maximized"
+        Title="MainWindow" Height="550" Width="800">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" >
+            <!--<Grid.ColumnDefinitions>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+                <ColumnDefinition></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Grid Grid.Column="0">
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+                    Click="Button_Click"
+                    >      
+                    Nhân Viên
+                </Button>
+            </Grid>
+            <Grid Grid.Column="1">
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+                    Click="Button_Click_2">      
+                               Giảng Viên
+                </Button>
+            </Grid>
+            <Grid Grid.Column="2">
+                <Button
+                    Style="{StaticResource MaterialDesignRaisedAccentButton}"
+                    Width="100"
+                    ToolTip="Resource name: MaterialDesignRaisedAccentButton"
+                    Click="Button_Click_3">
+                  Chức vụ
+                </Button>
+            </Grid>-->
 
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Page">
+                    <MenuItem Header="Nhân Viên" Click="Button_Click"/>
+                    <MenuItem Header="Giảng Viên" Click="Button_Click_2" />
+                    <MenuItem Header="Lớp" Click="btn_lop"  />
+                    <MenuItem Header="Sinh Viên" Click="btn_SV"  />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+            </Menu>
+            <Menu DockPanel.Dock="Top" Margin="80 0 0 0">
+                <MenuItem Header="Window">
+                    <MenuItem Header="Chức Vụ" Click="Button_Click_3"/>
+                    <MenuItem Header="Khoa" Click="Button_Click_Khoa" />
+                    <MenuItem Header="Ngành" Click="Btn_Nganh"  />
+                    <MenuItem Header="Niên Khoa" Click="Btn_NienKhoa"  />
+                    <Separator />
+                    <MenuItem Header="_Exit" />
+                </MenuItem>
+            </Menu>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Frame x:Name="ContentArea" NavigationUIVisibility="Hidden">
+                
+            </Frame>
+        </Grid>
     </Grid>
 </Window>

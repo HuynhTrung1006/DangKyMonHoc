@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "B7HwVSzdSZ/iO8iKwU87rU0n/ktOnNLPz9oA90z5aX3/ur7bYKHIelv1zFUvo+L7yqJYMP2dLWJKSpCliEPvEg==",
+  "dgSpecHash": "49IyZHaE3CSwWkjRbTFGUiumToAOrUBS8Vus5WEncl5uk+MMKAaok6cQ9VZjrZl1DumtHWpwnaRlGnF2T6u1Rw==",
   "success": true,
   "projectFilePath": "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\Admin\\.nuget\\packages\\materialdesigncolors\\2.0.1\\materialdesigncolors.2.0.1.nupkg.sha512",
+    "C:\\Users\\Admin\\.nuget\\packages\\materialdesignthemes\\4.1.0\\materialdesignthemes.4.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
