@@ -7,7 +7,93 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="AfterLogin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChucnangphuWindows\Hedaotao_Window.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChucnangphuWindows\HocKyCTDT_Window.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChucnangphuWindows\HocKyDKMH_Window.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChucnangphuWindows\Khoikienthuc_Window.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="ChucnangphuWindows\NamhocDKNH_Window.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DangNhapWindow.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DetailWindows\ChitietCTDT_Window.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="DetailWindows\Monhocduocmo_Window.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="FixAfterLogin.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Page_QLChuongTrinhDaoTao.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Page_QLCongDangKy.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Page_QLGiangVien.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Page_QLMonhoc.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Update="AfterLogin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChucnangphuWindows\Hedaotao_Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChucnangphuWindows\HocKyCTDT_Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChucnangphuWindows\HocKyDKMH_Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChucnangphuWindows\Khoikienthuc_Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="ChucnangphuWindows\NamhocDKNH_Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DangNhapWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DetailWindows\ChitietCTDT_Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="DetailWindows\Monhocduocmo_Window.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="FixAfterLogin.xaml">
+      <SubType>Designer</SubType>
+    </Page>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Page_QLChuongTrinhDaoTao.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Page_QLCongDangKy.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Page_QLGiangVien.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Page_QLMonhoc.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
