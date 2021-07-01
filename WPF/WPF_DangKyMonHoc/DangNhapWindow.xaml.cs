@@ -24,14 +24,13 @@ namespace Wpf_DangKyMonHoc
 
 		private void btnDangNhap_Click(object sender, RoutedEventArgs e)
 		{
-			AfterLogin a = new AfterLogin();
-			a.Show();
+			FixAfterLogin b = new FixAfterLogin();
+			b.Show();
 		}
 
 		private void btnThoat_Click(object sender, RoutedEventArgs e)
 		{
-			FixAfterLogin b = new FixAfterLogin();
-			b.Show();
+			
 		}
 	}
 }

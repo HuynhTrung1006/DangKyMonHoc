@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NETCOREAPP;NETCOREAPP3_1;
 E:\Nam 4\LUAN VAN TOT NGHIEP\DOANLAMLAI\DangKyMonHoc\WPF\WPF_DangKyMonHoc\App.xaml
-51991001076
+151574300518
 
-71792926107
+17-1726507260
 195-1048487460
-AfterLogin.xaml;DangNhapWindow.xaml;FixAfterLogin.xaml;MainWindow.xaml;Page_QLGiangVien.xaml;
+AfterLogin.xaml;ChucnangphuWindows\Hedaotao_Window.xaml;ChucnangphuWindows\HocKyCTDT_Window.xaml;ChucnangphuWindows\HocKyDKMH_Window.xaml;ChucnangphuWindows\Khoikienthuc_Window.xaml;ChucnangphuWindows\NamhocDKNH_Window.xaml;DangNhapWindow.xaml;DetailWindows\ChitietCTDT_Window.xaml;DetailWindows\Monhocduocmo_Window.xaml;FixAfterLogin.xaml;MainWindow.xaml;Page_QLChuongTrinhDaoTao.xaml;Page_QLCongDangKy.xaml;Page_QLGiangVien.xaml;Page_QLMonhoc.xaml;
 
 False
 

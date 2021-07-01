@@ -64,7 +64,7 @@ namespace Wpf_DangKyMonHoc {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Wpf_DangKyMonHoc;V1.0.0.0;component/page_qlgiangvien.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Wpf_DangKyMonHoc;component/page_qlgiangvien.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\Page_QLGiangVien.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
