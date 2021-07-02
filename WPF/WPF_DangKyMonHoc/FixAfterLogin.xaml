@@ -106,7 +106,7 @@
             <Grid Grid.Column="1">
                 <DockPanel >
                     <Menu DockPanel.Dock="Top" >
-                        <MenuItem Header="Quản lý B" Width="200" >
+                        <MenuItem Header="Quản lý B"  >
                             <MenuItem Header="Quản lý A+1"  >
                                 <MenuItem.Icon>
                                     <materialDesign:PackIcon Kind="FileWordBoxOutline" />
