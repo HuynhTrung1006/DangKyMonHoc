@@ -10,6 +10,8 @@ namespace API.Models
         public CongDangKy()
         {
             LopMonHocs = new HashSet<LopMonHoc>();
+            MonHocDuocMos = new HashSet<MonHocDuocMo>();
+            NienKhoaCdks = new HashSet<NienKhoaCdk>();
         }
 
         public string MaCdk { get; set; }
@@ -22,8 +24,8 @@ namespace API.Models
 
         public virtual HocKyDkmh MaHkNavigation { get; set; }
         public virtual NamHocDkmh MaNhNavigation { get; set; }
-        public virtual MonHocDuocMo MonHocDuocMo { get; set; }
-        public virtual NienKhoaCdk NienKhoaCdk { get; set; }
         public virtual ICollection<LopMonHoc> LopMonHocs { get; set; }
+        public virtual ICollection<MonHocDuocMo> MonHocDuocMos { get; set; }
+        public virtual ICollection<NienKhoaCdk> NienKhoaCdks { get; set; }
     }
 }

@@ -10,12 +10,13 @@ namespace API.Models
         public NienKhoa()
         {
             Lops = new HashSet<Lop>();
+            NienKhoaCdks = new HashSet<NienKhoaCdk>();
         }
 
         public string MaNk { get; set; }
         public string TenNk { get; set; }
 
-        public virtual NienKhoaCdk NienKhoaCdk { get; set; }
         public virtual ICollection<Lop> Lops { get; set; }
+        public virtual ICollection<NienKhoaCdk> NienKhoaCdks { get; set; }
     }
 }

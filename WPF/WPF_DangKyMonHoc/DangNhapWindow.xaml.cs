@@ -26,6 +26,7 @@ namespace Wpf_DangKyMonHoc
 		{
 			FixAfterLogin b = new FixAfterLogin();
 			b.Show();
+			this.Close();
 		}
 
 		private void btnThoat_Click(object sender, RoutedEventArgs e)

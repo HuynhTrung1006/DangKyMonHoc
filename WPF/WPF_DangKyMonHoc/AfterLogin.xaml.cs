@@ -36,7 +36,7 @@ namespace Wpf_DangKyMonHoc
 
 		private void btnQuanLyA_Click(object sender, RoutedEventArgs e)
 		{
-			Main.Content = new Page_QLGiangVien();
+			//Main.Content = new Page_QLGiangVien();
 		}
 	}
 }

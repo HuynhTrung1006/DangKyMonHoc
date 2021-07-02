@@ -7,6 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+
     <None Remove="Assets\Logo_STU.png" />
   </ItemGroup>
 
@@ -15,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="HamburgerMenu" Version="0.1.0" />
+
     <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
   </ItemGroup>
 

@@ -25,11 +25,11 @@ namespace Wpf_DangKyMonHoc
             InitializeComponent();
         }
 
-		private void btnLogInWindow_Click(object sender, RoutedEventArgs e)
-		{
+        private void btnLogInWindow_Click(object sender, RoutedEventArgs e)
+        {
             DangNhapWindow a = new DangNhapWindow();
             a.Show();
             this.Close();
-		}
-	}
+        }
+    }
 }

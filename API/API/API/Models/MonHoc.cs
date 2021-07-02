@@ -9,8 +9,10 @@ namespace API.Models
     {
         public MonHoc()
         {
+            ChiTietCtdts = new HashSet<ChiTietCtdt>();
             ChiTietPdks = new HashSet<ChiTietPdk>();
             LopMonHocs = new HashSet<LopMonHoc>();
+            MonHocDuocMos = new HashSet<MonHocDuocMo>();
         }
 
         public string MaMh { get; set; }
@@ -18,16 +20,16 @@ namespace API.Models
         public byte Sotinchi { get; set; }
         public byte HesoHp { get; set; }
         public bool Thuchanh { get; set; }
-        public string MonTq { get; set; }
+        public string MaTq { get; set; }
         public string MaSh { get; set; }
         public string MaKhoi { get; set; }
         public string MaTtmh { get; set; }
 
         public virtual KhoiKienThuc MaKhoiNavigation { get; set; }
         public virtual ThongTinMonHoc MaTtmhNavigation { get; set; }
-        public virtual ChiTietCtdt ChiTietCtdt { get; set; }
-        public virtual MonHocDuocMo MonHocDuocMo { get; set; }
+        public virtual ICollection<ChiTietCtdt> ChiTietCtdts { get; set; }
         public virtual ICollection<ChiTietPdk> ChiTietPdks { get; set; }
         public virtual ICollection<LopMonHoc> LopMonHocs { get; set; }
+        public virtual ICollection<MonHocDuocMo> MonHocDuocMos { get; set; }
     }
 }

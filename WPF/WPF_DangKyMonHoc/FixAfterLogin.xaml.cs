@@ -9,6 +9,9 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Wpf_DangKyMonHoc.Page;
+using Wpf_DangKyMonHoc.PageQL;
+using Wpf_DangKyMonHoc.WindowQL;
 
 namespace Wpf_DangKyMonHoc
 {
@@ -22,9 +25,101 @@ namespace Wpf_DangKyMonHoc
 			InitializeComponent();
 		}
 
-		private void btnQuanLyGiangVien_Click(object sender, RoutedEventArgs e)
-		{
-			Main.Content = new Page_QLGiangVien();
+        private void btnQuanLySinhVien_Click(object sender, RoutedEventArgs e)
+        {
+			ContentArea.Content = new QuanLySinhVien();
+        }
+
+        private void btnQuanLyNhanVien(object sender, RoutedEventArgs e)
+        {
+			ContentArea.Content = new QuanLyNhanVien();
 		}
-	}
+
+        private void btnGiangVien(object sender, RoutedEventArgs e)
+        {
+			ContentArea.Content = new QuanLyGiangVien();
+		}
+
+        private void btnquanlyLop(object sender, RoutedEventArgs e)
+        {
+			ContentArea.Content = new QuanLyLop();
+		}
+
+        private void btnquanlyMonHoc(object sender, RoutedEventArgs e)
+        {
+			ContentArea.Content = new Page_QLMonhoc();
+		}
+
+        private void btnCongDangKy(object sender, RoutedEventArgs e)
+        {
+			ContentArea.Content = new Page_QLCongDangKy();
+		}
+
+        private void btnCTDT(object sender, RoutedEventArgs e)
+        {
+			ContentArea.Content = new Page_QLChuongTrinhDaoTao();
+		}
+
+        private void btnchucvu(object sender, RoutedEventArgs e)
+        {
+			var n = new QuanLyChucVu();
+			n.ShowDialog();
+        }
+
+        private void btnKhoa(object sender, RoutedEventArgs e)
+        {
+			var n = new QuanLyKhoa();
+			n.ShowDialog();
+        }
+
+        private void btnNganh(object sender, RoutedEventArgs e)
+        {
+			var n = new QuanLyNganh();
+			n.ShowDialog();
+        }
+
+        private void btnNienKhoa(object sender, RoutedEventArgs e)
+        {
+            var n = new QuanLyNienKhoa();
+            n.ShowDialog();
+        }
+
+        private void btnNamHocDKMH(object sender, RoutedEventArgs e)
+        {
+            var n = new Wpf_DangKyMonHoc.WindowQL.NamhocDKNH_Window();
+            n.ShowDialog();
+        }
+
+        private void btnMonhocduomo(object sender, RoutedEventArgs e)
+        {
+            var n = new Monhocduocmo_Window();
+            n.ShowDialog();
+        }
+
+        private void btnHocKyDKMH(object sender, RoutedEventArgs e)
+        {
+            var n = new HocKyDKMH_Window();
+            n.ShowDialog();
+        }
+
+        private void btnKhoiKT(object sender, RoutedEventArgs e)
+        {
+            var n = new Khoikienthuc_Window();
+            n.ShowDialog();
+        }
+
+        private void btnHeDaoTao(object sender, RoutedEventArgs e)
+        {
+            var n = new Hedaotao_Window();
+            n.ShowDialog();
+        }
+
+        private void btnhockyctdt(object sender, RoutedEventArgs e)
+        {
+            var n = new HocKyCTDT_Window();
+            n.ShowDialog();
+        }
+
+        
+    }
 }

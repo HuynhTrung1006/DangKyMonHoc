@@ -7,7 +7,7 @@
 
         xmlns:local="clr-namespace:Wpf_DangKyMonHoc"
         mc:Ignorable="d"
-        Title="FixAfterLogin"  WindowState="Maximized" Foreground="White" ResizeMode="NoResize" Width="800" Height="450">
+        Title="FixAfterLogin"  WindowState="Maximized" Foreground="White"  Width="800" Height="450">
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
@@ -36,7 +36,7 @@
             <StackPanel>
                 <Grid Height="100"  Background="#FF2B52AB">
                     <Image Source="/Assets/Logo_STU.png" Width="200" Height="90"/>
-
+                    
 
                     <!--<Button Name="BtnCloseMenu" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" >
                         <materialDesign:PackIcon  Foreground="#FFFFFFFF" Width="25" Height="25" Kind="ArrowLeft"/>
@@ -46,124 +46,79 @@
                     </Button>-->
                 </Grid>
                 <ListView Foreground="White">
+                    <Separator />
                     <ListViewItem Height="50" >
                         <StackPanel Orientation="Horizontal">
                             <Button Content="Quản lý sinh viên "  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" 
                                     HorizontalAlignment="Right"   
                                     Foreground="White"
-                                    Name="btnQuanLyGiangVien" Click="btnQuanLyGiangVien_Click" />
+                                    Name="btnQuanLyGiangVien" Click="btnQuanLySinhVien_Click" />
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" >
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Quản lý A"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right"  Foreground="White"/>
+                            <Button Content="Quản lý Nhân Viên" Click="btnQuanLyNhanVien"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right"  Foreground="White"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" >
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Quản lý A"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right"  Foreground="White"/>
+                            <Button Content="Quản lý Giảng Viên" Click="btnGiangVien"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right"  Foreground="White"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" >
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Quản lý A"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
+                            <Button Content="Quản lý Lớp" Click="btnquanlyLop"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" >
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Quản lý A"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
+                            <Button Content="Quản lý Môn Học" Click="btnquanlyMonHoc"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" >
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Quản lý Cổng Đăng ký" Click="btnCongDangKy"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" >
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Chương trình đào tạo" Click="btnCTDT"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
             </StackPanel>
         </Grid>
-        <Grid Grid.Row="1" Grid.Column="1">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-                <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
-            <Grid Grid.Column="0">
-                <DockPanel >
-                    <Menu DockPanel.Dock="Top" >
-                        <MenuItem Header="Quản lý B" Width="200" >
-                            <MenuItem Header="Quản lý A+1"  >
-                                <MenuItem.Icon>
-                                    <materialDesign:PackIcon Kind="FileWordBoxOutline" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem Header="Quản lý A+2"  />
-                            <MenuItem Header="Quản lý A+2"  />
-                            <Separator />
-                            <MenuItem Header="Quản lý A+2" />
+        <Grid Grid.Row="1" Grid.Column="1" >
+
+            <Grid >
+                <DockPanel>
+                    <Menu DockPanel.Dock="Top" Width="auto" >
+                        <MenuItem Header="Người dùng" FontWeight="ExtraBlack" >
+                            <MenuItem Header="Quản lý Chức Vụ" Click="btnchucvu"/>
+                            <MenuItem Header="Quản lý Khoa" Click="btnKhoa" />
+                            <MenuItem Header="Quản lý Ngành" Click="btnNganh" />
+                            <MenuItem Header="Quản lý Niên Khóa" Click="btnNienKhoa"/>
+                        </MenuItem>
+                        <MenuItem Header="Đăng ký môn học" FontWeight="ExtraBlack" >
+                            <MenuItem Header="Năm Học" Click="btnNamHocDKMH" />
+                            <MenuItem Header="Học kỳ" Click="btnHocKyDKMH" />
+                            <MenuItem Header="Môn học được mở" Click="btnMonhocduomo" />
+                        </MenuItem>
+                        <MenuItem Header="Chương trình đào tạo" FontWeight="ExtraBlack">
+                            <MenuItem Header="Khối kiến thức" Click="btnKhoiKT" />
+                            <MenuItem Header="Hệ đào tạo" Click="btnHeDaoTao" />
+                            <MenuItem Header="Học Kỳ" Click="btnhockyctdt" />
                         </MenuItem>
                     </Menu>
-                    <TextBox AcceptsReturn="True" />
                 </DockPanel>
-
             </Grid>
-            <Grid Grid.Column="1">
-                <DockPanel >
-                    <Menu DockPanel.Dock="Top" >
-                        <MenuItem Header="Quản lý B" Width="200" >
-                            <MenuItem Header="Quản lý A+1"  >
-                                <MenuItem.Icon>
-                                    <materialDesign:PackIcon Kind="FileWordBoxOutline" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem Header="Quản lý A+2"  />
-                            <MenuItem Header="Quản lý A+2"  />
-                            <Separator />
-                            <MenuItem Header="Quản lý A+2" />
-                        </MenuItem>
-                    </Menu>
-                    <TextBox AcceptsReturn="True" />
-                </DockPanel>
-
-            </Grid>
-            <Grid Grid.Column="2">
-                <DockPanel >
-                    <Menu DockPanel.Dock="Top" >
-                        <MenuItem Header="Quản lý B" Width="200" >
-                            <MenuItem Header="Quản lý A+1"  >
-                                <MenuItem.Icon>
-                                    <materialDesign:PackIcon Kind="FileWordBoxOutline" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem Header="Quản lý A+2"  />
-                            <MenuItem Header="Quản lý A+2"  />
-                            <Separator />
-                            <MenuItem Header="Quản lý A+2" />
-                        </MenuItem>
-                    </Menu>
-                    <TextBox AcceptsReturn="True" />
-                </DockPanel>
-
-            </Grid>
-            <Grid Grid.Column="3">
-                <DockPanel >
-                    <Menu DockPanel.Dock="Top" >
-                        <MenuItem Header="Quản lý B" Width="200" >
-                            <MenuItem Header="Quản lý A+1"  >
-                                <MenuItem.Icon>
-                                    <materialDesign:PackIcon Kind="FileWordBoxOutline" />
-                                </MenuItem.Icon>
-                            </MenuItem>
-                            <MenuItem Header="Quản lý A+2"  />
-                            <MenuItem Header="Quản lý A+2"  />
-                            <Separator />
-                            <MenuItem Header="Quản lý A+2" />
-                        </MenuItem>
-                    </Menu>
-                    <TextBox AcceptsReturn="True" />
-                </DockPanel>
-
-            </Grid>
-
         </Grid>
         <Grid Grid.Column="1" Grid.Row="2">
-            <Frame x:Name="Main"/>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="153*"/>
+                <ColumnDefinition Width="47*"/>
+            </Grid.ColumnDefinitions>
+            <Frame x:Name="ContentArea" NavigationUIVisibility="Hidden" Grid.ColumnSpan="2"/>
 
         </Grid>
     </Grid>
