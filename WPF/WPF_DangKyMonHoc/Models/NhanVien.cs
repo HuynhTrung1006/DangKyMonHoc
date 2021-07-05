@@ -13,12 +13,12 @@ namespace Wpf_DangKyMonHoc.Models
         public string Diachi { get; set; }
         public string Sdt { get; set; }
         public DateTime Ngaysinh { get; set; }
+        public bool Phai { get; set; }
+        public string Cmnd { get; set; }
         public string Matkhau { get; set; }
         public bool Trangthai { get; set; }
         public string Hinhanh { get; set; }
         public string MaChucVu { get; set; }
-        public bool Phai { get; set; }
 
-         
     }
 }

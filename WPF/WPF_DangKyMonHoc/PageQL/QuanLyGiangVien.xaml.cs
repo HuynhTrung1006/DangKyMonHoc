@@ -23,5 +23,10 @@ namespace Wpf_DangKyMonHoc.Page
         {
             InitializeComponent();
         }
-    }
+
+		private void btnUploadAnh_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+	}
 }

@@ -71,7 +71,7 @@ namespace API.Controllers
 			b.Ngaysinh = a.Ngaysinh;
 			b.Hocham = a.Hocham;
 			b.MaKhoa = a.MaKhoa;
-			b.MaChucVu = a.MaChucVu;
+			b.MaChucVu = xuly.hashPassword(a.Matkhau);
 			b.Hinhanh = a.Hinhanh;
 			await db.SaveChangesAsync();
 			return Ok();

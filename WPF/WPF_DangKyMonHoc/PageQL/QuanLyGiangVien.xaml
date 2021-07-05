@@ -102,13 +102,14 @@
                    QTKD
                 </ComboBoxItem>
             </ComboBox>
-            <ToggleButton Grid.Column="7" Grid.Row="2"
+            <ToggleButton Name="btnUploadAnh" Click="btnUploadAnh_Click" Grid.Column="7" Grid.Row="2"
   Style="{StaticResource MaterialDesignFlatToggleButton}"
   ToolTip="MaterialDesignFlatToggleButton">
                 <materialDesign:PackIcon
     Kind="Paperclip"
     Height="15"
     Width="21" />
+                
             </ToggleButton>
             <ToggleButton Grid.Column="7" Grid.Row="3"
   Style="{StaticResource MaterialDesignSwitchToggleButton}"
@@ -138,18 +139,18 @@
                 <ListView >
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Mã " ></GridViewColumn>
-                            <GridViewColumn Header="Họ Và Tên" ></GridViewColumn>
-                            <GridViewColumn Header="Email"></GridViewColumn>
-                            <GridViewColumn Header="Địa chỉ" ></GridViewColumn>
-                            <GridViewColumn Header="Điện Thoại" ></GridViewColumn>
+                            <GridViewColumn Header="Mã " DisplayMemberBinding="{Binding MaGv}" ></GridViewColumn>
+                            <GridViewColumn Header="Họ Và Tên" DisplayMemberBinding="{Binding TenGv}"></GridViewColumn>
+                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"></GridViewColumn>
+                            <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding Diachi}" ></GridViewColumn>
+                            <GridViewColumn Header="Điện Thoại" DisplayMemberBinding="{Binding Sdt}" ></GridViewColumn>
                             <!--<GridViewColumn Header="Học Hàm" ></GridViewColumn>-->
-                            <GridViewColumn Header="Ngày Sinh" ></GridViewColumn>
-                            <GridViewColumn Header="Mật Khẩu" ></GridViewColumn>
+                            <GridViewColumn Header="Ngày Sinh" DisplayMemberBinding="{Binding Ngaysinh}" ></GridViewColumn>
+                            <GridViewColumn Header="Mật Khẩu" DisplayMemberBinding="{Binding Matkhau}"></GridViewColumn>
                             <GridViewColumn Header="Trạng thái" ></GridViewColumn>
                             <!--<GridViewColumn Header="Hình ảnh" ></GridViewColumn>-->
-                            <GridViewColumn Header="Chức vụ" ></GridViewColumn>
-                            <GridViewColumn Header="Khoa" ></GridViewColumn>
+                            <GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding MaChucVu}" ></GridViewColumn>
+                            <GridViewColumn Header="Khoa" DisplayMemberBinding="{Binding MaKhoa}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

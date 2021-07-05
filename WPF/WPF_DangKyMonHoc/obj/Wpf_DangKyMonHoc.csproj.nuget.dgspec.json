@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj": {}
+    "E:\\Nam 4\\LUAN VAN TOT NGHIEP\\DOANLAMLAI\\DangKyMonHoc\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj": {}
   },
   "projects": {
-    "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj": {
+    "E:\\Nam 4\\LUAN VAN TOT NGHIEP\\DOANLAMLAI\\DangKyMonHoc\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj",
+        "projectUniqueName": "E:\\Nam 4\\LUAN VAN TOT NGHIEP\\DOANLAMLAI\\DangKyMonHoc\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj",
         "projectName": "Wpf_DangKyMonHoc",
-        "projectPath": "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj",
-        "packagesPath": "C:\\Users\\Admin\\.nuget\\packages\\",
-        "outputPath": "G:\\Luan_Van\\Git\\WPF\\WPF_DangKyMonHoc\\obj\\",
+        "projectPath": "E:\\Nam 4\\LUAN VAN TOT NGHIEP\\DOANLAMLAI\\DangKyMonHoc\\WPF\\WPF_DangKyMonHoc\\Wpf_DangKyMonHoc.csproj",
+        "packagesPath": "C:\\Users\\Thuong\\.nuget\\packages\\",
+        "outputPath": "E:\\Nam 4\\LUAN VAN TOT NGHIEP\\DOANLAMLAI\\DangKyMonHoc\\WPF\\WPF_DangKyMonHoc\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\Admin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Thuong\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -29,6 +26,7 @@
         },
         "frameworks": {
           "netcoreapp3.1": {
+            "targetAlias": "netcoreapp3.1",
             "projectReferences": {}
           }
         },
@@ -40,10 +38,15 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "dependencies": {
             "MaterialDesignThemes": {
               "target": "Package",
               "version": "[4.1.0, )"
+            },
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[5.2.7, )"
             }
           },
           "imports": [
@@ -64,7 +67,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.204\\RuntimeIdentifierGraph.json"
         }
       }
     }

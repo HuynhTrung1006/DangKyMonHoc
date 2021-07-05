@@ -5,7 +5,6 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Wpf_DangKyMonHoc"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
-        xmlns:HamburgerMenu="clr-namespace:HamburgerMenu;assembly=HamburgerMenu"
 
         mc:Ignorable="d"
         Title="AfterLogin" WindowState="Maximized" Foreground="White" ResizeMode="NoResize">

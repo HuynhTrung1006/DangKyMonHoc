@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace API.Controllers
 {
-	public class HocKy_DKMHController : Controller
-	{
+	
 		[Route("api/[controller]")]
 		[ApiController]
-		public class HocKy_DkmhController : Controller
+		public class HocKy_DKMHController : Controller
 		{
 			private DangKyMonHocContext db = new DangKyMonHocContext();
 			[HttpGet]
@@ -68,4 +67,4 @@ namespace API.Controllers
 			}
 		}
 	}
-}
+
