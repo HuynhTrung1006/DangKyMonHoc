@@ -64,7 +64,7 @@ namespace Wpf_DangKyMonHoc {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Wpf_DangKyMonHoc;V1.0.0.0;component/pageql/page_qlmonhoc.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Wpf_DangKyMonHoc;component/pageql/page_qlmonhoc.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\PageQL\Page_QLMonhoc.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

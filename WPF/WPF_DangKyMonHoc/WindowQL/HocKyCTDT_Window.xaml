@@ -6,6 +6,7 @@
         xmlns:local="clr-namespace:Wpf_DangKyMonHoc.WindowQL"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
+        Loaded="Window_Loaded"
         Title="HocKyCTDT_Window" Height="450" Width="800">
     <StackPanel>
         <Grid>
@@ -16,11 +17,11 @@
             </Grid.ColumnDefinitions>
             <materialDesign:Card Grid.Column="0" HorizontalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView >
+                    <ListView Name="listHocKyCTDT" SelectedValuePath="MaHk" SelectionChanged="listHocKyCTDT_SelectionChanged">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Mã học kỳ " ></GridViewColumn>
-                                <GridViewColumn Header="Tên học kỳ " ></GridViewColumn>
+                                <GridViewColumn Header="Mã học kỳ " DisplayMemberBinding="{Binding MaHk}" ></GridViewColumn>
+                                <GridViewColumn Header="Tên học kỳ " DisplayMemberBinding="{Binding TenHk}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -41,23 +42,26 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã học kỳ:"/>
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã học kỳ:" />
                     <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Tên học kỳ:"/>
-                    <TextBox Margin="0 0 0 5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="125" />
-                    <TextBox Margin="0 0 0 5" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="125" />
+                    <TextBox Margin="0 0 0 5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="125" Name="txtMahk" />
+                    <TextBox Margin="0 0 0 5" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="125"  Name="txtTenhk" />
                     <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,37,0">
                         <WrapPanel  >
-                            <Button  Content="Thêm" ></Button>
+                            <Button  Content="Thêm" Name="btnThem" Click="btnThem_Click" ></Button>
                             <TextBlock Text=" " Width="5"></TextBlock>
-                            <Button Content="Sửa" ></Button>
+                            <Button Content="Sửa" Name="btnSua" Click="btnSua_Click" ></Button>
                             <TextBlock Text=" " Width="5"></TextBlock>
-                            <Button  Content="Xóa"></Button>
+                            <Button  Content="Xóa" Name="btnXoa" Click="btnXoa_Click"></Button>
+                            <TextBlock Text=" " Width="5"></TextBlock>
+                            <Button  Content="Làm Mới" Name="btnLamMoi" Click="btnLamMoi_Click" ></Button>
+                            <TextBlock Text=" " Width="5"></TextBlock>
+                            <Button  Content="Thoát" Name="btnThoat" Click="btnThoat_Click"></Button>
                         </WrapPanel>
                     </materialDesign:Card>
                 </Grid>
             </StackPanel>
         </Grid>
     </StackPanel>
-
 </Window>

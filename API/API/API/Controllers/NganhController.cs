@@ -52,7 +52,7 @@ namespace API.Controllers
             dc.SaveChanges();
             return Ok();
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult putNganh(Models.Nganh n)
         {
             if (ModelState.IsValid == false) return BadRequest();

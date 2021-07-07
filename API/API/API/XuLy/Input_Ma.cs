@@ -16,9 +16,10 @@ namespace API.XuLy
             var lop = db.Lops.FirstOrDefault(x => x.MaLop == malop);
             var nganh = db.Nganhs.FirstOrDefault(x => x.MaNganh == lop.MaNganh);
             var ctdt = db.ChuongTrinhDaoTaos.FirstOrDefault(x => x.MaNganh == nganh.MaNganh);
+            var he = db.HeDaoTaos.FirstOrDefault(x => x.MaDt == lop.MaDt);
 
             var nienkhoa = db.NienKhoas.FirstOrDefault(x => x.MaNk == lop.MaNk);
-            masv = ctdt.MaDt.Trim() + nganh.MaKhoa.Trim() + nienkhoa.MaNk.Trim() + masv.Trim();
+            masv = he.MaDt.Trim() + nganh.MaKhoa.Trim() + nienkhoa.MaNk.Trim() + masv.Trim();
 
             return masv;
         }

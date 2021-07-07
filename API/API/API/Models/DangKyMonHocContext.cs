@@ -284,7 +284,7 @@ namespace API.Models
                     .IsFixedLength(true);
 
                 entity.Property(e => e.MaHk)
-                    .HasMaxLength(5)
+                    .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("maHK")
                     .IsFixedLength(true);
@@ -313,7 +313,7 @@ namespace API.Models
                 entity.HasOne(d => d.MaHkNavigation)
                     .WithMany(p => p.CongDangKies)
                     .HasForeignKey(d => d.MaHk)
-                    .HasConstraintName("fk_CDK_HK");
+                    .HasConstraintName("FK_CDK_HK");
 
                 entity.HasOne(d => d.MaNhNavigation)
                     .WithMany(p => p.CongDangKies)
@@ -455,12 +455,12 @@ namespace API.Models
             modelBuilder.Entity<HocKyDkmh>(entity =>
             {
                 entity.HasKey(e => e.MaHk)
-                    .HasName("PK__HocKy_DK__7A3E14895302DF12");
+                    .HasName("PK__HocKy_DK__7A3E148981A9A8F6");
 
                 entity.ToTable("HocKy_DKMH");
 
                 entity.Property(e => e.MaHk)
-                    .HasMaxLength(5)
+                    .HasMaxLength(20)
                     .IsUnicode(false)
                     .HasColumnName("maHK")
                     .IsFixedLength(true);
@@ -536,6 +536,12 @@ namespace API.Models
                     .HasColumnName("maLop")
                     .IsFixedLength(true);
 
+                entity.Property(e => e.MaDt)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("maDT")
+                    .IsFixedLength(true);
+
                 entity.Property(e => e.MaNganh)
                     .HasMaxLength(5)
                     .IsUnicode(false)
@@ -556,6 +562,11 @@ namespace API.Models
                     .IsUnicode(false)
                     .HasColumnName("tenLop")
                     .IsFixedLength(true);
+
+                entity.HasOne(d => d.MaDtNavigation)
+                    .WithMany(p => p.Lops)
+                    .HasForeignKey(d => d.MaDt)
+                    .HasConstraintName("fk_Lop_HeDaoTao");
 
                 entity.HasOne(d => d.MaNganhNavigation)
                     .WithMany(p => p.Lops)
@@ -920,7 +931,7 @@ namespace API.Models
                     .IsFixedLength(true);
 
                 entity.Property(e => e.MaSv)
-                    .HasMaxLength(10)
+                    .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("maSV")
                     .IsFixedLength(true);
@@ -936,7 +947,7 @@ namespace API.Models
                 entity.HasOne(d => d.MaSvNavigation)
                     .WithMany(p => p.PhieuDangKies)
                     .HasForeignKey(d => d.MaSv)
-                    .HasConstraintName("fk_PDK_SV");
+                    .HasConstraintName("fk_pdk_sv");
             });
 
             modelBuilder.Entity<PhucKhao>(entity =>
@@ -953,7 +964,7 @@ namespace API.Models
                     .IsFixedLength(true);
 
                 entity.Property(e => e.MaSv)
-                    .HasMaxLength(10)
+                    .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("maSV")
                     .IsFixedLength(true);
@@ -965,18 +976,18 @@ namespace API.Models
                 entity.HasOne(d => d.MaSvNavigation)
                     .WithMany(p => p.PhucKhaos)
                     .HasForeignKey(d => d.MaSv)
-                    .HasConstraintName("fk_PhucKhao_SinhVien");
+                    .HasConstraintName("fk_phuckhao_sinhvien");
             });
 
             modelBuilder.Entity<SinhVien>(entity =>
             {
                 entity.HasKey(e => e.MaSv)
-                    .HasName("PK__SinhVien__7A227A64B84AEF21");
+                    .HasName("PK__SinhVien__7A227A645225EFDE");
 
                 entity.ToTable("SinhVien");
 
                 entity.Property(e => e.MaSv)
-                    .HasMaxLength(10)
+                    .HasMaxLength(15)
                     .IsUnicode(false)
                     .HasColumnName("maSV")
                     .IsFixedLength(true);
@@ -1023,6 +1034,12 @@ namespace API.Models
                     .HasColumnName("ngaysinh");
 
                 entity.Property(e => e.Phai).HasColumnName("phai");
+
+                entity.Property(e => e.Sdt)
+                    .HasMaxLength(11)
+                    .IsUnicode(false)
+                    .HasColumnName("sdt")
+                    .IsFixedLength(true);
 
                 entity.Property(e => e.TenSv)
                     .IsRequired()

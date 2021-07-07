@@ -47,10 +47,10 @@
             <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Địa chỉ:     "/>
             <!--dong 2-->
-            <TextBox Grid.Row="0" Grid.Column="1"  />
-            <TextBox Grid.Row="1" Grid.Column="1" />
-            <TextBox Grid.Row="2" Grid.Column="1" />
-            <TextBox Grid.Row="3" Grid.Column="1" />
+            <TextBox Grid.Row="0" Grid.Column="1" Name="txt_masv" PreviewTextInput="NumberValidationTextBox" />
+            <TextBox Grid.Row="1" Grid.Column="1" Name="txt_ten"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="txt_email"/>
+            <TextBox Grid.Row="3" Grid.Column="1" Name="txt_diachi"/>
             <!--cot 3-->
             <TextBlock Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Điện thoại:     "/>
@@ -61,48 +61,48 @@
             <TextBlock Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Giới tính:     "/>
             <!--dong4-->
-            <TextBox Grid.Row="0" Grid.Column="4" />
-            <TextBox Grid.Row="1" Grid.Column="4"/>
-            <TextBox Grid.Row="2" Grid.Column="4"/>
-            <ComboBox Grid.Row="3" Grid.Column="4"
-  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                <ComboBoxItem>
-                    Nam
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    Nữ
-                </ComboBoxItem>
+            <TextBox Grid.Row="0" Grid.Column="4" Name="txt_sdt" PreviewTextInput="NumberValidationTextBox"/>
+            <DatePicker Grid.Row="1" Grid.Column="4" 
+                 Width="180"
+                    Name="date_ngaysinh"
+                    Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
+            <TextBox Grid.Row="2" Grid.Column="4" Name="txt_matkhau"/>
+            <ComboBox Name="cmb_phai" Grid.Row="3" Grid.Column="4" DisplayMemberPath="TenGT" SelectedValuePath="ID"
+  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.ColumnSpan="2" Margin="0,0,10,0" VerticalAlignment="Stretch">
             </ComboBox>
             <!--dong5-->
             <TextBlock Grid.Row="0" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="CMND:     "/>
             <TextBlock Grid.Row="1" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right"
-    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Khoa:     "/>
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Lớp:     "/>
             <TextBlock Grid.Row="2" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Hình ảnh:     "/>
             <TextBlock Grid.Row="3" Grid.Column="6" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Trạng thái:     "/>
 
             <!--dong6-->
-            <TextBox Grid.Row="0" Grid.Column="7"/>
-            <ComboBox Grid.Row="1" Grid.Column="7"
+            <TextBox Grid.Row="0" Grid.Column="7" Name="txt_cmnd" PreviewTextInput="NumberValidationTextBox"/>
+            <ComboBox Name="cmb_Lop" DisplayMemberPath="MaLop" SelectedValuePath="MaLop" Grid.Row="1" Grid.Column="7"
   Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                <ComboBoxItem>
-                    CNTT
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    QTKD
-                </ComboBoxItem>
             </ComboBox>
-            <ToggleButton Grid.Column="7" Grid.Row="2"
+            <!--hinhanh-->
+            <Grid Grid.Row="2" Grid.Column="7">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition></ColumnDefinition>
+                    <ColumnDefinition></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <ToggleButton Name="btn_hinhanh" Grid.Column="0" Click="btn_chonanh"
   Style="{StaticResource MaterialDesignFlatToggleButton}"
   ToolTip="MaterialDesignFlatToggleButton">
-                <materialDesign:PackIcon
+                    <materialDesign:PackIcon
     Kind="Paperclip"
     Height="15"
     Width="21" />
-            </ToggleButton>
-            <ToggleButton Grid.Column="7" Grid.Row="3"
+                </ToggleButton>
+                <Image Grid.Column="1"  Name="imgHinh" Margin="5"/>
+            </Grid>
+
+            <ToggleButton Name="btn_trangthai" IsChecked="False" Grid.Column="7" Grid.Row="3"
   Style="{StaticResource MaterialDesignSwitchToggleButton}"
   ToolTip="Default ToggleButton Style" />
 
@@ -112,9 +112,11 @@
 
         <materialDesign:Card VerticalAlignment="Center" HorizontalAlignment="Center">
             <WrapPanel>
-                <Button  Content="Thêm" Margin="5" ></Button>
-                <Button Content="Sửa" Margin="5" ></Button>
-                <Button  Content="Xóa" Margin="5" ></Button>
+                <Button  Content="Thêm" Margin="5" Click="btn_them" ></Button>
+                <Button Content="Sửa" Margin="5" Click="btn_sua" ></Button>
+                <Button  Content="Xóa" Margin="5" Click="btn_xoa" ></Button>
+                <Button  Content="Làm Mới" Margin="5" Click="btn_lammoi" ></Button>
+                <Button  Content="Test Post Image" Margin="5" Click="btn_test" ></Button>
             </WrapPanel>
         </materialDesign:Card>
 
@@ -127,18 +129,17 @@
         </materialDesign:Card>-->
         <materialDesign:Card  Margin="5" HorizontalAlignment="Center">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView >
+                <ListView Name="listsinhvien" SelectedValuePath="MaSv" SelectionChanged="litsinhvien_SelectionChanged" >
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Mã NV " ></GridViewColumn>
-                            <GridViewColumn Header="Họ Và Tên" ></GridViewColumn>
-                            <GridViewColumn Header="Email"></GridViewColumn>
-                            <GridViewColumn Header="Địa chỉ" ></GridViewColumn>
-                            <GridViewColumn Header="Điện Thoại" ></GridViewColumn>
-                            <GridViewColumn Header="Ngày Sinh" ></GridViewColumn>
-                            <GridViewColumn Header="Mật Khẩu" ></GridViewColumn>
-                            <GridViewColumn Header="Trạng thái" ></GridViewColumn>
-                            <GridViewColumn Header="Chức vụ" ></GridViewColumn>
+                            <GridViewColumn Header="Mã NV " DisplayMemberBinding="{Binding MaSv}" ></GridViewColumn>
+                            <GridViewColumn Header="Họ Và Tên" DisplayMemberBinding="{Binding TenSv}"></GridViewColumn>
+                            <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"></GridViewColumn>
+                            <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding Diachi}" ></GridViewColumn>
+                            <GridViewColumn Header="Phái" DisplayMemberBinding="{Binding Phai}"></GridViewColumn>
+                            <GridViewColumn Header="Điện Thoại" DisplayMemberBinding="{Binding Sdt}"></GridViewColumn>
+                            <GridViewColumn Header="Ngày Sinh" DisplayMemberBinding="{Binding Ngaysinh}"></GridViewColumn>
+                            <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding Trangthai}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

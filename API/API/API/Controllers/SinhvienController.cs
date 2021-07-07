@@ -49,7 +49,7 @@ namespace API.Controllers
             dc.SaveChanges();
             return Ok();
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult putSinhvien(Models.SinhVien s)
         {
             if (ModelState.IsValid == false) return BadRequest();
@@ -65,7 +65,7 @@ namespace API.Controllers
                 temp.Hinhanh = s.Hinhanh;
                 temp.Matkhau = s.Matkhau;
                 temp.MaLop = s.MaLop;
-
+            temp.Trangthai = s.Trangthai;
 
             dc.SaveChanges();
             return Ok();

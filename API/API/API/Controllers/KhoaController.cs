@@ -56,16 +56,16 @@ namespace API.Controllers
 			await db.SaveChangesAsync();
 			return Ok();
 		}
-		[HttpPut]
+		[HttpPut("{id}")]
 		public async Task<IActionResult>PutKhoa(Khoa khoa)
 		{
-			Khoa ob = await db.Khoas.FindAsync(khoa);
+			Khoa ob = await db.Khoas.FindAsync(khoa.MaKhoa);
 			if (ob == null)
 				return NotFound();
-			ob.MaKhoa = khoa.MaKhoa;
+			
 			ob.TenKhoa = khoa.TenKhoa;
 			ob.TenVietTat = khoa.TenVietTat;
-		await db.SaveChangesAsync();
+			await db.SaveChangesAsync();
 			return Ok();
 
 

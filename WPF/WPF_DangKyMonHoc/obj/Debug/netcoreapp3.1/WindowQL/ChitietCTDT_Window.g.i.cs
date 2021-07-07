@@ -56,7 +56,7 @@ namespace Wpf_DangKyMonHoc.DetailWindows {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/Wpf_DangKyMonHoc;V1.0.0.0;component/windowql/chitietctdt_window.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/Wpf_DangKyMonHoc;component/windowql/chitietctdt_window.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\WindowQL\ChitietCTDT_Window.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

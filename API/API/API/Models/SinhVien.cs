@@ -24,6 +24,7 @@ namespace API.Models
         public string Matkhau { get; set; }
         public bool Trangthai { get; set; }
         public string MaLop { get; set; }
+        public string Sdt { get; set; }
 
         public virtual Lop MaLopNavigation { get; set; }
         public virtual ICollection<PhieuDangKy> PhieuDangKies { get; set; }

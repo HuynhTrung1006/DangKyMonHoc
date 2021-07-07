@@ -15,8 +15,7 @@
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
       d:DesignHeight="450" d:DesignWidth="800"
-      Title="QuanLyLop">
-
+      Title="QuanLyLop" Loaded="Window_Loaded">
     <StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -27,7 +26,7 @@
                 <ColumnDefinition ></ColumnDefinition>
                 <ColumnDefinition Width="10"></ColumnDefinition>
                 <ColumnDefinition ></ColumnDefinition>
-                <ColumnDefinition ></ColumnDefinition>
+               
                 <ColumnDefinition Width="20"></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
@@ -39,43 +38,36 @@
             </Grid.RowDefinitions>
             <!--cot 1-->
             <TextBlock  Grid.Row="0" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"
-    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã Lớp:     "/>
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã Lớp:     " />
             <TextBlock Grid.Row="1" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Tên Lớp:    "/>
-            
+            <TextBlock Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Sỉ số Lớp:    "/>
             <!--dong 2-->
-            <TextBox Grid.Row="0" Grid.Column="1"  />
-            <TextBox Grid.Row="1" Grid.Column="1" />
-           
+            <TextBox Grid.Row="0" Grid.Column="1" Name="txt_malop"  PreviewTextInput="NumberValidationTextBox"/>
+            <TextBox Grid.Row="1" Grid.Column="1" Name="txt_tenlop" />
+            <TextBox Grid.Row="2" Grid.Column="1" Name="txt_siso" PreviewTextInput="NumberValidationTextBox" />
             <!--cot 3-->
             <TextBlock Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Ngành:     "/>
             <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Niên Khóa:     "/>
-            
+            <TextBlock Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Hệ Đào Tạo:     "/>
             <!--dong4-->
             <ComboBox Grid.Row="0" Grid.Column="4"
-  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                <ComboBoxItem>
-                    CNNT
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    DDT
-                </ComboBoxItem>
+  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmb_nganh" DisplayMemberPath="TenNganh" SelectedValuePath="MaNganh">
             </ComboBox>
             <ComboBox Grid.Row="1" Grid.Column="4"
-  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                <ComboBoxItem>
-                    2017
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    2021
-                </ComboBoxItem>
+  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmb_nienkhoa" DisplayMemberPath="TenNk" SelectedValuePath="MaNk">
+            </ComboBox>
+            <ComboBox Grid.Row="2" Grid.Column="4"
+  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmb_hedaotao" DisplayMemberPath="TenDt" SelectedValuePath="MaDt">
             </ComboBox>
             <Button Grid.Column="6" Grid.Row="0" Margin="1" VerticalAlignment="Center"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     Background="WhiteSmoke" Width="100"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="btn_Nganh">
+    ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="btn_Khoa">
                 new
             </Button>
             <Button Grid.Column="6" Grid.Row="1" Margin="1" VerticalAlignment="Center"
@@ -84,14 +76,22 @@
     ToolTip="Resource name: MaterialDesignRaisedLightButton">
                 new
             </Button>
+            <Button Grid.Column="6" Grid.Row="2" Margin="1" VerticalAlignment="Center"
+    Style="{StaticResource MaterialDesignRaisedLightButton}"
+    Background="WhiteSmoke" Click="btn_HDT" Width="100"
+    ToolTip="Resource name: MaterialDesignRaisedLightButton">
+                new
+            </Button>
         </Grid>
 
 
         <materialDesign:Card VerticalAlignment="Center" HorizontalAlignment="Center">
             <WrapPanel>
-                <Button  Content="Thêm" Margin="5" ></Button>
-                <Button Content="Sửa" Margin="5" ></Button>
-                <Button  Content="Xóa" Margin="5" ></Button>
+                <Button  Content="Thêm" Margin="5" Click="btn_them" ></Button>
+                <Button Content="Sửa" Margin="5" Click="btn_sua" ></Button>
+                <Button  Content="Xóa" Margin="5" Click="btn_xoa" ></Button>
+                <Button Content="Làm Mới" Margin="5" Click="btn_lammoi"></Button>
+                
             </WrapPanel>
         </materialDesign:Card>
 
@@ -104,15 +104,15 @@
         </materialDesign:Card>-->
         <materialDesign:Card  Margin="5" HorizontalAlignment="Center">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView >
+                <ListView Name="listLop" SelectedValuePath="MaLop" SelectionChanged="listLop_SelectionChanged">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Mã Lớp " ></GridViewColumn>
-                            <GridViewColumn Header="Tên Lớp" ></GridViewColumn>
-                            <GridViewColumn Header="Sỉ số"></GridViewColumn>
-                            <GridViewColumn Header="Ngành" ></GridViewColumn>
-                            <GridViewColumn Header="Niên Khóa" ></GridViewColumn>
-                            
+                            <GridViewColumn Header="Mã Lớp " DisplayMemberBinding="{Binding MaLop}" ></GridViewColumn>
+                            <GridViewColumn Header="Tên Lớp" DisplayMemberBinding="{Binding TenLop}" ></GridViewColumn>
+                            <GridViewColumn Header="Sỉ số" DisplayMemberBinding="{Binding Siso}"></GridViewColumn>
+                            <GridViewColumn Header="Ngành" DisplayMemberBinding="{Binding MaNganh}" ></GridViewColumn>
+                            <GridViewColumn Header="Niên Khóa" DisplayMemberBinding="{Binding MaNk}"></GridViewColumn>
+                            <GridViewColumn Header="Hệ đào tạo" DisplayMemberBinding="{Binding MaDt}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

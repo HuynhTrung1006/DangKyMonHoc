@@ -14,7 +14,8 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="QuanLyKhoa" Height="450" Width="800">
+        Loaded="Window_Loaded"
+        Title="QuanLyKhoa" Height="450" Width="850">
     <StackPanel>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -22,14 +23,14 @@
                 <ColumnDefinition Width="10"></ColumnDefinition>
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
-            <materialDesign:Card Grid.Column="0" HorizontalAlignment="Stretch">
+            <materialDesign:Card Grid.Column="0" Margin="5" HorizontalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView >
+                    <ListView HorizontalAlignment="Center" Name="listKhoa" SelectedValuePath="MaKhoa" SelectionChanged="listKhoa_SelectionChanged">
                         <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Mã Khoa " ></GridViewColumn>
-                                <GridViewColumn Header="Tên Khoa" ></GridViewColumn>
-                                <GridViewColumn Header="Tên Viết Tắt"></GridViewColumn>
+                            <GridView >
+                                <GridViewColumn Header="Mã khoa " DisplayMemberBinding="{Binding MaKhoa}" ></GridViewColumn>
+                                <GridViewColumn Header="Tên khoa" DisplayMemberBinding="{Binding TenKhoa}"></GridViewColumn>
+                                <GridViewColumn Header="Tên Viết Tắt" DisplayMemberBinding="{Binding TenVietTat}"></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -51,21 +52,25 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã Khoa:"/>
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã Nganh:"/>
                     <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Tên Khoa:"/>
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Tên Nganh:"/>
                     <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Tên viết tắt:"/>
-                    <TextBox Margin="0 0 0 5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="125" />
-                    <TextBox Margin="0 0 0 5" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="125" />
-                    <TextBox Margin="0 0 0 5" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="125" />
+                    <TextBox Name="txt_maKhoa" Margin="0 0 0 5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="125" />
+                    <TextBox Name="txt_tenKhoa" Margin="0 0 0 5" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="125" />
+                    <TextBox Name="txt_viettat" Margin="0 0 0 5" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Width="125" />
                     <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,37,0">
                         <WrapPanel  >
-                            <Button  Content="Thêm" ></Button>
+                            <Button  Content="Thêm" Click="btn_them" ></Button>
                             <TextBlock Text=" " Width="5"></TextBlock>
-                            <Button Content="Sửa" ></Button>
+                            <Button Content="Sửa" Click="btn_sua"></Button>
                             <TextBlock Text=" " Width="5"></TextBlock>
-                            <Button  Content="Xóa"></Button>
+                            <Button  Content="Xóa" Click="btn_xoa"></Button>
+                            <TextBlock Text=" " Width="5"></TextBlock>
+                            <Button  Content="Làm Mới" Click="btn_lamoi"></Button>
+                            <TextBlock Text=" " Width="5"></TextBlock>
+                            <Button  Content="Thoát" Click="btn_thoat"></Button>
                         </WrapPanel>
                     </materialDesign:Card>
                 </Grid>

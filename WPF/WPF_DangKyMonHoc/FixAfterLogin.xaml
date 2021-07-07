@@ -24,7 +24,7 @@
                 <materialDesign:PopupBox  Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel Width="120">
                         <Button Content="Cài đặt"/>
-                        <Button Content="Tài khoản"/>
+                        <Button Content="Tài Khoản"/>
                         <Separator/>
                         <Button Content="Logout"/>
                     </StackPanel>

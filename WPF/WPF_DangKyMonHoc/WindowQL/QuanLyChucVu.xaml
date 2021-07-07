@@ -14,9 +14,11 @@
      TextOptions.TextRenderingMode="Auto"
      Background="{DynamicResource MaterialDesignPaper}"
      FontFamily="{DynamicResource MaterialDesignFont}"
-        Title="QuanLyChucVu" Height="450" Width="800">
+        Loaded="Window_Loaded"
+        Title="QuanLyChucVu" Height="450" Width="850">
     <StackPanel>
         <Grid>
+            
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
                 <ColumnDefinition Width="10"></ColumnDefinition>
@@ -24,11 +26,11 @@
             </Grid.ColumnDefinitions>
             <materialDesign:Card Grid.Column="0" HorizontalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView >
+                    <ListView Name="listChucVu" SelectedValuePath="MaChucVu" SelectionChanged="listChucVu_SelectionChanged">
                         <ListView.View>
                             <GridView>
-                                <GridViewColumn Header="Mã chức vụ " ></GridViewColumn>
-                                <GridViewColumn Header="Tên chức vụ" ></GridViewColumn>
+                                <GridViewColumn Header="Mã chức vụ " DisplayMemberBinding="{Binding MaChucVu}" ></GridViewColumn>
+                                <GridViewColumn Header="Tên chức vụ" DisplayMemberBinding="{Binding TenChucVu}" ></GridViewColumn>
                             </GridView>
                         </ListView.View>
                     </ListView>
@@ -52,16 +54,20 @@
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã chức vụ:"/>
                     <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Tên chức vụ:"/>
-                    <TextBox Margin="0 0 0 5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="125" />
-                    <TextBox Margin="0 0 0 5" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="125" />
+                    <TextBox Margin="0 0 0 5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="125" Name="txt_macv" />
+                    <TextBox Margin="0 0 0 5" Grid.Row="1" Grid.Column="1" HorizontalAlignment="Left" Width="125" Name="txt_tencv" />
                     <materialDesign:Card HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" Margin="0,0,37,0">
                     <WrapPanel  >
-                        <Button  Content="Thêm" ></Button>
+                        <Button  Content="Thêm" Click="btn_themChucVu"></Button>
                             <TextBlock Text=" " Width="5"></TextBlock>
-                        <Button Content="Sửa" ></Button>
+                        <Button Content="Sửa" Click="btn_suaChucVu" ></Button>
                             <TextBlock Text=" " Width="5"></TextBlock>
-                            <Button  Content="Xóa"></Button>
-                    </WrapPanel>
+                        <Button  Content="Xóa" Click="btn_xoaChucVu"></Button>
+                            <TextBlock Text=" " Width="5"></TextBlock>
+                            <Button  Content="Làm Mới" Click="btn_lammoi"></Button>
+                            <TextBlock Text=" " Width="5"></TextBlock>
+                            <Button  Content="Thoát" Click="btn_thoat"></Button>
+                        </WrapPanel>
                     </materialDesign:Card>
                 </Grid>
             </StackPanel>

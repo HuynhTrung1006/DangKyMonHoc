@@ -57,7 +57,7 @@ namespace API.Controllers
 			await db.SaveChangesAsync();
 			return Ok();
 		}
-		[HttpPut]
+		[HttpPut("{id}")]
 
 		public async Task<IActionResult> PutGiangVien(GiangVien a)
 		{

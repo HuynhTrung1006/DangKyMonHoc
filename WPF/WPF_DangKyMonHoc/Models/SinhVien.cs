@@ -20,7 +20,7 @@ namespace Wpf_DangKyMonHoc.Models
         public string Matkhau { get; set; }
         public string MaLop { get; set; }
         public bool Trangthai { get; set; }
+        public string Sdt { get; set; }
 
-         
     }
 }

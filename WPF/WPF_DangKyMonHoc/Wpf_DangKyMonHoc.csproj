@@ -17,7 +17,13 @@
 
   <ItemGroup>
 
+    <PackageReference Include="HamburgerMenu" Version="0.1.0" />
+
     <PackageReference Include="MaterialDesignThemes" Version="4.1.0" />
+
+    <PackageReference Include="Microsoft.AspNet.WebApi.Client" Version="5.2.7" />
+
+    <PackageReference Include="Microsoft.AspNetCore.Http.Features" Version="5.0.7" />
   </ItemGroup>
 
 </Project>

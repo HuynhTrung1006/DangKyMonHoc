@@ -41,9 +41,21 @@
       "frameworks": {
         "netcoreapp3.1": {
           "dependencies": {
+            "HamburgerMenu": {
+              "target": "Package",
+              "version": "[0.1.0, )"
+            },
             "MaterialDesignThemes": {
               "target": "Package",
               "version": "[4.1.0, )"
+            },
+            "Microsoft.AspNet.WebApi.Client": {
+              "target": "Package",
+              "version": "[5.2.7, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.7, )"
             }
           },
           "imports": [

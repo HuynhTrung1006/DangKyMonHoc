@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -26,17 +27,14 @@ namespace API.Controllers
             if (ModelState.IsValid == false) return BadRequest();
             Models.Lop temp = dc.Lops.Find(l.MaLop);
             if (temp != null) return BadRequest();
-            Models.Lop a = new Models.Lop
-            {
-                MaLop = l.MaLop,
-                TenLop = l.TenLop,
-                Siso=l.Siso,
-                MaNganh=l.MaNganh,
-                MaNk=l.MaNk
-                
 
-            };
-            dc.Lops.Add(a);
+            Nganh manganh = dc.Nganhs.Where(x => x.MaNganh.Contains(l.MaNganh)).FirstOrDefault();
+            var makhoa = dc.Khoas.Where(x => x.MaKhoa.Contains(manganh.MaKhoa)).FirstOrDefault();
+            string ma_hedaotao = l.MaDt.Substring(0, 1);
+
+
+            l.MaLop = ma_hedaotao + l.MaNk.Trim() + "_" + makhoa.TenVietTat.Trim() + l.MaLop.Trim();
+            dc.Lops.Add(l);
             dc.SaveChanges();
             return Ok();
 
@@ -54,17 +52,15 @@ namespace API.Controllers
             dc.SaveChanges();
             return Ok();
         }
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult putLop(Models.Lop l)
         {
             if (ModelState.IsValid == false) return BadRequest();
             Models.Lop temp = dc.Lops.Find(l.MaLop);
             if (temp == null) return NotFound();
-            temp.MaLop = l.MaLop;
-            temp.TenLop = l.TenLop;
+            
             temp.Siso = l.Siso;
-            temp.MaNganh = l.MaNganh;
-            temp.MaNk = l.MaNk;
+           
 
 
             dc.SaveChanges();

@@ -12,7 +12,7 @@ namespace Wpf_DangKyMonHoc.Models
         public string NienKhoa { get; set; }
         public int TongSoTinChi { get; set; }
         public string MaDt { get; set; }
-        public string MaNganh { get; set; }
+        public string MaKhoa { get; set; }
 
       
     }

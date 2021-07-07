@@ -19,7 +19,8 @@ namespace Wpf_DangKyMonHoc.Models
         public string Hinhanh { get; set; }
         public string MaChucVu { get; set; }
         public string MaKhoa { get; set; }
+        public bool Phai { get; set; }
+        public string Cmnd { get; set; }
 
-       
     }
 }
