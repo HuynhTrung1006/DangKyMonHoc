@@ -24,14 +24,12 @@ namespace Wpf_DangKyMonHoc
 
 		private void BtnOpenMenu_Click(object sender, RoutedEventArgs e)
 		{
-			BtnOpenMenu.Visibility = Visibility.Collapsed;
-			BtnCloseMenu.Visibility = Visibility.Visible;
+			
 		}
 
 		private void BtnCloseMenu_Click(object sender, RoutedEventArgs e)
 		{
-			BtnOpenMenu.Visibility = Visibility.Visible;
-			BtnCloseMenu.Visibility = Visibility.Collapsed;
+			
 		}
 
 		private void btnQuanLyA_Click(object sender, RoutedEventArgs e)

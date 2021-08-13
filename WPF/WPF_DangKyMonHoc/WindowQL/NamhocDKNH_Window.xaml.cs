@@ -22,6 +22,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
         public NamhocDKNH_Window()
         {
 			InitializeComponent();
+			getLoad();
 		}
 		public void getLoad()
 		{

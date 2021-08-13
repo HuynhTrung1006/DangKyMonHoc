@@ -79,15 +79,15 @@ namespace API.Models
                 entity.Property(e => e.Ketqua).HasColumnName("ketqua");
 
                 entity.Property(e => e.MaLmh)
-                    .HasMaxLength(10)
+                    .HasMaxLength(25)
                     .IsUnicode(false)
                     .HasColumnName("maLMH")
                     .IsFixedLength(true);
 
-                entity.Property(e => e.MaPdk)
-                    .HasMaxLength(5)
+                entity.Property(e => e.Masv)
+                    .HasMaxLength(15)
                     .IsUnicode(false)
-                    .HasColumnName("maPDK")
+                    .HasColumnName("masv")
                     .IsFixedLength(true);
 
                 entity.Property(e => e.Trangthai).HasColumnName("trangthai");
@@ -97,10 +97,10 @@ namespace API.Models
                     .HasForeignKey(d => d.MaLmh)
                     .HasConstraintName("fk_BD_LMH");
 
-                entity.HasOne(d => d.MaPdkNavigation)
+                entity.HasOne(d => d.MasvNavigation)
                     .WithMany(p => p.BangDiems)
-                    .HasForeignKey(d => d.MaPdk)
-                    .HasConstraintName("fk_BD_PDK");
+                    .HasForeignKey(d => d.Masv)
+                    .HasConstraintName("fk_BD_SV");
             });
 
             modelBuilder.Entity<ChiTietCtdt>(entity =>
@@ -155,11 +155,7 @@ namespace API.Models
                     .HasColumnName("maMH")
                     .IsFixedLength(true);
 
-                entity.Property(e => e.MaPdk)
-                    .HasMaxLength(5)
-                    .IsUnicode(false)
-                    .HasColumnName("maPDK")
-                    .IsFixedLength(true);
+                entity.Property(e => e.MaPdk).HasColumnName("maPDK");
 
                 entity.Property(e => e.Trangthai).HasColumnName("trangthai");
 
@@ -171,7 +167,7 @@ namespace API.Models
                 entity.HasOne(d => d.MaPdkNavigation)
                     .WithMany(p => p.ChiTietPdks)
                     .HasForeignKey(d => d.MaPdk)
-                    .HasConstraintName("fk_CTPDK_PDK");
+                    .HasConstraintName("fk_Chitietpdk_PDK");
             });
 
             modelBuilder.Entity<ChiTietPhucKhao>(entity =>
@@ -536,12 +532,6 @@ namespace API.Models
                     .HasColumnName("maLop")
                     .IsFixedLength(true);
 
-                entity.Property(e => e.MaDt)
-                    .HasMaxLength(10)
-                    .IsUnicode(false)
-                    .HasColumnName("maDT")
-                    .IsFixedLength(true);
-
                 entity.Property(e => e.MaNganh)
                     .HasMaxLength(5)
                     .IsUnicode(false)
@@ -563,11 +553,6 @@ namespace API.Models
                     .HasColumnName("tenLop")
                     .IsFixedLength(true);
 
-                entity.HasOne(d => d.MaDtNavigation)
-                    .WithMany(p => p.Lops)
-                    .HasForeignKey(d => d.MaDt)
-                    .HasConstraintName("fk_Lop_HeDaoTao");
-
                 entity.HasOne(d => d.MaNganhNavigation)
                     .WithMany(p => p.Lops)
                     .HasForeignKey(d => d.MaNganh)
@@ -582,12 +567,12 @@ namespace API.Models
             modelBuilder.Entity<LopMonHoc>(entity =>
             {
                 entity.HasKey(e => e.MaLmh)
-                    .HasName("PK__Lop_MonH__26213EF15D087599");
+                    .HasName("PK__Lop_MonH__26213EF1DC4EC933");
 
                 entity.ToTable("Lop_MonHoc");
 
                 entity.Property(e => e.MaLmh)
-                    .HasMaxLength(10)
+                    .HasMaxLength(25)
                     .IsUnicode(false)
                     .HasColumnName("maLMH")
                     .IsFixedLength(true);
@@ -635,7 +620,7 @@ namespace API.Models
                     .IsFixedLength(true);
 
                 entity.Property(e => e.MaLmh)
-                    .HasMaxLength(10)
+                    .HasMaxLength(25)
                     .IsUnicode(false)
                     .HasColumnName("maLMH")
                     .IsFixedLength(true);
@@ -684,12 +669,6 @@ namespace API.Models
                     .HasColumnName("maTQ")
                     .IsFixedLength(true);
 
-                entity.Property(e => e.MaTtmh)
-                    .HasMaxLength(5)
-                    .IsUnicode(false)
-                    .HasColumnName("maTTMH")
-                    .IsFixedLength(true);
-
                 entity.Property(e => e.Sotinchi).HasColumnName("sotinchi");
 
                 entity.Property(e => e.TenMh)
@@ -703,11 +682,6 @@ namespace API.Models
                     .WithMany(p => p.MonHocs)
                     .HasForeignKey(d => d.MaKhoi)
                     .HasConstraintName("fk_MonHoc_KhoiKienThuc");
-
-                entity.HasOne(d => d.MaTtmhNavigation)
-                    .WithMany(p => p.MonHocs)
-                    .HasForeignKey(d => d.MaTtmh)
-                    .HasConstraintName("fk_MonHoc_TTMonHoc");
             });
 
             modelBuilder.Entity<MonHocDuocMo>(entity =>
@@ -726,6 +700,12 @@ namespace API.Models
                     .HasMaxLength(10)
                     .IsUnicode(false)
                     .HasColumnName("maMH")
+                    .IsFixedLength(true);
+
+                entity.Property(e => e.NkapDung)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("NKApDung")
                     .IsFixedLength(true);
 
                 entity.Property(e => e.Soluong).HasColumnName("soluong");
@@ -882,10 +862,21 @@ namespace API.Models
                     .HasColumnName("maNK")
                     .IsFixedLength(true);
 
+                entity.Property(e => e.MaCtdt)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("maCTDT")
+                    .IsFixedLength(true);
+
                 entity.Property(e => e.TenNk)
                     .IsRequired()
                     .HasMaxLength(10)
                     .HasColumnName("tenNK");
+
+                entity.HasOne(d => d.MaCtdtNavigation)
+                    .WithMany(p => p.NienKhoas)
+                    .HasForeignKey(d => d.MaCtdt)
+                    .HasConstraintName("fk_nienkhoa_CTDT");
             });
 
             modelBuilder.Entity<NienKhoaCdk>(entity =>
@@ -920,14 +911,16 @@ namespace API.Models
             modelBuilder.Entity<PhieuDangKy>(entity =>
             {
                 entity.HasKey(e => e.MaPdk)
-                    .HasName("PK__PhieuDan__2719D84284EE2D51");
+                    .HasName("PK__PhieuDan__2719D8426538DAA2");
 
                 entity.ToTable("PhieuDangKy");
 
-                entity.Property(e => e.MaPdk)
-                    .HasMaxLength(5)
+                entity.Property(e => e.MaPdk).HasColumnName("maPDK");
+
+                entity.Property(e => e.MaCdk)
+                    .HasMaxLength(10)
                     .IsUnicode(false)
-                    .HasColumnName("maPDK")
+                    .HasColumnName("maCDK")
                     .IsFixedLength(true);
 
                 entity.Property(e => e.MaSv)
@@ -943,6 +936,11 @@ namespace API.Models
                 entity.Property(e => e.Ngaylap)
                     .HasColumnType("date")
                     .HasColumnName("ngaylap");
+
+                entity.HasOne(d => d.MaCdkNavigation)
+                    .WithMany(p => p.PhieuDangKies)
+                    .HasForeignKey(d => d.MaCdk)
+                    .HasConstraintName("fk_PDK_CDK");
 
                 entity.HasOne(d => d.MaSvNavigation)
                     .WithMany(p => p.PhieuDangKies)

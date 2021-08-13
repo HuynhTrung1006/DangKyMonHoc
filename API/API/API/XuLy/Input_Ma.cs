@@ -14,12 +14,15 @@ namespace API.XuLy
         public string maSinhVien(string masv, string malop)
         {
             var lop = db.Lops.FirstOrDefault(x => x.MaLop == malop);
-            var nganh = db.Nganhs.FirstOrDefault(x => x.MaNganh == lop.MaNganh);
-            var ctdt = db.ChuongTrinhDaoTaos.FirstOrDefault(x => x.MaNganh == nganh.MaNganh);
-            var he = db.HeDaoTaos.FirstOrDefault(x => x.MaDt == lop.MaDt);
+
+            //var ctdt = db.ChuongTrinhDaoTaos.FirstOrDefault(x => x.MaCtdt == lop.MaCtdt);
+            var nk = db.NienKhoas.Find(lop.MaNk);
+            var ctdt = db.ChuongTrinhDaoTaos.Find(nk.MaCtdt);
+            var nganh = db.Nganhs.FirstOrDefault(x => x.MaNganh == ctdt.MaNganh);
+            var he = db.HeDaoTaos.FirstOrDefault(x => x.MaDt == ctdt.MaDt);
 
             var nienkhoa = db.NienKhoas.FirstOrDefault(x => x.MaNk == lop.MaNk);
-            masv = he.MaDt.Trim() + nganh.MaKhoa.Trim() + nienkhoa.MaNk.Trim() + masv.Trim();
+            masv = he.MaDt.Trim() + nganh.MaKhoa.Trim() + nienkhoa.MaNk.Trim().Substring(0,2) + masv.Trim();
 
             return masv;
         }

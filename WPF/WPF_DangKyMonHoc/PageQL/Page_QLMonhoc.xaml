@@ -20,10 +20,11 @@
                     <ColumnDefinition ></ColumnDefinition>
                     <ColumnDefinition ></ColumnDefinition>
                     <ColumnDefinition Width="50"></ColumnDefinition>
-                    
+
                     <ColumnDefinition Width="20"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
                     <RowDefinition></RowDefinition>
@@ -39,11 +40,12 @@
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Số tín chỉ:     "/>
                 <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Hệ số học phần:     "/>
+
                 <!--dong 2-->
-                <TextBox Grid.Row="0" Grid.Column="1"  />
-                <TextBox Grid.Row="1" Grid.Column="1" />
-                <TextBox Grid.Row="2" Grid.Column="1" />
-                <TextBox Grid.Row="3" Grid.Column="1" />
+                <TextBox Grid.Row="0" Grid.Column="1" Name="txtMamonHoc"  />
+                <TextBox Grid.Row="1" Grid.Column="1" Name="txtTenMonhoc"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Name="txtSotinchi"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Name="txtHesoHP"/>
                 <!--cot 3-->
                 <TextBlock Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Môn tiên quyết:     "/>
@@ -54,20 +56,14 @@
                 <TextBlock Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Khối kiến thức:    "/>
                 <!--dong4-->
-                <TextBox Grid.Row="0" Grid.Column="4" />
-                <TextBox Grid.Row="1" Grid.Column="4"/>
-                <ComboBox Grid.Row="2" Grid.Column="4"></ComboBox>
-                <ComboBox Grid.Row="3" Grid.Column="4"
+                <TextBox Grid.Row="0" Grid.Column="4" Name="txtMonTQ" />
+                <TextBox Grid.Row="1" Grid.Column="4" Name="txtMonSH"/>
+                <ComboBox Grid.Row="2" Grid.Column="4" Name="CboThucHanh" SelectedValuePath="ID" DisplayMemberPath="TenThuocTinh"></ComboBox>
+                <ComboBox Grid.Row="3" Grid.Column="4" Name="cboKhoiKienThuc" SelectedValuePath="MaKhoi" DisplayMemberPath="MaKhoi"
   Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                    <ComboBoxItem>
-                        Thạc sĩ
-                    </ComboBoxItem>
-                    <ComboBoxItem>
-                        Tiến sĩ
-                    </ComboBoxItem>
                 </ComboBox>
                 <!--dong5-->
-               
+
 
 
             </Grid>
@@ -75,9 +71,11 @@
 
             <materialDesign:Card VerticalAlignment="Center" HorizontalAlignment="Center">
                 <WrapPanel>
-                    <Button  Content="Thêm" Margin="5" ></Button>
-                    <Button Content="Sửa" Margin="5" ></Button>
-                    <Button  Content="Xóa" Margin="5" ></Button>
+                    <Button  Content="Thêm" Margin="5" Name="btnThemMonHoc" Click="btnThemMonHoc_Click" ></Button>
+                    <Button Content="Sửa" Margin="5" Name="btnSuaMonHoc" Click="btnSuaMonHoc_Click" ></Button>
+                    <Button  Content="Xóa" Margin="5" Name="btnXoaMonHoc" Click="btnXoaMonHoc_Click"></Button>
+                    <Button  Content="Làm mới" Margin="5" Name="btnLammoi" Click="btnLammoi_Click"></Button>
+
                 </WrapPanel>
             </materialDesign:Card>
 
@@ -89,19 +87,21 @@
             </WrapPanel>
         </materialDesign:Card>-->
             <materialDesign:Card  Margin="5" VerticalAlignment="Stretch">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView  Name="lv" >
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                    <ListView Height="400" Name="listMonhoc" SelectedValuePath="Mamh" SelectionChanged="listMonhoc_SelectionChanged" >
                         <ListView.View>
-                            <GridView>
-                                <GridViewColumn Header="Mã môn học " ></GridViewColumn>
-                                <GridViewColumn Header= "Tên môn học" DisplayMemberBinding="{Binding Name}"></GridViewColumn>
-                                <GridViewColumn Header="Số tín chỉ " DisplayMemberBinding="{Binding Mail}"></GridViewColumn>
-                                <GridViewColumn Header="Môn song hành" ></GridViewColumn>
-                                <GridViewColumn Header="Môn tiên quyết" ></GridViewColumn>
+                            <GridView >
+                                <GridViewColumn Header="Mã môn học "  DisplayMemberBinding="{Binding MaMh}" ></GridViewColumn>
+                                <GridViewColumn Header= "Tên môn học" DisplayMemberBinding="{Binding TenMh}"></GridViewColumn>
+                                <GridViewColumn Header="Số tín chỉ " DisplayMemberBinding="{Binding Sotinchi}"></GridViewColumn>
+                                <GridViewColumn Header="Hệ số HP " DisplayMemberBinding="{Binding HesoHp}"></GridViewColumn>
+
+                                <GridViewColumn Header="Môn song hành" DisplayMemberBinding="{Binding MaSh}"></GridViewColumn>
+                                <GridViewColumn Header="Môn tiên quyết" DisplayMemberBinding="{Binding MaTq}"></GridViewColumn>
                                 <!--<GridViewColumn Header="Học Hàm" ></GridViewColumn>-->
-                                <GridViewColumn Header="Thực hành" DisplayMemberBinding="{Binding Age}" ></GridViewColumn>
-                                <GridViewColumn Header="Khối kiến thức" ></GridViewColumn>
-                               
+                                <GridViewColumn Header="Thực hành" DisplayMemberBinding="{Binding Thuchanh}" ></GridViewColumn>
+                                <GridViewColumn Header="Khối kiến thức" DisplayMemberBinding="{Binding MaKhoi}" ></GridViewColumn>
+
                             </GridView>
                         </ListView.View>
                     </ListView>

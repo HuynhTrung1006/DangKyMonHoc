@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using API.Models;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -20,6 +21,19 @@ namespace API.Controllers
 
             return Ok(list);
         }
+
+        [HttpGet("NKCDK/{id}")]
+        public IEnumerable<NienKhoa> getdsnk(string id)
+        {
+            List<NienKhoa> getlist = new List<NienKhoa>();
+            var listCDKNK = dc.NienKhoaCdks.Where(x => x.MaCdk == id).ToList();
+            foreach (var a in listCDKNK)
+            {
+                NienKhoa b = dc.NienKhoas.Find(a.MaNk);
+                getlist.Add(b);
+            }
+            return getlist;
+        }
         [HttpPost]
         public IActionResult postDSNienkhoa(Models.NienKhoa n)
         {
@@ -29,15 +43,12 @@ namespace API.Controllers
             Models.NienKhoa a = new Models.NienKhoa
             {
                 MaNk = n.MaNk,
-                TenNk = n.TenNk
-             
-
-
+                TenNk = n.TenNk,
+                MaCtdt=n.MaCtdt
             };
             dc.NienKhoas.Add(a);
             dc.SaveChanges();
             return Ok();
-
         }
         [HttpDelete("{id}")]
         public IActionResult deleteNienkhoa(string id)
@@ -48,6 +59,8 @@ namespace API.Controllers
             {
                 return BadRequest();
             }
+            var a = dc.Lops.Where(x => x.MaNk == id);
+            if (a != null) return BadRequest();
             dc.NienKhoas.Remove(n);
             dc.SaveChanges();
             return Ok();
@@ -60,9 +73,7 @@ namespace API.Controllers
             if (temp == null) return NotFound();
           
             temp.TenNk = n.TenNk;
-      
-
-
+            
             dc.SaveChanges();
             return Ok();
         }

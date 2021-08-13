@@ -27,8 +27,12 @@ namespace Wpf_DangKyMonHoc.WindowQL
         public void getload()
         {
             List<NienKhoa> list = XLNienKhoa.getds();
-            if (list == null) MessageBox.Show("Lỗi tải Server!!!", "ERROR");
+            if (list.Count<1 ) MessageBox.Show("Lỗi tải Niên khóa Server!!!", "ERROR");
             list_NienKhoa.ItemsSource = list;
+
+            List<ChuongTrinhDaoTao> listctdt = XL_CTDT.getdsCTDT();
+            if(listctdt.Count<1) MessageBox.Show("Lỗi tải Chương trình đào tạo từ Server!!!", "ERROR");
+            cmb_ctdt.ItemsSource = listctdt;
         }
         private void list_NienKhoa_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
@@ -37,22 +41,24 @@ namespace Wpf_DangKyMonHoc.WindowQL
             txt_mank.Text = cv.MaNk;
             txt_mank.IsReadOnly = true;
             txt_tennk.Text = cv.TenNk;
+            cmb_ctdt.SelectedValue = cv.MaCtdt;
         }
 
         private void btn_them(object sender, RoutedEventArgs e)
         {
             string ma = txt_mank.Text;
             string ten = txt_tennk.Text;
-            if (ma == "" || ten == "")
+            string ctdt = cmb_ctdt.SelectedValue.ToString();
+            if (ma == "" || ten == ""||ctdt=="")
             {
                 MessageBox.Show("Điền đầy đủ thông tin!", "Thông báo");
                 return;
             }
-            NienKhoa nk = new NienKhoa { MaNk = ma, TenNk = ten };
+            NienKhoa nk = new NienKhoa { MaNk = ma, TenNk = ten , MaCtdt=ctdt};
             var result = XLNienKhoa.post(nk);
             if (result == false)
             {
-                MessageBox.Show("Thêm Chức Vụ không thành công", "Thông báo");
+                MessageBox.Show("Thêm không thành công", "Thông báo");
                 return;
             }
             MessageBox.Show("Thêm Thành Công", "Thông Báo");
@@ -62,7 +68,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_sua(object sender, RoutedEventArgs e)
         {
-            NienKhoa cv = new NienKhoa { MaNk = txt_mank.Text, TenNk = txt_tennk.Text };
+            NienKhoa cv = new NienKhoa { MaNk = txt_mank.Text, TenNk = txt_tennk.Text, MaCtdt=cmb_ctdt.SelectedValue.ToString() };
             var result = XLNienKhoa.put(cv);
             if (result == false)
             {
@@ -105,6 +111,9 @@ namespace Wpf_DangKyMonHoc.WindowQL
             txt_mank.IsReadOnly = false;
             txt_mank.Text = "";
             txt_tennk.Text = "";
+            List<ChuongTrinhDaoTao> listctdt = XL_CTDT.getdsCTDT();
+            if (listctdt.Count < 1) MessageBox.Show("Lỗi tải Chương trình đào tạo từ Server!!!", "ERROR");
+            cmb_ctdt.ItemsSource = listctdt;
         }
 
         private void btn_thoat(object sender, RoutedEventArgs e)

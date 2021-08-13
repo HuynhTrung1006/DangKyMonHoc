@@ -54,7 +54,7 @@ namespace Wpf_DangKyMonHoc.Xuly
 		{
 			try
 			{
-				string url = @"https://localhost:44319/api/namhocdkmh";
+				string url = @"https://localhost:44319/api/namhocdkmh/"+namhoc.MaNh;
 				var kq = hc.PutAsJsonAsync(url, namhoc);
 				kq.Wait();
 				return kq.Result.IsSuccessStatusCode;

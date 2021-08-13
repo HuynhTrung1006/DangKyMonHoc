@@ -28,6 +28,8 @@ namespace API.Controllers
 			return Ok(a);
 
 		}
+
+		
 		[HttpPost]
 		public async Task<IActionResult> postGv(GiangVien a)
 		{
@@ -58,7 +60,6 @@ namespace API.Controllers
 			return Ok();
 		}
 		[HttpPut("{id}")]
-
 		public async Task<IActionResult> PutGiangVien(GiangVien a)
 		{
 			GiangVien b = await db.GiangViens.FindAsync(a.MaGv);
@@ -73,6 +74,18 @@ namespace API.Controllers
 			b.MaKhoa = a.MaKhoa;
 			b.MaChucVu = a.MaChucVu;
 			b.Hinhanh = a.Hinhanh;
+			await db.SaveChangesAsync();
+			return Ok();
+		}
+
+		[HttpPut("{Password}/{id}")]
+		public async Task<IActionResult> PutPassword(GiangVien a)
+		{
+			GiangVien b = await db.GiangViens.FindAsync(a.MaGv);
+			if (b == null)
+				return BadRequest();
+			Input_Ma inp = new Input_Ma();
+			b.Matkhau = inp.hashPassword(b.Matkhau);
 			await db.SaveChangesAsync();
 			return Ok();
 		}

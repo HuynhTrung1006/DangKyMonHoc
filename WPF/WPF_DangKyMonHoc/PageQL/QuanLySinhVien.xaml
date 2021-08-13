@@ -47,7 +47,7 @@
             <TextBlock Grid.Row="3" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Địa chỉ:     "/>
             <!--dong 2-->
-            <TextBox Grid.Row="0" Grid.Column="1" Name="txt_masv" PreviewTextInput="NumberValidationTextBox" />
+            <TextBox Grid.Row="0" Grid.Column="1" Name="txt_masv" PreviewTextInput="NumberValidationTextBox"  materialDesign:HintAssist.Hint="Nhập số tối đa 5 ký tự" />
             <TextBox Grid.Row="1" Grid.Column="1" Name="txt_ten"/>
             <TextBox Grid.Row="2" Grid.Column="1" Name="txt_email"/>
             <TextBox Grid.Row="3" Grid.Column="1" Name="txt_diachi"/>
@@ -61,12 +61,12 @@
             <TextBlock Grid.Row="3" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Giới tính:     "/>
             <!--dong4-->
-            <TextBox Grid.Row="0" Grid.Column="4" Name="txt_sdt" PreviewTextInput="NumberValidationTextBox"/>
+            <TextBox Grid.Row="0" Grid.Column="4" Name="txt_sdt" PreviewTextInput="NumberValidationTextBox"  materialDesign:HintAssist.Hint="Nhập số gồm 10 ký tự"/>
             <DatePicker Grid.Row="1" Grid.Column="4" 
                  Width="180"
                     Name="date_ngaysinh"
                     Style="{StaticResource MaterialDesignFloatingHintDatePicker}" />
-            <TextBox Grid.Row="2" Grid.Column="4" Name="txt_matkhau"/>
+            <TextBox Grid.Row="2" Grid.Column="4" Name="txt_matkhau" materialDesign:HintAssist.Hint="Mắc định" IsReadOnly="True"/>
             <ComboBox Name="cmb_phai" Grid.Row="3" Grid.Column="4" DisplayMemberPath="TenGT" SelectedValuePath="ID"
   Style="{StaticResource MaterialDesignFloatingHintComboBox}" Grid.ColumnSpan="2" Margin="0,0,10,0" VerticalAlignment="Stretch">
             </ComboBox>
@@ -81,7 +81,7 @@
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Trạng thái:     "/>
 
             <!--dong6-->
-            <TextBox Grid.Row="0" Grid.Column="7" Name="txt_cmnd" PreviewTextInput="NumberValidationTextBox"/>
+            <TextBox  materialDesign:HintAssist.Hint="Nhập số gồm 9-12 ký tự" Grid.Row="0" Grid.Column="7" Name="txt_cmnd" PreviewTextInput="NumberValidationTextBox"/>
             <ComboBox Name="cmb_Lop" DisplayMemberPath="MaLop" SelectedValuePath="MaLop" Grid.Row="1" Grid.Column="7"
   Style="{StaticResource MaterialDesignFloatingHintComboBox}">
             </ComboBox>
@@ -112,11 +112,13 @@
 
         <materialDesign:Card VerticalAlignment="Center" HorizontalAlignment="Center">
             <WrapPanel>
+                <TextBox Margin="5" Width="150"  Name="txt_timkiem"  materialDesign:HintAssist.Hint="Tìm kiếm" />
+                <Button  Content="Tìm" Margin="5" Click="btn_tim" ></Button>
                 <Button  Content="Thêm" Margin="5" Click="btn_them" ></Button>
                 <Button Content="Sửa" Margin="5" Click="btn_sua" ></Button>
                 <Button  Content="Xóa" Margin="5" Click="btn_xoa" ></Button>
                 <Button  Content="Làm Mới" Margin="5" Click="btn_lammoi" ></Button>
-                <Button  Content="Test Post Image" Margin="5" Click="btn_test" ></Button>
+                <Button  Content="Reset Mật Khẩu" Margin="5" Click="btn_ResetPassWord" ></Button>
             </WrapPanel>
         </materialDesign:Card>
 
@@ -127,23 +129,35 @@
                 <Button  Content="Tìm Kiếm" Margin="5" Width="100" Background="BlueViolet"></Button>
             </WrapPanel>
         </materialDesign:Card>-->
-        <materialDesign:Card  Margin="5" HorizontalAlignment="Center">
-            <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView Name="listsinhvien" SelectedValuePath="MaSv" SelectionChanged="litsinhvien_SelectionChanged" >
+       
+        <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+        <!--<DataGrid Height="400" HorizontalAlignment="Center" Name="listsinhvien" SelectedValuePath="MaSv" SelectionChanged="litsinhvien_SelectionChanged" AutoGenerateColumns="False" >
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="Mã số " Binding="{Binding MaSv}"/>
+                <DataGridTextColumn Header="Tên Sinh Viên" Binding="{Binding TenSv}"/>
+                <DataGridTextColumn Header="Email" Binding="{Binding Email}"/>
+                <DataGridTextColumn Header="Ngày Sinh" Binding="{Binding Ngaysinh}"/>
+                <DataGridTextColumn Header="Điện Thoại" Binding="{Binding Sdt}"/>
+                <DataGridTextColumn Header="Trạng Thái" Binding="{Binding Trangthai}"/>
+            </DataGrid.Columns>
+        </DataGrid>-->
+            <materialDesign:Card  Margin="5" HorizontalAlignment="Center">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
+                <ListView Height="244" Name="listsinhvien" SelectedValuePath="MaSv" SelectionChanged="litsinhvien_SelectionChanged" >
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Mã NV " DisplayMemberBinding="{Binding MaSv}" ></GridViewColumn>
+                            <GridViewColumn Header="Mã SV " DisplayMemberBinding="{Binding MaSv}" ></GridViewColumn>
                             <GridViewColumn Header="Họ Và Tên" DisplayMemberBinding="{Binding TenSv}"></GridViewColumn>
                             <GridViewColumn Header="Email" DisplayMemberBinding="{Binding Email}"></GridViewColumn>
                             <GridViewColumn Header="Địa chỉ" DisplayMemberBinding="{Binding Diachi}" ></GridViewColumn>
                             <GridViewColumn Header="Phái" DisplayMemberBinding="{Binding Phai}"></GridViewColumn>
-                            <GridViewColumn Header="Điện Thoại" DisplayMemberBinding="{Binding Sdt}"></GridViewColumn>
-                            <GridViewColumn Header="Ngày Sinh" DisplayMemberBinding="{Binding Ngaysinh}"></GridViewColumn>
-                            <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding Trangthai}"></GridViewColumn>
+                                <GridViewColumn Header="Điện Thoại" DisplayMemberBinding="{Binding Sdt}"></GridViewColumn>
+                                <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding Trangthai}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>
             </ScrollViewer>
         </materialDesign:Card>
+        </ScrollViewer>
     </StackPanel>
 </Page>

@@ -15,81 +15,96 @@ namespace API.Controllers
     public class FileUploadsController : ControllerBase
     {
         public static IWebHostEnvironment _webHostEnvironment;
+        private readonly DangKyMonHocContext _db = new DangKyMonHocContext();
         public FileUploadsController(IWebHostEnvironment webHostEnvironment)
         {
             _webHostEnvironment = webHostEnvironment;
         }
-
+        //string path = Environment.CurrentDirectory + "\\uploads\\" + objectFile.name + "\\"; //API/bin/debug/IMG/?
+        [HttpGet("{id}")]
+        public IActionResult gethinh(string id)
+        {
+            NhanVien nv = _db.NhanViens.Find(id);
+            if (nv != null)
+            {
+                if (nv.Hinhanh == "") return NotFound();
+                string path = Environment.CurrentDirectory + "\\uploads\\NhanVien\\"+nv.Hinhanh;
+                if (System.IO.File.Exists(path) == false) return BadRequest();
+                System.IO.FileStream f = new FileStream(path, FileMode.Open, FileAccess.Read);
+                byte[] buf = new byte[f.Length];
+                f.Read(buf, 0, (int)f.Length);
+                f.Close();
+                return Ok(buf);
+            }
+            GiangVien gv = _db.GiangViens.Find(id);
+            if (gv != null)
+            {
+                if (gv.Hinhanh == "") return NotFound();
+                string path = Environment.CurrentDirectory + "\\uploads\\GiangVien\\" + gv.Hinhanh;
+                if (System.IO.File.Exists(path) == false) return BadRequest();
+                System.IO.FileStream f = new FileStream(path, FileMode.Open, FileAccess.Read);
+                byte[] buf = new byte[f.Length];
+                f.Read(buf, 0, (int)f.Length);
+                f.Close();
+                return Ok(buf);
+            }
+            SinhVien sv = _db.SinhViens.Find(id);
+            if (sv != null)
+            {
+                if (sv.Hinhanh == "") return NotFound();
+                string path = Environment.CurrentDirectory + "\\uploads\\SinhVien\\" + sv.Hinhanh;
+                if (System.IO.File.Exists(path) == false) return BadRequest();
+                System.IO.FileStream f = new FileStream(path, FileMode.Open, FileAccess.Read);
+                byte[] buf = new byte[f.Length];
+                f.Read(buf, 0, (int)f.Length);
+                f.Close();
+                return Ok(buf);
+            }
+            return NotFound();
+        }
         [HttpPost]
-        public string post([FromForm]FileUpload objectFile)
+        public IActionResult posthinh(FileUpload x)
         {
-            try
-            {
-                if (objectFile.files.Length>0)
-                {
-                    //string path = _webHostEnvironment.WebRootPath + "\\uploads\\";
-                    string path = Environment.CurrentDirectory + "\\uploads\\"+objectFile.name+"\\"; //API/bin/debug/IMG/?
-                    //path = AppDomain.CurrentDomain.BaseDirectory;
-                    //path = AppDomain.CurrentDomain.BaseDirectory + @"IMG\";
-                    if (!Directory.Exists(path))
-                    {
-                        Directory.CreateDirectory(path);
-                    }
-                    using (FileStream fileStream= System.IO.File.Create(path + objectFile.files.FileName))
-                    {
-                        objectFile.files.CopyTo(fileStream);
-                        fileStream.Flush();
-                        return "Uploaded";
-                    }
-                }
-                else
-                {
-                    return "Not Uploaded";
-                }
-            }
-            catch (Exception ex)
-            {
-                return ex.Message;
-                //throw;
-            }
+            
+                string path = Environment.CurrentDirectory + "\\uploads\\" + x.name + "\\" + x.tenhinh;
+                System.IO.FileStream f = new FileStream(path, FileMode.Create, FileAccess.Write);
+                f.Write(x.hinh, 0, (int)x.hinh.Length);
+                f.Close();
+                return Ok();
+           
         }
 
-        [HttpDelete]
-        public string Delete([FromForm] FileUpload objectFile)
+        [HttpDelete("{id}")]
+        public IActionResult deleteHinh(string id)
         {
-            try
+            NhanVien nv = _db.NhanViens.Find(id);
+            if (nv != null)
             {
-                if (objectFile.files.Length > 0)
-                {
-                    //string path = _webHostEnvironment.WebRootPath + "\\uploads\\";
-                    string path = Environment.CurrentDirectory + "\\uploads\\" + objectFile.name + "\\"+objectFile.files.FileName; //API/bin/debug/IMG/?
-                    //path = AppDomain.CurrentDomain.BaseDirectory;
-                    //path = AppDomain.CurrentDomain.BaseDirectory + @"IMG\";
-                    //if (!Directory.Exists(path))
-                    //{
-                    //    Directory.CreateDirectory(path);
-                    //}
-                    //using (FileStream fileStream = System.IO.File.Delete(path.))
-                    //{
-                    //    objectFile.files.CopyTo(fileStream);
-                    //    fileStream.Flush();
-                    //    return "Uploaded";
-                    //}
-                    System.IO.File.Delete(path);
-                    return "Success";
-                }
-                else
-                {
-                    return "Not Uploaded";
-                }
+                if (nv.Hinhanh == "") return NotFound();
+                string path = Environment.CurrentDirectory + "\\uploads\\NhanVien\\" + nv.Hinhanh;
+                if (System.IO.File.Exists(path) == false) return BadRequest();
+                System.IO.File.Delete(path);
+                return Ok();
             }
-            catch (Exception ex)
+            GiangVien gv = _db.GiangViens.Find(id);
+            if (gv != null)
             {
-                return ex.Message;
-                //throw;
+                if (gv.Hinhanh == "") return NotFound();
+                string path = Environment.CurrentDirectory + "\\uploads\\GiangVien\\" + gv.Hinhanh;
+                if (System.IO.File.Exists(path) == false) return BadRequest();
+                System.IO.File.Delete(path);
+                return Ok();
             }
+            SinhVien sv = _db.SinhViens.Find(id);
+            if (sv != null)
+            {
+                if (sv.Hinhanh == "") return NotFound();
+                string path = Environment.CurrentDirectory + "\\uploads\\SinhVien\\" + sv.Hinhanh;
+                if (System.IO.File.Exists(path) == false) return BadRequest();
+                System.IO.File.Delete(path);
+                return Ok();
+            }
+            return NotFound();
         }
-
-        
     }
 }

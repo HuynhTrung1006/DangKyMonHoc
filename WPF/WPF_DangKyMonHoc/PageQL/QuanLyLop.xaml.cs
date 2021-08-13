@@ -29,14 +29,6 @@ namespace Wpf_DangKyMonHoc.PageQL
             InitializeComponent();
         }
 
-        private void btn_Khoa(object sender, RoutedEventArgs e)
-        {
-            var n = new QuanLyKhoa();
-            n.ShowDialog();
-            List<Nganh> listnganh = XLNganh.getds();
-            if (listnganh == null) MessageBox.Show("Lỗi tải Ngành!!!", "ERROR");
-            cmb_nganh.ItemsSource = listnganh;
-        }
 
         private void btn_NK(object sender, RoutedEventArgs e)
         {
@@ -53,17 +45,13 @@ namespace Wpf_DangKyMonHoc.PageQL
             if (list == null) MessageBox.Show("Lỗi tải Lớp!!!", "ERROR");
             listLop.ItemsSource = list;
 
-            List<Nganh> listnganh = XLNganh.getds();
-            if (listnganh == null) MessageBox.Show("Lỗi tải Ngành!!!", "ERROR");
-            cmb_nganh.ItemsSource = listnganh;
-
             List<NienKhoa> listnienkhoa = XLNienKhoa.getds();
             if (listnienkhoa == null) MessageBox.Show("Lỗi tải Niên khóa!!!", "ERROR");
             cmb_nienkhoa.ItemsSource = listnienkhoa;
 
-            List<HeDaoTao> listhedaotao = Xuly_HDT.getAllHeDaoTao();
-            if (listhedaotao == null) MessageBox.Show("Lỗi tải Hệ Đào Tạo!!!", "ERROR");
-            cmb_hedaotao.ItemsSource = listhedaotao;
+            List<Nganh> listnganh = XLNganh.getds();
+            if (listnganh.Count<1) MessageBox.Show("Lỗi tải Hệ Đào Tạo!!!", "ERROR");
+            cmb_nganh.ItemsSource = listnganh;
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
@@ -75,8 +63,8 @@ namespace Wpf_DangKyMonHoc.PageQL
         {
             byte siso = 0;
             if(txt_siso.Text!="") siso = byte.Parse(txt_siso.Text);
-            if (txt_malop.Text == "" || txt_tenlop.Text == "" || cmb_hedaotao.SelectedValue.ToString() == null || cmb_nganh.SelectedValue.ToString() == null
-                || cmb_nienkhoa.SelectedValue.ToString() == null || siso > 0)
+            if (txt_malop.Text == "" || txt_tenlop.Text == "" || cmb_nganh.SelectedValue.ToString() == null 
+                || cmb_nienkhoa.SelectedValue.ToString() == null || siso < 0)
             {
                 MessageBox.Show("Điền đầy đủ thông tin hoặc thông tin chưa chính xác!", "Thông báo");
                 return;
@@ -85,9 +73,8 @@ namespace Wpf_DangKyMonHoc.PageQL
             {
                 MaLop = txt_malop.Text,
                 TenLop = txt_tenlop.Text,
-                MaNganh = cmb_nganh.SelectedValue.ToString(),
                 MaNk = cmb_nienkhoa.SelectedValue.ToString(),
-                MaDt = cmb_hedaotao.SelectedValue.ToString(),
+                MaNganh = cmb_nganh.SelectedValue.ToString(),
                 Siso = siso
             };
             var result = XLLop.Post(lop);
@@ -108,15 +95,14 @@ namespace Wpf_DangKyMonHoc.PageQL
 
         private void btn_HDT(object sender, RoutedEventArgs e)
         {
-            var n = new Hedaotao_Window(); n.ShowDialog();
-            List<HeDaoTao> listhedaotao = Xuly_HDT.getAllHeDaoTao();
-            if (listhedaotao == null) MessageBox.Show("Lỗi tải Hệ Đào Tạo!!!", "ERROR");
-            cmb_hedaotao.ItemsSource = listhedaotao;
+            List<Nganh> listNganh = XLNganh.getds();
+            if (listNganh == null) MessageBox.Show("Lỗi tải Hệ Đào Tạo!!!", "ERROR");
+            cmb_nganh.ItemsSource = listNganh;
         }
 
         private void btn_xoa(object sender, RoutedEventArgs e)
         {
-            if (listLop.SelectedValue.ToString() == null) return;
+            if (listLop.SelectedItem == null) return;
             MessageBoxResult result = MessageBox.Show("Bạn có chắn chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
             switch (result)
             {
@@ -140,8 +126,7 @@ namespace Wpf_DangKyMonHoc.PageQL
         private void btn_lammoi(object sender, RoutedEventArgs e)
         {
             txt_malop.IsReadOnly = false;
-            cmb_hedaotao.IsReadOnly = false;
-            cmb_nganh.IsReadOnly =  false;
+            cmb_nganh.IsReadOnly = false;
             cmb_nienkhoa.IsReadOnly = false;
             txt_malop.Text = "";
             txt_tenlop.Text = "";
@@ -157,12 +142,11 @@ namespace Wpf_DangKyMonHoc.PageQL
             txt_malop.Text = l.MaLop;
             txt_tenlop.Text = l.TenLop;
             txt_siso.Text = l.Siso.ToString() ;
-            cmb_hedaotao.SelectedValue = l.MaDt;
-            cmb_nienkhoa.SelectedValue = l.MaNk;
             cmb_nganh.SelectedValue = l.MaNganh;
+            cmb_nienkhoa.SelectedValue = l.MaNk;
+            
 
             txt_malop.IsReadOnly = true;
-            cmb_hedaotao.IsReadOnly = true;
             cmb_nganh.IsReadOnly = true;
             cmb_nienkhoa.IsReadOnly = true;
         }
@@ -184,7 +168,6 @@ namespace Wpf_DangKyMonHoc.PageQL
             }
             MessageBox.Show("Sửa thành công", "Thông báo");
             txt_malop.IsReadOnly = false;
-            cmb_hedaotao.IsReadOnly = false;
             cmb_nganh.IsReadOnly = false;
             cmb_nienkhoa.IsReadOnly = false;
             txt_malop.Text = "";
@@ -192,5 +175,7 @@ namespace Wpf_DangKyMonHoc.PageQL
             txt_siso.Text = "";
             getLoad();
         }
+
+        
     }
 }

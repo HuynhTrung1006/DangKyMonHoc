@@ -20,9 +20,11 @@ namespace Wpf_DangKyMonHoc
 	/// </summary>
 	public partial class FixAfterLogin : Window
 	{
-		public FixAfterLogin()
+        private string nv = null;
+		public FixAfterLogin(string manv)
 		{
 			InitializeComponent();
+            nv = manv;
 		}
 
         private void btnQuanLySinhVien_Click(object sender, RoutedEventArgs e)
@@ -92,8 +94,7 @@ namespace Wpf_DangKyMonHoc
 
         private void btnMonhocduomo(object sender, RoutedEventArgs e)
         {
-            var n = new Monhocduocmo_Window();
-            n.ShowDialog();
+           
         }
 
         private void btnHocKyDKMH(object sender, RoutedEventArgs e)
@@ -120,6 +121,21 @@ namespace Wpf_DangKyMonHoc
             n.ShowDialog();
         }
 
-        
-    }
+        private void btn_exit(object sender, RoutedEventArgs e)
+        {
+            var n = new DangNhapWindow(); this.Close(); n.ShowDialog();
+            
+        }
+
+        private void btn_doimatkhau(object sender, RoutedEventArgs e)
+        {
+            var n = new MatKhau_Window(nv);
+            n.ShowDialog();
+        }
+
+		private void btnLopMonHoc_Click(object sender, RoutedEventArgs e)
+		{
+            ContentArea.Content = new PageQLLop_MonHoc();
+		}
+	}
 }

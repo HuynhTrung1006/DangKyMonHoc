@@ -10,6 +10,7 @@ namespace API.Models
         public ChuongTrinhDaoTao()
         {
             ChiTietCtdts = new HashSet<ChiTietCtdt>();
+            NienKhoas = new HashSet<NienKhoa>();
         }
 
         public string MaCtdt { get; set; }
@@ -22,5 +23,6 @@ namespace API.Models
         public virtual HeDaoTao MaDtNavigation { get; set; }
         public virtual Nganh MaNganhNavigation { get; set; }
         public virtual ICollection<ChiTietCtdt> ChiTietCtdts { get; set; }
+        public virtual ICollection<NienKhoa> NienKhoas { get; set; }
     }
 }

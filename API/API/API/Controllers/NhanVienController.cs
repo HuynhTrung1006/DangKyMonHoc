@@ -75,6 +75,19 @@ namespace API.Controllers
 			nv.Email = a.Email;
 			nv.Trangthai = a.Trangthai;
 			nv.Hinhanh = a.Hinhanh;
+			//nv.Matkhau = xuly.hashPassword(a.Matkhau);
+			_db.NhanViens.Update(nv);
+			await _db.SaveChangesAsync();
+			return Ok();
+
+		}
+
+		[HttpPut("{Password}/{id}")]
+		public async Task<IActionResult> PutPasswordNV(NhanVien a)
+		{
+			var nv = await _db.NhanViens.FindAsync(a.MaNv);
+			if (nv == null)
+				return NotFound();
 			nv.Matkhau = xuly.hashPassword(a.Matkhau);
 			_db.NhanViens.Update(nv);
 			await _db.SaveChangesAsync();

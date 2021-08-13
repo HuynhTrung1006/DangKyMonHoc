@@ -52,9 +52,9 @@
                         <RowDefinition></RowDefinition>
                     </Grid.RowDefinitions>
                     <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã Nganh:"/>
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã Khoa:"/>
                     <TextBlock Grid.Row="1" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
-    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Tên Nganh:"/>
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Tên Khoa:"/>
                     <TextBlock Grid.Row="2" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Tên viết tắt:"/>
                     <TextBox Name="txt_maKhoa" Margin="0 0 0 5" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Left" Width="125" />

@@ -38,9 +38,9 @@
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Niên khóa:     "/>
 
             <!--dong 2-->
-            <TextBox Grid.Row="0" Grid.Column="1"  />
-            <TextBox Grid.Row="1" Grid.Column="1" />
-            <TextBox Grid.Row="2" Grid.Column="1" />
+            <TextBox Grid.Row="0" Grid.Column="1" Name="txt_ma" />
+            <TextBox Grid.Row="1" Grid.Column="1" Name="txt_ten"/>
+            <TextBox Grid.Row="2" Grid.Column="1" Name="txt_nienkhoa"/>
 
             <!--cot 3-->
             <TextBlock Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
@@ -51,34 +51,23 @@
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Tổng số tín chỉ:     "/>
 
             <!--dong4-->
-            <ComboBox Grid.Row="0" Grid.Column="4"
-  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                <ComboBoxItem>
-                    Thạc sĩ
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    Tiến sĩ
-                </ComboBoxItem>
+            <ComboBox Grid.Row="0" Grid.Column="4" Name="cmb_hedaotao" SelectedValuePath="MaDt" DisplayMemberPath="TenDt" SelectedItem="MaDt"
+  Style="{StaticResource MaterialDesignFloatingHintComboBox}" IsReadOnly="False">
             </ComboBox>
-            <ComboBox Grid.Row="1" Grid.Column="4"
-  Style="{StaticResource MaterialDesignFloatingHintComboBox}">
-                <ComboBoxItem>
-                    Thạc sĩ
-                </ComboBoxItem>
-                <ComboBoxItem>
-                    Tiến sĩ
-                </ComboBoxItem>
+            <ComboBox Grid.Row="1" Grid.Column="4" Name="cmb_nganh" SelectedValuePath="MaNganh" DisplayMemberPath="TenNganh" SelectedItem="MaNganh"
+  Style="{StaticResource MaterialDesignFloatingHintComboBox}" IsReadOnly="False">
             </ComboBox>
             <!--dong5-->
-            <TextBox Grid.Row="2" Grid.Column="4"/>
+            <TextBox Grid.Row="2" Grid.Column="4" Name="txt_tinchi" PreviewTextInput="textnumberinput"/>
         </Grid>
 
 
         <materialDesign:Card VerticalAlignment="Center" HorizontalAlignment="Center">
             <WrapPanel>
-                <Button  Content="Thêm" Margin="5" ></Button>
-                <Button Content="Sửa" Margin="5" ></Button>
-                <Button  Content="Xóa" Margin="5" ></Button>
+                <Button  Content="Thêm" Margin="5" Click="btn_them"></Button>
+                <Button Content="Sửa" Margin="5" Click="btn_sua"></Button>
+                <Button  Content="Xóa" Margin="5" Click="btn_xoa"></Button>
+                <Button  Content="Chi tiết" Margin="5" Click="btn_detail"></Button>
             </WrapPanel>
         </materialDesign:Card>
 
@@ -89,19 +78,18 @@
                 <Button  Content="Tìm Kiếm" Margin="5" Width="100" Background="BlueViolet"></Button>
             </WrapPanel>
         </materialDesign:Card>-->
-        <materialDesign:Card  Margin="5" VerticalAlignment="Stretch">
+        <materialDesign:Card  Margin="5" VerticalAlignment="Stretch" HorizontalAlignment="Center">
             <ScrollViewer VerticalScrollBarVisibility="Auto">
-                <ListView >
+                <ListView Name="list_ctdt" SelectedValuePath="MaCtdt" SelectionChanged="list_ctdt_SelectionChanged">
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Mã CTDT " ></GridViewColumn>
-                            <GridViewColumn Header="Tên CTDT" ></GridViewColumn>
-                            <GridViewColumn Header="Niên khóa"></GridViewColumn>
-                            <GridViewColumn Header="Hệ đào tạo" ></GridViewColumn>
-                            <GridViewColumn Header="Ngành" ></GridViewColumn>
-                            <!--<GridViewColumn Header="Học Hàm" ></GridViewColumn>-->
-                            <GridViewColumn Header="Tổng số tín chỉ" ></GridViewColumn>
-
+                            <GridViewColumn Header="Mã CTDT " DisplayMemberBinding="{Binding MaCtdt}"></GridViewColumn>
+                            <GridViewColumn Header="Tên CTDT" DisplayMemberBinding="{Binding TenCtdt}"></GridViewColumn>
+                            <GridViewColumn Header="Niên khóa" DisplayMemberBinding="{Binding NienKhoa}"></GridViewColumn>
+                            <GridViewColumn Header="Hệ đào tạo" DisplayMemberBinding="{Binding MaDt}"></GridViewColumn>
+                            <GridViewColumn Header="Ngành" DisplayMemberBinding="{Binding MaNganh}"></GridViewColumn>
+                            <GridViewColumn Header="Tổng số tín chỉ" DisplayMemberBinding="{Binding TongSoTinChi}"></GridViewColumn>
+                            
                         </GridView>
                     </ListView.View>
                 </ListView>

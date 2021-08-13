@@ -9,6 +9,7 @@ namespace API.Models
     {
         public SinhVien()
         {
+            BangDiems = new HashSet<BangDiem>();
             PhieuDangKies = new HashSet<PhieuDangKy>();
             PhucKhaos = new HashSet<PhucKhao>();
         }
@@ -27,6 +28,7 @@ namespace API.Models
         public string Sdt { get; set; }
 
         public virtual Lop MaLopNavigation { get; set; }
+        public virtual ICollection<BangDiem> BangDiems { get; set; }
         public virtual ICollection<PhieuDangKy> PhieuDangKies { get; set; }
         public virtual ICollection<PhucKhao> PhucKhaos { get; set; }
     }

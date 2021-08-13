@@ -12,6 +12,7 @@ namespace API.Models
             LopMonHocs = new HashSet<LopMonHoc>();
             MonHocDuocMos = new HashSet<MonHocDuocMo>();
             NienKhoaCdks = new HashSet<NienKhoaCdk>();
+            PhieuDangKies = new HashSet<PhieuDangKy>();
         }
 
         public string MaCdk { get; set; }
@@ -27,5 +28,6 @@ namespace API.Models
         public virtual ICollection<LopMonHoc> LopMonHocs { get; set; }
         public virtual ICollection<MonHocDuocMo> MonHocDuocMos { get; set; }
         public virtual ICollection<NienKhoaCdk> NienKhoaCdks { get; set; }
+        public virtual ICollection<PhieuDangKy> PhieuDangKies { get; set; }
     }
 }

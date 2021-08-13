@@ -9,7 +9,7 @@ namespace Wpf_DangKyMonHoc.Models
     {
         public int Id { get; set; }
         public string MaMh { get; set; }
-        public string MaPdk { get; set; }
+        public int MaPdk { get; set; }
         public bool Trangthai { get; set; }
 
         public virtual MonHoc MaMhNavigation { get; set; }

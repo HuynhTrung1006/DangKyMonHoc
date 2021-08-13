@@ -23,10 +23,8 @@ namespace API.Models
         public string MaTq { get; set; }
         public string MaSh { get; set; }
         public string MaKhoi { get; set; }
-        public string MaTtmh { get; set; }
 
         public virtual KhoiKienThuc MaKhoiNavigation { get; set; }
-        public virtual ThongTinMonHoc MaTtmhNavigation { get; set; }
         public virtual ICollection<ChiTietCtdt> ChiTietCtdts { get; set; }
         public virtual ICollection<ChiTietPdk> ChiTietPdks { get; set; }
         public virtual ICollection<LopMonHoc> LopMonHocs { get; set; }

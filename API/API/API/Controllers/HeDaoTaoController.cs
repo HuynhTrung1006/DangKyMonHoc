@@ -25,6 +25,8 @@ namespace API.Controllers
             return _db.HeDaoTaos.ToList();
         }
 
+        
+
         [HttpGet("{id}")]
         public async Task<ActionResult<HeDaoTao>> getDetailHeDaoTao(string id)
         {

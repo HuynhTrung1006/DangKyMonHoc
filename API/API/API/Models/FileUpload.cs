@@ -8,7 +8,8 @@ namespace API.Models
 {
     public class FileUpload
     {
-        public IFormFile files { get; set; }
+        public byte[] hinh { get; set; }
+        public string tenhinh { get; set; }
         public string name { get; set; }// "SinhVien,GiangVien,NhanVien"
     }
 }

@@ -10,7 +10,7 @@ namespace Wpf_DangKyMonHoc.XuLy
     class XLChucVu
     {
         private static HttpClient hc = new HttpClient();
-        
+
         public static List<ChucVu> dschucvu()
         {
             try

@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 
 #nullable disable
@@ -13,8 +13,6 @@ namespace API.Models
         }
 
         public int Id { get; set; }
-        public string MaLmh { get; set; }
-        public string MaPdk { get; set; }
         public bool Trangthai { get; set; }
         public double? DiemGk { get; set; }
         public double? DiemCk { get; set; }
@@ -23,9 +21,11 @@ namespace API.Models
         public double? DiemTk2 { get; set; }
         public double? DiemTk3 { get; set; }
         public bool? Ketqua { get; set; }
+        public string Masv { get; set; }
+        public string MaLmh { get; set; }
 
         public virtual LopMonHoc MaLmhNavigation { get; set; }
-        public virtual PhieuDangKy MaPdkNavigation { get; set; }
+        public virtual SinhVien MasvNavigation { get; set; }
         public virtual ICollection<ChiTietPhucKhao> ChiTietPhucKhaos { get; set; }
     }
 }

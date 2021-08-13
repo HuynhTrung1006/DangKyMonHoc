@@ -34,6 +34,9 @@ namespace API
                 item.UseSqlServer(Configuration.GetConnectionString("DangKyMonHocConnection"));
                 item.EnableSensitiveDataLogging();
             });
+            services.AddControllers().AddNewtonsoftJson(options =>
+            options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
+            );
             //services.AddDbContext<DangKyMonHocContext>(options => {
             //    options.UseSqlServer(Configuration.GetConnectionString("DangKyMonHocConnection"));
             //    options.EnableSensitiveDataLogging(true);

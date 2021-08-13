@@ -38,7 +38,7 @@
                 <TextBox  Grid.Row="0" Grid.Column="2" HorizontalAlignment="Right" Width="125" Name="txtTenChuyenMon" />
                 <WrapPanel Grid.Row="1" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Bottom">
                     <RadioButton Content="Bắt buộc   " IsChecked="True" Name="rdoBatbuoc" Click="rdoBatbuoc_Click"/>
-                    <RadioButton Content="Không bắt buộc     " Name="rdoKhongBatBuoc" Click="rdoKhongBatBuoc_Click"/>
+                    <RadioButton Content="Tự Chọn     " Name="rdoKhongBatBuoc" Click="rdoKhongBatBuoc_Click"/>
                 </WrapPanel>
                 <materialDesign:Card HorizontalAlignment="Right" VerticalAlignment="Center" Grid.Row="1" Grid.Column="3" Grid.ColumnSpan="2" Margin="0,0,37,0">
                     <WrapPanel  >
@@ -61,13 +61,13 @@
             </Grid>
             <materialDesign:Card Grid.Row="1" HorizontalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView Name="listKhoiKienThuc" SelectedValuePath="MaKhoi" SelectionChanged="listKhoiKienThuc_SelectionChanged" >
+                    <ListView Name="listKhoiKienThuc" SelectedValuePath="MaKhoi" SelectionChanged="listKhoiKienThuc_SelectionChanged" Height="200">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Mã khối kiến thức " DisplayMemberBinding="{Binding MaKhoi}" ></GridViewColumn>
                                 <GridViewColumn Header="Tên khối kiến thức" DisplayMemberBinding="{Binding TenKhoi}" ></GridViewColumn>
                                 <GridViewColumn Header="Tên chuyên môn" DisplayMemberBinding="{Binding TenChuyenMon}"></GridViewColumn>
-                                <GridViewColumn Header="Bắt buộc" DisplayMemberBinding="{Binding BatBuoc}"></GridViewColumn>
+                                <GridViewColumn Header="Bắt buộc" DisplayMemberBinding="{Binding Batbuoc}"></GridViewColumn>
 
                             </GridView>
                         </ListView.View>

@@ -73,6 +73,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_suaChucVu(object sender, RoutedEventArgs e)
         {
+            if (txt_macv.Text == "") { return; }
             ChucVu cv = new ChucVu();
             cv.MaChucVu = txt_macv.Text;
             cv.TenChucVu = txt_tencv.Text;
@@ -90,6 +91,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_xoaChucVu(object sender, RoutedEventArgs e)
         {
+            if (txt_macv.Text == "") { return; }
             MessageBoxResult result=MessageBox.Show("Bạn có chắn chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
             switch (result)
             {
@@ -99,7 +101,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
                     var kq = XLChucVu.deleteChucVu(txt_macv.Text);
                     if(kq==false)
                     {
-                        MessageBox.Show("Không thể xóa dữ liệu do đã được sử dụng ở chức năng khác!", "Thông báo",MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Không thể xóa dữ liệu do đã được sử dụng ở chức năng khác!", "Thông báo",MessageBoxButton.OK, MessageBoxImage.Information); return;
                     }
                     MessageBox.Show("Xóa Thành Công", "Thông Báo");
                     clean();

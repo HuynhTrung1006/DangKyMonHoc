@@ -30,6 +30,25 @@ namespace Wpf_DangKyMonHoc.XuLy
             }
         }
 
+        public static Nganh getct(string id)
+        {
+            try
+            {
+                string url = @"https://localhost:44319/api/Nganh/"+id;
+                var kq = hc.GetAsync(url);
+                kq.Wait();
+                if (kq.Result.IsSuccessStatusCode == false) return null;
+                var list = kq.Result.Content.ReadAsAsync<Nganh>();
+                list.Wait();
+                return list.Result;
+            }
+            catch (Exception)
+            {
+
+                return null;
+            }
+        }
+
         public static bool post(Nganh a)
         {
             try

@@ -27,7 +27,7 @@ namespace API.Controllers
         {
             if (ModelState.IsValid == false) return BadRequest();
             Models.SinhVien temp = dc.SinhViens.Find(s.MaSv);
-            if (temp != null) return BadRequest();
+            if (temp != null) return NotFound();
 
             s.MaSv = xuly.maSinhVien(s.MaSv, s.MaLop);
             s.Matkhau = xuly.hashPassword(s.Matkhau);
@@ -61,12 +61,25 @@ namespace API.Controllers
                 temp.Ngaysinh = s.Ngaysinh;
                 temp.Phai = s.Phai;
                 temp.Email = s.Email;
+                temp.Sdt = s.Sdt;
                 temp.Cnmd = s.Cnmd;
                 temp.Hinhanh = s.Hinhanh;
-                temp.Matkhau = s.Matkhau;
-                temp.MaLop = s.MaLop;
+                //temp.Matkhau = xuly.hashPassword(s.Matkhau);
+                //temp.MaLop = s.MaLop;
             temp.Trangthai = s.Trangthai;
 
+            dc.SaveChanges();
+            return Ok();
+        }
+
+        [HttpPut("{Password}/{id}")]
+        public IActionResult putPassword(Models.SinhVien s)
+        {
+            if (ModelState.IsValid == false) return BadRequest();
+            Models.SinhVien temp = dc.SinhViens.Find(s.MaSv);
+            if (temp == null) return NotFound();
+
+            temp.Matkhau = xuly.hashPassword(s.Matkhau);
             dc.SaveChanges();
             return Ok();
         }

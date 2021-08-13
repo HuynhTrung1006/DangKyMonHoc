@@ -21,6 +21,17 @@ namespace Wpf_DangKyMonHoc.Xuly
 			var list = ok.ReadAsAsync<List<HeDaoTao>>();
 			return list.Result.ToList();
 		}
+		public static HeDaoTao getctHDT(string id)
+		{
+			string url = @"https://localhost:44319/api/hedaotao/"+id;
+			var kq = hc.GetAsync(url);
+			kq.Wait();
+			if (kq.Result.IsSuccessStatusCode == false)
+				return null;
+			var ok = kq.Result.Content;
+			var list = ok.ReadAsAsync<HeDaoTao>();
+			return list.Result;
+		}
 		public static bool PostThemHeDaoTao(HeDaoTao hedaotao)
 		{
 			try

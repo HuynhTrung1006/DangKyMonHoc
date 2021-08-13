@@ -12,10 +12,8 @@ namespace Wpf_DangKyMonHoc.Models
         public string MaLop { get; set; }
         public string TenLop { get; set; }
         public byte Siso { get; set; }
-        public string MaNganh { get; set; }
         public string MaNk { get; set; }
-        public string MaDt { get; set; }
-
+        public string MaNganh { get; set; }
 
     }
 }

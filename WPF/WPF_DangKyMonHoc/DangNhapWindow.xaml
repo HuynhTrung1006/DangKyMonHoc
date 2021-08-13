@@ -21,26 +21,29 @@
                     <RowDefinition/>
                     <RowDefinition/>
                     <RowDefinition/>
+                    <RowDefinition/>
                 </Grid.RowDefinitions>
                 <Grid Grid.Row="0">
-                    <TextBox materialDesign:HintAssist.Hint="Tên đăng nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                    <TextBlock Text="ỨNG DỤNG QUẢN LÝ ĐĂNG KÝ MÔN HỌC" FontSize="20" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="DodgerBlue" FontWeight="Bold"></TextBlock>
                 </Grid>
                 <Grid Grid.Row="1">
-                    <PasswordBox
-  x:Name="FloatingPasswordBox"
+                    <TextBox Name="txt_tendangnhap" materialDesign:HintAssist.Hint="Tên đăng nhập" Style="{StaticResource MaterialDesignFloatingHintTextBox}" VerticalAlignment="Center" />
+                </Grid>
+                <Grid Grid.Row="2">
+                    <PasswordBox Name="txt_Password"
+  
   materialDesign:HintAssist.Hint="Mật khẩu"
   materialDesign:HintAssist.Foreground="Green"
   materialDesign:TextFieldAssist.UnderlineBrush="Green"
   Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" />
                 </Grid>
-                <Grid Grid.Row="2">
+                <Grid Grid.Row="3">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition/>
                         <ColumnDefinition/>
                     </Grid.ColumnDefinitions>
                     <Button Grid.Column="0" Width="110"
   Style="{StaticResource MaterialDesignRaisedButton}"
-
   ToolTip="Resource name: MaterialDesignRaisedButton"
   Background="DeepSkyBlue"
   Content="Đăng nhập" Name="btnDangNhap" Click="btnDangNhap_Click" />

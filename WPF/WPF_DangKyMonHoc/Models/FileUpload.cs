@@ -7,7 +7,8 @@ namespace Wpf_DangKyMonHoc.Models
 {
     class FileUpload
     {
-        public IFormFile Files { get; set; }
+        public byte[] hinh { get; set; }
+        public string tenhinh { get; set; }
         public string name { get; set; }
     }
 }

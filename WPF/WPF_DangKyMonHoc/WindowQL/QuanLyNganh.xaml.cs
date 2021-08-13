@@ -82,6 +82,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_sua(object sender, RoutedEventArgs e)
         {
+            if (txt_maNganh.Text == "") { return; }
             Nganh n = new Nganh
             {
                 MaKhoa = cmb_Khoa.SelectedValue.ToString(),
@@ -102,6 +103,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_xoa(object sender, RoutedEventArgs e)
         {
+            if (txt_maNganh.Text == "") { return; }
             MessageBoxResult result = MessageBox.Show("Bạn có chắn chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
             switch (result)
             {

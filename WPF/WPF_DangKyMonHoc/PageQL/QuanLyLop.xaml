@@ -48,39 +48,31 @@
             <TextBox Grid.Row="1" Grid.Column="1" Name="txt_tenlop" />
             <TextBox Grid.Row="2" Grid.Column="1" Name="txt_siso" PreviewTextInput="NumberValidationTextBox" />
             <!--cot 3-->
-            <TextBlock Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
-    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Ngành:     "/>
+            
             <TextBlock Grid.Row="1" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Niên Khóa:     "/>
             <TextBlock Grid.Row="2" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
-    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Hệ Đào Tạo:     "/>
+    Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Ngành:     "/>
             <!--dong4-->
-            <ComboBox Grid.Row="0" Grid.Column="4"
-  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmb_nganh" DisplayMemberPath="TenNganh" SelectedValuePath="MaNganh">
-            </ComboBox>
+            
             <ComboBox Grid.Row="1" Grid.Column="4"
   Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmb_nienkhoa" DisplayMemberPath="TenNk" SelectedValuePath="MaNk">
             </ComboBox>
             <ComboBox Grid.Row="2" Grid.Column="4"
-  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmb_hedaotao" DisplayMemberPath="TenDt" SelectedValuePath="MaDt">
+  Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmb_nganh" DisplayMemberPath="TenNganh" SelectedValuePath="MaNganh">
             </ComboBox>
-            <Button Grid.Column="6" Grid.Row="0" Margin="1" VerticalAlignment="Center"
-    Style="{StaticResource MaterialDesignRaisedLightButton}"
-    Background="WhiteSmoke" Width="100"
-    ToolTip="Resource name: MaterialDesignRaisedLightButton" Click="btn_Khoa">
-                new
-            </Button>
+            
             <Button Grid.Column="6" Grid.Row="1" Margin="1" VerticalAlignment="Center"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     Background="WhiteSmoke" Click="btn_NK" Width="100"
     ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                new
+                Tạo mới
             </Button>
             <Button Grid.Column="6" Grid.Row="2" Margin="1" VerticalAlignment="Center"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     Background="WhiteSmoke" Click="btn_HDT" Width="100"
     ToolTip="Resource name: MaterialDesignRaisedLightButton">
-                new
+                Tạo mới
             </Button>
         </Grid>
 
@@ -91,7 +83,7 @@
                 <Button Content="Sửa" Margin="5" Click="btn_sua" ></Button>
                 <Button  Content="Xóa" Margin="5" Click="btn_xoa" ></Button>
                 <Button Content="Làm Mới" Margin="5" Click="btn_lammoi"></Button>
-                
+               
             </WrapPanel>
         </materialDesign:Card>
 
@@ -110,9 +102,8 @@
                             <GridViewColumn Header="Mã Lớp " DisplayMemberBinding="{Binding MaLop}" ></GridViewColumn>
                             <GridViewColumn Header="Tên Lớp" DisplayMemberBinding="{Binding TenLop}" ></GridViewColumn>
                             <GridViewColumn Header="Sỉ số" DisplayMemberBinding="{Binding Siso}"></GridViewColumn>
-                            <GridViewColumn Header="Ngành" DisplayMemberBinding="{Binding MaNganh}" ></GridViewColumn>
                             <GridViewColumn Header="Niên Khóa" DisplayMemberBinding="{Binding MaNk}"></GridViewColumn>
-                            <GridViewColumn Header="Hệ đào tạo" DisplayMemberBinding="{Binding MaDt}"></GridViewColumn>
+                            <GridViewColumn Header="Ngành" DisplayMemberBinding="{Binding MaNganh}"></GridViewColumn>
                         </GridView>
                     </ListView.View>
                 </ListView>

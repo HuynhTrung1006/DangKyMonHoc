@@ -77,7 +77,7 @@
                             <Button  Content="Thoát" Click="btn_thoat"></Button>
                         </WrapPanel>
                     </materialDesign:Card>
-                    <Button Margin="5" Grid.Column="2" Grid.Row="2" Content="New" Click="btn_Khoa"></Button>
+                    <Button Margin="5" Grid.Column="2" Grid.Row="2" Content="Mới" Click="btn_Khoa"></Button>
                 </Grid>
             </StackPanel>
         </Grid>

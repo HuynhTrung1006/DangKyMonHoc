@@ -11,6 +11,5 @@ namespace Wpf_DangKyMonHoc.Models
         public string MaNk { get; set; }
         public string MaCdk { get; set; }
 
-         
     }
 }

@@ -66,5 +66,21 @@ namespace Wpf_DangKyMonHoc.XuLy
 
 			}
 		}
+
+		public static bool PutSuaPasswordNhanVien(NhanVien a)
+		{
+			try
+			{
+				string url = xlc.local() + "NhanVien/Password/" + a.MaNv;
+				var kq = hc.PutAsJsonAsync(url, a);
+				kq.Wait();
+				return kq.Result.IsSuccessStatusCode;
+			}
+			catch (Exception)
+			{
+				return false;
+
+			}
+		}
 	}
 }

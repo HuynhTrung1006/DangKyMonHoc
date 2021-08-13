@@ -19,14 +19,14 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <Grid Grid.Row="0" Grid.Column="1"  Background="#FF2B52AB">
-            <TextBlock Text="Trường Đại học công nghệ Sài Gòn" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="22"></TextBlock>
+            <TextBlock Text="TRƯỜNG ĐẠI HỌC CÔNG NGHỆ SÀI GÒN" VerticalAlignment="Center" HorizontalAlignment="Center" FontSize="25" FontWeight="ExtraBold" ></TextBlock>
             <StackPanel VerticalAlignment="Center" Orientation="Horizontal" HorizontalAlignment="Right">
                 <materialDesign:PopupBox  Margin="10" PlacementMode="BottomAndAlignRightEdges" StaysOpen="False">
                     <StackPanel Width="120">
-                        <Button Content="Cài đặt"/>
-                        <Button Content="Tài Khoản"/>
+                        <Button Content="Đổi Mật Khẩu" Click="btn_doimatkhau"/>
+                        
                         <Separator/>
-                        <Button Content="Logout"/>
+                        <Button Content="Đăng xuất" Click="btn_exit"/>
                     </StackPanel>
                 </materialDesign:PopupBox>
 
@@ -36,8 +36,7 @@
             <StackPanel>
                 <Grid Height="100"  Background="#FF2B52AB">
                     <Image Source="/Assets/Logo_STU.png" Width="200" Height="90"/>
-                    
-
+        
                     <!--<Button Name="BtnCloseMenu" Width="50" Height="50" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Top" HorizontalAlignment="Right" Visibility="Collapsed" >
                         <materialDesign:PackIcon  Foreground="#FFFFFFFF" Width="25" Height="25" Kind="ArrowLeft"/>
                     </Button>
@@ -49,40 +48,46 @@
                     <Separator />
                     <ListViewItem Height="50" >
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Quản lý sinh viên "  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" 
+                            <Button Content="Quản lý Sinh Viên "  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" 
                                     HorizontalAlignment="Right"   
                                     Foreground="White"
+                                    FontWeight="Bold"
                                     Name="btnQuanLyGiangVien" Click="btnQuanLySinhVien_Click" />
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" >
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Quản lý Nhân Viên" Click="btnQuanLyNhanVien"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right"  Foreground="White"/>
+                            <Button Content="Quản lý Nhân Viên" Click="btnQuanLyNhanVien" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right"  Foreground="White"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" >
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Quản lý Giảng Viên" Click="btnGiangVien"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right"  Foreground="White"/>
+                            <Button Content="Quản lý Giảng Viên" Click="btnGiangVien" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right"  Foreground="White"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" >
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Quản lý Lớp" Click="btnquanlyLop"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
+                            <Button Content="Quản lý Lớp" Click="btnquanlyLop" FontWeight="Bold"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" >
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Quản lý Môn Học" Click="btnquanlyMonHoc"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
+                            <Button Content="Quản lý Môn Học" Click="btnquanlyMonHoc" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" >
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Quản lý Cổng Đăng ký" Click="btnCongDangKy"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
+                            <Button Content="Quản lý Cổng Đăng ký" Click="btnCongDangKy" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="60" >
                         <StackPanel Orientation="Horizontal">
-                            <Button Content="Chương trình đào tạo" Click="btnCTDT"  Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
+                            <Button Content="Chương Trình Đào Tạo" Click="btnCTDT" FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="60" >
+                        <StackPanel Orientation="Horizontal">
+                            <Button Content="Quản lý Lớp môn học" Name="btnLopMonHoc" Click="btnLopMonHoc_Click"  FontWeight="Bold" Background="{x:Null}" BorderBrush="{x:Null}" VerticalAlignment="Center" HorizontalAlignment="Right" Foreground="White"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>

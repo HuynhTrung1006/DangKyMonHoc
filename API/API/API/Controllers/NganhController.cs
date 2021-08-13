@@ -20,6 +20,13 @@ namespace API.Controllers
 
             return Ok(list);
         }
+        [HttpGet("{id}")]
+        public IActionResult getctnganh(string id)
+        {
+            var a = dc.Nganhs.Find(id);
+            if (a == null) return NotFound();
+            return Ok(a);
+        }
         [HttpPost]
         public IActionResult postDSNganh(Models.Nganh n)
         {
