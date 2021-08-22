@@ -107,7 +107,7 @@
                         <MenuItem Header="Đăng ký môn học" FontWeight="ExtraBlack" >
                             <MenuItem Header="Năm Học" Click="btnNamHocDKMH" />
                             <MenuItem Header="Học kỳ" Click="btnHocKyDKMH" />
-                            <MenuItem Header="Môn học được mở" Click="btnMonhocduomo" />
+                            <!--<MenuItem Header="Môn học được mở" Click="btnMonhocduomo" />-->
                         </MenuItem>
                         <MenuItem Header="Chương trình đào tạo" FontWeight="ExtraBlack">
                             <MenuItem Header="Khối kiến thức" Click="btnKhoiKT" />

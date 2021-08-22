@@ -45,10 +45,10 @@ namespace API.Controllers
 			//Xu ly du lieu: 
 			 // cau truc NV001 (nv: ma chuc vu)
 			a.Matkhau = xuly.hashPassword(a.Matkhau);//BCrypt
-
+			a.Hinhanh = a.MaNv.Trim();
 			_db.NhanViens.Add(a);
 			await _db.SaveChangesAsync();
-			return Ok();
+			return Ok(a);
 		}
 		[HttpDelete("{id}")]
 		public async Task<IActionResult> DeleteNhanvien(string id)
@@ -72,6 +72,7 @@ namespace API.Controllers
 			nv.Ngaysinh = a.Ngaysinh;
 			nv.Sdt = a.Sdt;
 			nv.Phai = a.Phai;
+			nv.Cmnd = a.Cmnd;
 			nv.Email = a.Email;
 			nv.Trangthai = a.Trangthai;
 			nv.Hinhanh = a.Hinhanh;

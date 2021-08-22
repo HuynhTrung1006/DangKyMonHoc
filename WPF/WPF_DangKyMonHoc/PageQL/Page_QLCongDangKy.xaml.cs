@@ -22,9 +22,9 @@ namespace Wpf_DangKyMonHoc
 	/// </summary>
 	public partial class Page_QLCongDangKy
 	{
-        //private object monhocduocmo_Window;
+		//private object monhocduocmo_Window;
 
-        public void getLoad()
+		public void getLoad()
 		{
 			Xuly_Chung xlc = new Xuly_Chung();
 			List<CongDangKy> listCDK = Xuly_MonHocNguyenVong.getAll();
@@ -82,6 +82,11 @@ namespace Wpf_DangKyMonHoc
 		private void btnXoa_Click(object sender, RoutedEventArgs e)
 		{
 			CongDangKy a = listCongDangKy.SelectedItem as CongDangKy;
+			if (a == null)
+			{
+				MessageBox.Show("Vui lòng chọn đối tượng cần thao tác", "Thông báo");
+				return;
+			}
 			MessageBoxResult result = MessageBox.Show("Bạn có chắn chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
 			switch (result)
 			{
@@ -126,6 +131,11 @@ namespace Wpf_DangKyMonHoc
 
 		private void btnThem_Click(object sender, RoutedEventArgs e)
 		{
+			if (txtMaCDK.Text == "" || txtTenCDK.Text == "" || dpThoiGianDong.SelectedDate == null || dpThoiGianMo.SelectedDate == null || cboHocKy.SelectedItem == null || cboNamHoc.SelectedItem == null || cboTrangThai.SelectedItem == null)
+			{
+				MessageBox.Show("Vui lòng điền đầy đủ thông tin !", "Thông báo");
+				return;
+			}
 			BatBuoc batbuoc = cboTrangThai.SelectedItem as BatBuoc;
 			CongDangKy a = new CongDangKy();
 			a.MaCdk = txtMaCDK.Text;
@@ -136,10 +146,10 @@ namespace Wpf_DangKyMonHoc
 			a.MaNh = cboNamHoc.SelectedValue.ToString();
 			a.Trangthai = batbuoc.ID;
 			Xuly_Chung xlc = new Xuly_Chung();
-			if(xlc.checkthoigiancdk(dpThoiGianMo.SelectedDate.Value, dpThoiGianDong.SelectedDate.Value)==false)
-            {
-				MessageBox.Show("Thời Gian đóng mở cổng đăng ký không hợp lý", "Thông báo");return;
-            }				
+			if (xlc.checkthoigiancdk(dpThoiGianMo.SelectedDate.Value, dpThoiGianDong.SelectedDate.Value) == false)
+			{
+				MessageBox.Show("Thời Gian đóng mở cổng đăng ký không hợp lý", "Thông báo"); return;
+			}
 			bool kq = Xuly_MonHocNguyenVong.PostThemCongDangKy(a);
 			if (kq == true)
 			{
@@ -151,20 +161,20 @@ namespace Wpf_DangKyMonHoc
 				MessageBox.Show("Thêm thất bại !", "Thông báo");
 		}
 
-        private void btn_duocmo(object sender, RoutedEventArgs e)
-        {
+		private void btn_duocmo(object sender, RoutedEventArgs e)
+		{
 			CongDangKy c = listCongDangKy.SelectedItem as CongDangKy;
-			if(c==null)
-            {
+			if (c == null)
+			{
 				MessageBox.Show("Bạn chưa chọn cổng đăng ký môn học!", "Thông báo");
 				return;
-            }
+			}
 			var n = new Monhocduocmo_Window(c);
 			n.Show();
-        }
+		}
 
-        private void btn_apdungnienkhoa(object sender, RoutedEventArgs e)
-        {
+		private void btn_apdungnienkhoa(object sender, RoutedEventArgs e)
+		{
 			CongDangKy c = listCongDangKy.SelectedItem as CongDangKy;
 			if (c == null)
 			{
@@ -175,8 +185,8 @@ namespace Wpf_DangKyMonHoc
 			n.Show();
 		}
 
-        private void btn_MHNguyenVong(object sender, RoutedEventArgs e)
-        {
+		private void btn_MHNguyenVong(object sender, RoutedEventArgs e)
+		{
 			CongDangKy c = listCongDangKy.SelectedItem as CongDangKy;
 			if (c == null)
 			{
@@ -185,10 +195,10 @@ namespace Wpf_DangKyMonHoc
 			}
 			var n = new MHNguyenVong_Window(c);
 			n.Show();
-        }
+		}
 
-        private void btn_PhieuDangKy(object sender, RoutedEventArgs e)
-        {
+		private void btn_PhieuDangKy(object sender, RoutedEventArgs e)
+		{
 			CongDangKy c = listCongDangKy.SelectedItem as CongDangKy;
 			if (c == null)
 			{
@@ -199,8 +209,8 @@ namespace Wpf_DangKyMonHoc
 			n.Show();
 		}
 
-        private void btn_Taolopmh(object sender, RoutedEventArgs e)
-        {
+		private void btn_Taolopmh(object sender, RoutedEventArgs e)
+		{
 			CongDangKy c = listCongDangKy.SelectedItem as CongDangKy;
 			if (c == null)
 			{
@@ -210,5 +220,22 @@ namespace Wpf_DangKyMonHoc
 			var n = new TaoLopMH_Window(c);
 			n.Show();
 		}
-    }
+
+		private void btn_hocky_DKMH(object sender, RoutedEventArgs e)
+		{
+			var n = new HocKyDKMH_Window();
+			n.ShowDialog();
+			List<HocKyDkmh> listHKDKMH = Xuly_HockyDKMH.getAllHocKyDKMH();
+			cboHocKy.ItemsSource = listHKDKMH;
+
+		}
+
+		private void btn_NamHoc_DKMH(object sender, RoutedEventArgs e)
+		{
+			var n = new NamhocDKNH_Window();
+			n.ShowDialog();
+			List<NamHocDkmh> listNamHocDKMH = Xuly_NamHocDKMH.getAllNamHocDkmh();
+			cboNamHoc.ItemsSource = listNamHocDKMH;
+		}
+	}
 }

@@ -101,6 +101,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
 		private void btnXoa_Click(object sender, RoutedEventArgs e)
 		{
+			if (listKhoiKienThuc.SelectedItem == null) return;
 			MessageBoxResult result = MessageBox.Show("Bạn có chắn chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
 			switch (result)
 			{
@@ -110,7 +111,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 					bool kq = Xuly_KhoiKienThuc.DeleteXoaKhoiKienThuc(txtKhoiKienThuc.Text);
 					if (kq == false)
 					{
-						MessageBox.Show("Không thể xóa dữ liệu do đã được sử dụng ở chức năng khác!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+						MessageBox.Show("Không thể xóa dữ liệu do đã được sử dụng ở chức năng khác!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);return;
 					}
 					MessageBox.Show("Xóa Thành Công", "Thông Báo");
 					clean();

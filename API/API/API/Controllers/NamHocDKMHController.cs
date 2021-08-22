@@ -49,7 +49,7 @@ namespace API.Controllers
         {
             var checkCV = await _db.NamHocDkmhs.FindAsync(id.Trim());
             if (checkCV == null) return NotFound();
-            var checkRelationshipCDK = _db.CongDangKies.Where(n => n.MaNh.Contains(id)).Count();
+            var checkRelationshipCDK = _db.CongDangKies.Where(n => n.MaNh==checkCV.MaNh).Count();
             
             if (checkRelationshipCDK > 0) return NotFound();
             _db.NamHocDkmhs.Remove(checkCV);

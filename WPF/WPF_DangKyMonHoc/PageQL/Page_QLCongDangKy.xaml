@@ -72,6 +72,12 @@
             <Button Grid.Row="2" Grid.Column="7" Width="100" Content="Xóa" Margin="5" Name="btnXoa" Click="btnXoa_Click" ></Button>
             <Button Grid.Row="3" Grid.Column="7" Width="100" Content="Làm mới" Margin="5" Name="btnLamMoi" Click="btnLamMoi_Click" ></Button>
             <!--dong5-->
+            <Label Grid.Row="1" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Hyperlink Click="btn_hocky_DKMH">Tạo mới</Hyperlink>
+            </Label>
+            <Label Grid.Row="2" Grid.Column="6" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <Hyperlink Click="btn_NamHoc_DKMH">Tạo mới</Hyperlink>
+            </Label>
         </Grid>
 
 

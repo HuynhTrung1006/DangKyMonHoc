@@ -73,11 +73,11 @@ namespace Wpf_DangKyMonHoc.WindowQL
 			input.MaNk = nk.MaNk.Trim();
             if (listCDKNK != null)
             {
-                var check = listCDKNK.Find(x => x.MaNk == nk.MaNk.Trim());
+                var check = listCDKNK.Find(x => x.MaNk.Trim() == nk.MaNk.Trim());
                 if (check != null)
                 {
-                    MessageBox.Show("Niên khóa đã được chọn trong danh sách!", "Thông báo")
-                        ; return;
+					MessageBox.Show("Niên khóa đã được chọn trong danh sách!", "Thông báo");
+					return;
                 }
 				listCDKNK.Add(input);
 			}

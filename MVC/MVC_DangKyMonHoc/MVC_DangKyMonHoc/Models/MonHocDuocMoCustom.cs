@@ -17,5 +17,6 @@ namespace MVC_DangKyMonHoc.Models
         public bool dadangky  { get; set; }
         public string chuthich { get; set; }
         public string title { get; set; }
+        public string MaSH { get; set; }
     }
 }

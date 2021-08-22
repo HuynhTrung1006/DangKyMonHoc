@@ -46,14 +46,15 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_them(object sender, RoutedEventArgs e)
         {
+            if (txt_mank.Text == "" || txt_tennk.Text == "" || cmb_ctdt.SelectedItem == null)
+            {
+                MessageBox.Show("Vui lòng điền đầy đủ thông tin!", "Thông báo");
+                return;
+            }
             string ma = txt_mank.Text;
             string ten = txt_tennk.Text;
             string ctdt = cmb_ctdt.SelectedValue.ToString();
-            if (ma == "" || ten == ""||ctdt=="")
-            {
-                MessageBox.Show("Điền đầy đủ thông tin!", "Thông báo");
-                return;
-            }
+           
             NienKhoa nk = new NienKhoa { MaNk = ma, TenNk = ten , MaCtdt=ctdt};
             var result = XLNienKhoa.post(nk);
             if (result == false)
@@ -68,6 +69,8 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_sua(object sender, RoutedEventArgs e)
         {
+            if (list_NienKhoa.SelectedItem == null)
+                return;
             NienKhoa cv = new NienKhoa { MaNk = txt_mank.Text, TenNk = txt_tennk.Text, MaCtdt=cmb_ctdt.SelectedValue.ToString() };
             var result = XLNienKhoa.put(cv);
             if (result == false)
@@ -82,7 +85,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_xoa(object sender, RoutedEventArgs e)
         {
-            if (txt_mank.Text == "")
+            if (list_NienKhoa.SelectedItem==null)
             {
                 MessageBox.Show("Không thể xóa dữ liệu do bạn chưa chọn dữ liệu để xóa!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information); return;
             }
@@ -125,5 +128,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
         {
             clean();
         }
+
+        
     }
 }

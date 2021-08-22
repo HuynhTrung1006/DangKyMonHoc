@@ -103,7 +103,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
         private void btn_Them(object sender, RoutedEventArgs e)
         {
 			var l_chonmonhoc = list_monhoc.SelectedItems;
-            if (l_chonmonhoc == null)
+            if (l_chonmonhoc.Count <1)
             {
 				MessageBox.Show("Bạn chưa chọn môn học được mở!", "Thông báo");
 				return;

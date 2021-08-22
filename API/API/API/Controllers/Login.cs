@@ -72,6 +72,7 @@ namespace API.Controllers
         public ActionResult PostSignIn(SinhVien a)
         {
             SinhVien b = db.SinhViens.SingleOrDefault(x => x.MaSv == a.MaSv);
+            if (b == null) return BadRequest();
             bool isValidPassword = BCrypt.Net.BCrypt.Verify(a.Matkhau, b.Matkhau.Trim());
             if (isValidPassword == true)
             {

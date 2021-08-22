@@ -61,7 +61,7 @@
             </Grid>
             <materialDesign:Card Grid.Row="1" HorizontalAlignment="Stretch">
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ListView Name="listKhoiKienThuc" SelectedValuePath="MaKhoi" SelectionChanged="listKhoiKienThuc_SelectionChanged" Height="200">
+                    <ListView Name="listKhoiKienThuc" SelectedValuePath="MaKhoi" SelectionChanged="listKhoiKienThuc_SelectionChanged" Height="250">
                         <ListView.View>
                             <GridView>
                                 <GridViewColumn Header="Mã khối kiến thức " DisplayMemberBinding="{Binding MaKhoi}" ></GridViewColumn>

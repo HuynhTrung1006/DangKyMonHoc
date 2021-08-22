@@ -36,7 +36,7 @@
                 <TextBlock  Grid.Row="2" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Sỉ số :     "/>
                 <TextBox Grid.Row="0" Grid.Column="1" Name="txtMaCDK" />
-                <TextBox Grid.Row="1" Grid.Column="1" Name="txtMaMh"/>
+                <TextBox Grid.Row="1" Grid.Column="1" Name="txtMaMh" IsReadOnly="True"/>
                 <TextBox Grid.Row="2" Grid.Column="1" Name="txtSiso" PreviewTextInput="NumberValidationTextBox" />
                 <Button Grid.Column="3" Width="150" Content="Thêm lớp môn học" Name="btnThem" Click="btnThem_Click" ></Button>
                 <Button Grid.Column="3" Grid.Row="2" Content="Thoát" Width="100" Click="btn_Thoat"></Button>

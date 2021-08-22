@@ -21,6 +21,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
     public partial class PhieuDangKy_Window : Window
     {
         private List<PhieuDangKy_Custom> list = new List<PhieuDangKy_Custom>();
+
         public PhieuDangKy_Window(CongDangKy cdk)
         {
             InitializeComponent();
@@ -55,6 +56,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
         public void getload(string macdk)
         {
              list = XL_PhieuDangKy.getdspdk(macdk);
+
             if (list == null)
             {
                 MessageBox.Show("Không tìm thấy tất cả các phiếu đăng ký", "Thông Báo");return;
@@ -68,7 +70,8 @@ namespace Wpf_DangKyMonHoc.WindowQL
                 getload(txtMaCDK.Text);
                 return;
             }
-            List<PhieuDangKy_Custom> listtk = list.FindAll(x => x.MaSv.StartsWith(txt_tkMaSV.Text));
+            List<PhieuDangKy_Custom> listtk = list.FindAll(x => x.MaSv.Contains(txt_tkMaSV.Text));
+
             listPhieuDangky.ItemsSource = null;
             listPhieuDangky.ItemsSource = listtk;
         }

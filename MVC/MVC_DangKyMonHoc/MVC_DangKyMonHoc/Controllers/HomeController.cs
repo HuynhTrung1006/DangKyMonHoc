@@ -57,7 +57,7 @@ namespace MVC_DangKyMonHoc.Controllers
             SinhVien a = new SinhVien();
             if(ModelState.IsValid)
             {
-                if (username == "" || password == "")
+                if (username == null || password == null)
                 {
                     ViewBag.error = "Thông tin đăng nhập không chính xác";
                     return RedirectToAction("Login");

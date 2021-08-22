@@ -115,18 +115,20 @@
                                 <td class="col-1">
                                     @Html.DisplayFor(modelitem => item.chuthich)
                                 </td>
+                                
                             </tr>
-                        }
+                                    }
                     </tbody>
                 </table>
                 <hr />
-                <input type="submit" id="idSumbit" value="Đăng ký" />
+                <input type="submit" id="idSumbit" value="Đăng ký"/>
             </form>
 
         </div>
 
     }
 }
+
 
 <script type="text/javascript">
     $().ready(function () {
@@ -235,6 +237,38 @@
                 cell7.className = "col-1";
                 listMHNV.push(obj.MaMh);
             });
+        });
+        //Kiểm tra môn học song hành 
+        $('#idSumbit').click(function () {
+            var listcheckedtable = [];
+            var ttajax=false;
+            $("#_monhocduocmo input[type=checkbox]:checked").each(function () {
+                var row = $(this).closest("tr")[0];
+                var message = row.cells[1].innerHTML;
+                listcheckedtable.push(message.trim());
+            });
+            
+            $.ajax({
+                url: "@Url.Action("KiemTraSongHanh")",
+                type: 'post',
+                async :false,
+                contentType: 'application/json',
+                data: JSON.stringify(listcheckedtable),
+                success: function (response) {
+                    var res = JSON.parse(response);
+                    if (res.TrangthaiTT === false) {
+                        ttajax= true;
+                    }
+                    else {
+                        $.each(res, function (index, emp) {
+                            alert(emp.Noidung);
+                            
+                        });
+                    }
+                }
+            });
+            //alert(ttajax);
+            return ttajax;
         });
     })
 

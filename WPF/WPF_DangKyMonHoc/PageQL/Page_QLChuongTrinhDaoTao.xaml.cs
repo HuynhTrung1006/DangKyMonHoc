@@ -43,7 +43,7 @@ namespace Wpf_DangKyMonHoc
 			txt_tinchi.Text = null;
 			cmb_hedaotao.SelectedValue = null;
 			cmb_nganh.SelectedValue = null;
-
+			txt_ma.IsReadOnly = false;
 			list_ctdt.SelectedItem = null;
         }
 		public void getload()
@@ -63,7 +63,7 @@ namespace Wpf_DangKyMonHoc
 
         private void btn_them(object sender, RoutedEventArgs e)
         {
-			if(txt_ma.Text==""||txt_ten.Text==""||txt_nienkhoa.Text==""||txt_tinchi.Text==""||cmb_hedaotao.SelectedItem==null||cmb_nganh.SelectedItem==null)
+			if(txt_ma.Text==""||txt_ten.Text==""||txt_nienkhoa.Text==""||txt_tinchi.Text==""||int.Parse(txt_tinchi.Text)<1||cmb_hedaotao.SelectedItem==null||cmb_nganh.SelectedItem==null)
             {
 				MessageBox.Show("Bạn chưa nhập đầy đủ dữ liệu!", "Thông báo");
 				return;

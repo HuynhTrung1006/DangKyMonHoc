@@ -107,10 +107,7 @@ namespace Wpf_DangKyMonHoc
 			n.ShowDialog();
 		}
 
-		private void btnMonhocDuocMo_Click(object sender, RoutedEventArgs e)
-		{
-
-		}
+		
 
 		private void btnKhoiKienThuc_Click(object sender, RoutedEventArgs e)
 		{

@@ -17,6 +17,12 @@ namespace MVC_DangKyMonHoc.Controllers
 		public IActionResult IndexThongTinSinhVien()
 		{
 			SinhVien sv = SessionHelper.getObject<SinhVien>(HttpContext.Session, "login");
+			if (sv == null)
+			{
+				return View("../Home/Login");
+			}
+			sv.Sdt=sv.Sdt.Trim();
+			sv.Email=sv.Email.Trim();
 			return View(sv);
 		}
 		[HttpPost] 
@@ -75,6 +81,11 @@ namespace MVC_DangKyMonHoc.Controllers
 		}
 		public IActionResult SuaMatKhau()
 		{
+			SinhVien sv = SessionHelper.getObject<SinhVien>(HttpContext.Session, "login");
+			if (sv == null)
+			{
+				return View("../Home/Login");
+			}
 			return View();
 		}
 		public IActionResult dangxuat()

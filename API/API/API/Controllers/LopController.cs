@@ -22,29 +22,33 @@ namespace API.Controllers
             return Ok(list);
         }
         [HttpPost]
-        public IActionResult postDSLop(Models.Lop l)
+        public async Task<IActionResult> postDSLop(Models.Lop l)
         {
             //Nganh manganh = dc.Nganhs.Where(x => x.MaNganh.Contains(l.MaNganh)).FirstOrDefault();
             //var makhoa = dc.Khoas.Where(x => x.MaKhoa.Contains(manganh.MaKhoa)).FirstOrDefault();
 
 
             //var ctdt = dc.ChuongTrinhDaoTaos.Find(l.MaCtdt.Trim());
-            var nk = dc.NienKhoas.Find(l.MaNk);
-            var ctdt = dc.ChuongTrinhDaoTaos.Find(nk.MaCtdt);
-            var dt = dc.HeDaoTaos.Find(ctdt.MaDt.Trim());
-            string ma_hedaotao = dt.MaDt.Substring(0, 1);// chu D
+            if (ModelState.IsValid)
+            {
+                var nk = dc.NienKhoas.Find(l.MaNk);
+                var ctdt = dc.ChuongTrinhDaoTaos.Find(nk.MaCtdt);
+                var dt = dc.HeDaoTaos.Find(ctdt.MaDt.Trim());
+                string ma_hedaotao = dt.MaDt.Substring(0, 1);// chu D
 
-            var manganh = dc.Nganhs.Find(ctdt.MaNganh);
-            var makhoa = dc.Khoas.Find(manganh.MaKhoa);
+                var manganh = dc.Nganhs.Find(ctdt.MaNganh);
+                var makhoa = dc.Khoas.Find(manganh.MaKhoa);
 
-            l.MaLop = ma_hedaotao + l.MaNk.Trim().Substring(0,2) + "_" + makhoa.TenVietTat.Trim() + l.MaLop.Trim();
+                l.MaLop = ma_hedaotao + l.MaNk.Trim().Substring(0, 2) + "_" + makhoa.TenVietTat.Trim() + l.MaLop.Trim();
 
-            
-            Models.Lop temp = dc.Lops.Find(l.MaLop);
-            if (temp != null) return BadRequest();
-            dc.Lops.Add(l);
-            dc.SaveChanges();
-            return Ok();
+
+                Models.Lop temp = dc.Lops.Find(l.MaLop);
+                if (temp != null) return BadRequest();
+                dc.Lops.Add(l);
+                await dc.SaveChangesAsync();
+                return Ok();
+            }
+            return BadRequest();
 
         }
         [HttpDelete("{id}")]

@@ -31,13 +31,14 @@ namespace API.Controllers
 
             s.MaSv = xuly.maSinhVien(s.MaSv, s.MaLop);
             s.Matkhau = xuly.hashPassword(s.Matkhau);
+            s.Hinhanh = s.MaSv;
             dc.SinhViens.Add(s);
             dc.SaveChanges();
-            return Ok();
+            return Ok(s);
 
         }
         [HttpDelete("{id}")]
-        public IActionResult deleteSinhvien(string id)
+        public async Task<IActionResult> deleteSinhvien(string id)
         {
             Models.SinhVien n = dc.SinhViens.Find(id);
             if (n == null) return NotFound();
@@ -46,11 +47,11 @@ namespace API.Controllers
                 return BadRequest();
             }
             dc.SinhViens.Remove(n);
-            dc.SaveChanges();
+            await dc.SaveChangesAsync();
             return Ok();
         }
         [HttpPut("{id}")]
-        public IActionResult putSinhvien(Models.SinhVien s)
+        public async Task<IActionResult> putSinhvien(Models.SinhVien s)
         {
             if (ModelState.IsValid == false) return BadRequest();
             Models.SinhVien temp = dc.SinhViens.Find(s.MaSv);
@@ -68,7 +69,7 @@ namespace API.Controllers
                 //temp.MaLop = s.MaLop;
             temp.Trangthai = s.Trangthai;
 
-            dc.SaveChanges();
+            await dc.SaveChangesAsync();
             return Ok();
         }
 

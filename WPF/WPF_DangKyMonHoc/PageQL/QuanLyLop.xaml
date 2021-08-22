@@ -62,18 +62,24 @@
   Style="{StaticResource MaterialDesignFloatingHintComboBox}" Name="cmb_nganh" DisplayMemberPath="TenNganh" SelectedValuePath="MaNganh">
             </ComboBox>
             
-            <Button Grid.Column="6" Grid.Row="1" Margin="1" VerticalAlignment="Center"
+            <!--<Button Grid.Column="6" Grid.Row="1" Margin="1" VerticalAlignment="Center"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     Background="WhiteSmoke" Click="btn_NK" Width="100"
     ToolTip="Resource name: MaterialDesignRaisedLightButton">
                 Tạo mới
-            </Button>
-            <Button Grid.Column="6" Grid.Row="2" Margin="1" VerticalAlignment="Center"
+            </Button>-->
+            <Label Grid.Row="1" Grid.Column="6" VerticalAlignment="Bottom">
+                <Hyperlink Click="btn_NK">Tạo mới</Hyperlink>
+            </Label>
+            <!--<Button Grid.Column="6" Grid.Row="2" Margin="1" VerticalAlignment="Center"
     Style="{StaticResource MaterialDesignRaisedLightButton}"
     Background="WhiteSmoke" Click="btn_HDT" Width="100"
     ToolTip="Resource name: MaterialDesignRaisedLightButton">
                 Tạo mới
-            </Button>
+            </Button>-->
+            <Label Grid.Row="2" Grid.Column="6" VerticalAlignment="Bottom">
+                <Hyperlink Click="btn_HDT">Tạo mới</Hyperlink>
+            </Label>
         </Grid>
 
 

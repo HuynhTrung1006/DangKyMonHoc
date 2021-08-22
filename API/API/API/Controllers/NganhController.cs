@@ -28,21 +28,21 @@ namespace API.Controllers
             return Ok(a);
         }
         [HttpPost]
-        public IActionResult postDSNganh(Models.Nganh n)
+        public async Task<IActionResult> postDSNganh(Models.Nganh n)
         {
             if (ModelState.IsValid == false) return BadRequest();
             Models.Nganh temp = dc.Nganhs.Find(n.MaNganh);
             if (temp != null) return BadRequest();
             Models.Nganh a = new Models.Nganh
             {
-              MaNganh=n.MaNganh,
-              TenNganh=n.TenNganh,
-              MaKhoa=n.MaKhoa
+                MaNganh = n.MaNganh,
+                TenNganh = n.TenNganh,
+                MaKhoa = n.MaKhoa
 
 
             };
             dc.Nganhs.Add(a);
-            dc.SaveChanges();
+            await dc.SaveChangesAsync();
             return Ok();
 
         }

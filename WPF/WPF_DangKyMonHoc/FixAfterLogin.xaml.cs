@@ -92,10 +92,7 @@ namespace Wpf_DangKyMonHoc
             n.ShowDialog();
         }
 
-        private void btnMonhocduomo(object sender, RoutedEventArgs e)
-        {
-           
-        }
+        
 
         private void btnHocKyDKMH(object sender, RoutedEventArgs e)
         {

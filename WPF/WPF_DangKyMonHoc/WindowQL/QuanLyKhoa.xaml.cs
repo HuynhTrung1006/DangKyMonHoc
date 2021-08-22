@@ -66,7 +66,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_xoa(object sender, RoutedEventArgs e)
         {
-            if (txt_maKhoa.Text == "") { return; }
+            if (listKhoa.SelectedItem==null) { return; }
             MessageBoxResult result = MessageBox.Show("Bạn có chắn chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
             switch (result)
             {
@@ -97,7 +97,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_sua(object sender, RoutedEventArgs e)
         {
-            if (txt_maKhoa.Text == "") { return; }
+            if (listKhoa.SelectedItem==null) { return; }
             Khoa cv = new Khoa();
             cv.MaKhoa = txt_maKhoa.Text;
             cv.TenKhoa = txt_tenKhoa.Text;

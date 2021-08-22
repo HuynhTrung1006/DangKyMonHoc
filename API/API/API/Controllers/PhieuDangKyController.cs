@@ -65,43 +65,52 @@ namespace API.Controllers
         {
             if (masv == "" || macdk == "") return BadRequest();
             var resultsearch = _db.PhieuDangKies.Where(x => x.MaSv == masv && macdk == x.MaCdk).FirstOrDefault();
-            var ctpdksinhvien = _db.ChiTietPdks.Where(x => x.MaPdk == resultsearch.MaPdk).ToList();
             List<MonHocDuocMoCustom> list = new List<MonHocDuocMoCustom>();
-            foreach (var a in ctpdksinhvien)
+            List<ChiTietPdk> ctpdksinhvien = null;
+            if (resultsearch != null)
             {
-                MonHocDuocMo b = _db.MonHocDuocMos.Where(x => x.MaMh == a.MaMh && x.MaCdk == macdk).FirstOrDefault();
-                if (b != null)
-                {
-                    MonHoc c = _db.MonHocs.Find(b.MaMh);
-                    MonHocDuocMoCustom monHoc = new MonHocDuocMoCustom
-                    {
-                        MaCdk = macdk,
-                        MaMh = b.MaMh,
-                        hesohp = c.HesoHp,
-                        sotinchi = c.Sotinchi,
-                        Soluong = b.Soluong,
-                        TenMh = c.TenMh,
-                        Trangthai = a.Trangthai,
-                    };
-                    list.Add(monHoc);
-                }
-                else
-                {
-                    MonHoc c = _db.MonHocs.Find(a.MaMh);
-                    MonHocDuocMoCustom monHoc = new MonHocDuocMoCustom
-                    {
-                        MaCdk = macdk,
-                        MaMh = a.MaMh,
-                        hesohp = c.HesoHp,
-                        sotinchi = c.Sotinchi,
-                        Soluong = 0,
-                        TenMh = c.TenMh,
-                        Trangthai = a.Trangthai,
-                    };
-                    list.Add(monHoc);
-                }
+                ctpdksinhvien = _db.ChiTietPdks.Where(x => x.MaPdk == resultsearch.MaPdk).ToList();
             }
-            return Ok(list);
+
+            if (ctpdksinhvien != null)
+            {
+                foreach (var a in ctpdksinhvien)
+                {
+                    MonHocDuocMo b = _db.MonHocDuocMos.Where(x => x.MaMh == a.MaMh && x.MaCdk == macdk).FirstOrDefault();
+                    if (b != null)
+                    {
+                        MonHoc c = _db.MonHocs.Find(b.MaMh);
+                        MonHocDuocMoCustom monHoc = new MonHocDuocMoCustom
+                        {
+                            MaCdk = macdk,
+                            MaMh = b.MaMh,
+                            hesohp = c.HesoHp,
+                            sotinchi = c.Sotinchi,
+                            Soluong = b.Soluong,
+                            TenMh = c.TenMh,
+                            Trangthai = a.Trangthai,
+                        };
+                        list.Add(monHoc);
+                    }
+                    else
+                    {
+                        MonHoc c = _db.MonHocs.Find(a.MaMh);
+                        MonHocDuocMoCustom monHoc = new MonHocDuocMoCustom
+                        {
+                            MaCdk = macdk,
+                            MaMh = a.MaMh,
+                            hesohp = c.HesoHp,
+                            sotinchi = c.Sotinchi,
+                            Soluong = 0,
+                            TenMh = c.TenMh,
+                            Trangthai = a.Trangthai,
+                        };
+                        list.Add(monHoc);
+                    }
+                }
+                return Ok(list);
+            }
+            return Ok();
         }
         [HttpPut("{putPDKSV}")]
         public IActionResult putPDKSV(PhieuDangKy pdk)

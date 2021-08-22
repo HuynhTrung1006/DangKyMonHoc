@@ -40,10 +40,10 @@ namespace API.Controllers
 				//return oUser;
 				a.MaGv = a.MaChucVu.Trim() + a.MaGv.Trim();
 				a.Matkhau = xuly.hashPassword(a.Matkhau);
-
+				a.Hinhanh = a.MaGv.Trim();
 				db.GiangViens.Add(a);
 				await db.SaveChangesAsync();
-				return Ok();
+				return Ok(a);
 
 			}
 			return BadRequest();
@@ -69,6 +69,7 @@ namespace API.Controllers
 			b.Email = a.Email;
 			b.MaChucVu = a.MaChucVu;
 			b.Sdt = a.Sdt;
+			b.Diachi = a.Diachi;
 			b.Ngaysinh = a.Ngaysinh;
 			b.Hocham = a.Hocham;
 			b.MaKhoa = a.MaKhoa;

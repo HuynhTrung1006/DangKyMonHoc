@@ -50,5 +50,20 @@ namespace Wpf_DangKyMonHoc.XuLy
 				return false;
 			}
 		}
+
+		public static bool puthinh(string masv,FileUpload x)
+		{
+			try
+			{
+				string url = @"https://localhost:44319/api/FileUploads/"+masv;
+				var kq = hc.PutAsJsonAsync<FileUpload>(url, x);
+				kq.Wait();
+				return kq.Result.IsSuccessStatusCode;
+			}
+			catch (Exception)
+			{
+				return false;
+			}
+		}
 	}
 }

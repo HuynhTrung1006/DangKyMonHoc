@@ -33,6 +33,10 @@ namespace MVC_DangKyMonHoc.Controllers
 			List<ChiTietPdk> pdksinhvien = new List<ChiTietPdk>();
 			HttpClient client = api.Intial();
 			SinhVien sinhvien = SessionHelper.getObject<SinhVien>(HttpContext.Session, "login") ;
+            if (sinhvien == null)
+            {
+				return View("../Home/Login");
+            }
 			string masv = sinhvien.MaSv;
 			HttpResponseMessage res = await client.GetAsync("/api/MonHoc/DSMonHoc/DuocMo/"+masv);
 			if (res.IsSuccessStatusCode)
@@ -60,15 +64,18 @@ namespace MVC_DangKyMonHoc.Controllers
 			{
 				var ketqua = resss.Content.ReadAsStringAsync().Result;
 				listdkmhsv = JsonConvert.DeserializeObject<List<MonHocDuocMoCustom>>(ketqua);
-				List<MonHocDuocMoCustom> listtemp = getlisttempMHDM();
-				foreach( var a in listdkmhsv)
+                if (listdkmhsv != null)
                 {
-                    if (listtemp.Find(x => x.MaMh == a.MaMh) == null)
-                    {
-						listtemp.Add(a);
-                    }
-                }
-				setlisttempMHDM(listtemp);
+					List<MonHocDuocMoCustom> listtemp = getlisttempMHDM();
+					foreach (var a in listdkmhsv)
+					{
+						if (listtemp.Find(x => x.MaMh == a.MaMh) == null)
+						{
+							listtemp.Add(a);
+						}
+					}
+					setlisttempMHDM(listtemp);
+				}
 			}
 			if (listdkmhsv != null)
             {
@@ -203,13 +210,14 @@ namespace MVC_DangKyMonHoc.Controllers
             {
                 var result = res.Content.ReadAsStringAsync().Result;
                 monhoc = JsonConvert.DeserializeObject<MonHocDuocMoCustom>(result);
+				if (monhoc == null) return null;
 				listtemp.Add(monhoc);
 				setlisttempMHDM(listtemp);
                 //SessionHelper.SetObjectAsJson(HttpContext.Session, "monhoc", monhoc);
 
             }
 			monhoc.chuthich = "NV";
-            if (monhoc == null) return null;
+           
             return JsonConvert.SerializeObject(monhoc);
         }
 
@@ -254,6 +262,27 @@ namespace MVC_DangKyMonHoc.Controllers
             
 			return JsonConvert.SerializeObject(monhoc);
         }
-        
-    }
+
+        public async Task<string> KiemTraSongHanh([FromBody]List<string> l)
+        {
+			List<MonHocDuocMoCustom> list = SessionHelper.getObject<List<MonHocDuocMoCustom>>(HttpContext.Session, "monhocduocmo");
+			List<Thongbao> list_ThongBao = new List<Thongbao>();
+			foreach (var a in l)
+            {
+				var check_mh =  list.Find(x => x.MaMh.Trim() == a);
+				if (check_mh == null||check_mh.MaSH==null) continue;
+				var check_MHSH = l.Find(x => x== check_mh.MaSH.Trim());
+                if (check_MHSH == null)
+                {
+					list_ThongBao.Add(new Thongbao { TrangthaiTT = true, Noidung = "Môn Học " + check_mh.MaMh + " có môn học song hành là: " + check_mh.MaSH + ". Bạn vui lòng kiểm tra lại đăng ký." });
+                }
+            }
+            if (list_ThongBao.Count > 0)
+            {
+				return JsonConvert.SerializeObject(list_ThongBao);
+			}
+			return JsonConvert.SerializeObject(new Thongbao { TrangthaiTT=false, Noidung="Chính Xác"}); 
+        }
+
+	}
 }

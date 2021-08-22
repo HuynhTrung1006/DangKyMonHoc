@@ -80,6 +80,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
 		private void btn_xoaNamhocDKMH_Click(object sender, RoutedEventArgs e)
 		{
+			if (listNamHocDKMH.SelectedItem == null) return;
 			MessageBoxResult result = MessageBox.Show("Bạn có chắn chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
 			switch (result)
 			{
@@ -90,6 +91,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 					if (kq == false)
 					{
 						MessageBox.Show("Không thể xóa dữ liệu do đã được sử dụng ở chức năng khác!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+						return;
 					}
 					MessageBox.Show("Xóa Thành Công", "Thông Báo");
 					clean();

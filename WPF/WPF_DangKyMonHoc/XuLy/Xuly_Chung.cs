@@ -55,12 +55,12 @@ namespace Wpf_DangKyMonHoc.XuLy
         public HocHam hienthihh(string ten)
         {
             List<HocHam> list = GetHocHams();
-            foreach (var a in list)
+            HocHam hh = list.Find(x => x.tenHocHam == ten);
+            if (hh == null)
             {
-                if (a.tenHocHam.Contains(ten.Trim()))
-                    return a;
+                return null;
             }
-            return null;
+            return hh;
         }
 
         public bool checkdatengaysinhsv(DateTime ngaysinh)

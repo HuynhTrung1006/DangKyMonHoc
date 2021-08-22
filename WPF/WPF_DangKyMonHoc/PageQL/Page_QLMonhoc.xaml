@@ -44,8 +44,8 @@
                 <!--dong 2-->
                 <TextBox Grid.Row="0" Grid.Column="1" Name="txtMamonHoc"  />
                 <TextBox Grid.Row="1" Grid.Column="1" Name="txtTenMonhoc"/>
-                <TextBox Grid.Row="2" Grid.Column="1" Name="txtSotinchi"/>
-                <TextBox Grid.Row="3" Grid.Column="1" Name="txtHesoHP"/>
+                <TextBox Grid.Row="2" Grid.Column="1" Name="txtSotinchi"  PreviewTextInput="txtSotinchi_PreviewTextInput"/>
+                <TextBox Grid.Row="3" Grid.Column="1" Name="txtHesoHP" PreviewTextInput="txtHesoHP_PreviewTextInput"/>
                 <!--cot 3-->
                 <TextBlock Grid.Row="0" Grid.Column="3" VerticalAlignment="Center" HorizontalAlignment="Right"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Môn tiên quyết:     "/>
@@ -64,13 +64,17 @@
                 </ComboBox>
                 <!--dong5-->
 
-
+                <Label Grid.Row="3" Grid.Column="5" HorizontalAlignment="Center" VerticalAlignment="Bottom">
+                    <Hyperlink Click="btn_KhoiKienThuc" >Tạo mới</Hyperlink>
+                </Label>
 
             </Grid>
-
+            
 
             <materialDesign:Card VerticalAlignment="Center" HorizontalAlignment="Center">
                 <WrapPanel>
+                    <TextBox  Width="200" Name="txt_tkMonhoc"></TextBox>
+                    <Button  Content="Tìm" Margin="5" Click="btn_Tim"></Button>
                     <Button  Content="Thêm" Margin="5" Name="btnThemMonHoc" Click="btnThemMonHoc_Click" ></Button>
                     <Button Content="Sửa" Margin="5" Name="btnSuaMonHoc" Click="btnSuaMonHoc_Click" ></Button>
                     <Button  Content="Xóa" Margin="5" Name="btnXoaMonHoc" Click="btnXoaMonHoc_Click"></Button>

@@ -100,17 +100,17 @@ namespace Wpf_DangKyMonHoc.XuLy
 
         public static ThongBao PostSinhVienNew(DSSV_LopMonHoc a)
         {
-                string url = @"https://localhost:44319/api/Lop_MonHoc/ThemSinhVien";
+            string url = @"https://localhost:44319/api/Lop_MonHoc/ThemSinhVien";
 
-                var kq = hc.PostAsJsonAsync(url, a);
-                kq.Wait();
+            var kq = hc.PostAsJsonAsync(url, a);
+            kq.Wait();
             //var rrr=kq.Result.Content.ReadAsStringAsync().GetAwaiter().GetResult();
             ThongBao n = new ThongBao
             {
                 kq = kq.Result.IsSuccessStatusCode,
                 status = kq.Result.Content.ReadAsStringAsync().GetAwaiter().GetResult()
             };
-                return n;
+            return n;
         }
         public static bool DeleteSinhVien(DSSV_LopMonHoc a)
         {

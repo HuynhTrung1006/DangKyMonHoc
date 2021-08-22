@@ -29,7 +29,7 @@ namespace API.Controllers
         }
 
         [HttpDelete("{id}")]
-        public IActionResult deletectdt(string id)
+        public async Task<IActionResult> deletectdt(string id)
         {
             var check = _db.ChuongTrinhDaoTaos.Find(id);
             if (check == null) return NotFound();
@@ -42,7 +42,7 @@ namespace API.Controllers
                 _db.ChiTietCtdts.Remove(a);
             }
             _db.Remove(check);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
             return Ok();
         }
 

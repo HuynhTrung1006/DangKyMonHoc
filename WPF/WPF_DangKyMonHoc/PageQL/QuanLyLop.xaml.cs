@@ -63,8 +63,8 @@ namespace Wpf_DangKyMonHoc.PageQL
         {
             byte siso = 0;
             if(txt_siso.Text!="") siso = byte.Parse(txt_siso.Text);
-            if (txt_malop.Text == "" || txt_tenlop.Text == "" || cmb_nganh.SelectedValue.ToString() == null 
-                || cmb_nienkhoa.SelectedValue.ToString() == null || siso < 0)
+            if (txt_malop.Text == "" || txt_tenlop.Text == "" || cmb_nganh.SelectedItem == null 
+                || cmb_nienkhoa.SelectedItem == null || siso < 1)
             {
                 MessageBox.Show("Điền đầy đủ thông tin hoặc thông tin chưa chính xác!", "Thông báo");
                 return;
@@ -80,10 +80,10 @@ namespace Wpf_DangKyMonHoc.PageQL
             var result = XLLop.Post(lop);
             if (result == false)
             {
-                MessageBox.Show("Thêm hệ đào tạo không thành công", "Thông báo");
+                MessageBox.Show("Thêm Lớp Sinh Viên không thành công", "Thông báo");
                 return;
             }
-            MessageBox.Show("Thêm hệ đào tạo thành công", "Thông báo");
+            MessageBox.Show("Thêm Lớp Sinh Viên thành công", "Thông báo");
             //clean();
             getLoad();
         }
@@ -95,9 +95,11 @@ namespace Wpf_DangKyMonHoc.PageQL
 
         private void btn_HDT(object sender, RoutedEventArgs e)
         {
-            List<Nganh> listNganh = XLNganh.getds();
-            if (listNganh == null) MessageBox.Show("Lỗi tải Hệ Đào Tạo!!!", "ERROR");
-            cmb_nganh.ItemsSource = listNganh;
+            var n = new QuanLyNganh();
+            n.ShowDialog();
+            List<Nganh> listnganh = XLNganh.getds();
+            if (listnganh.Count < 1) MessageBox.Show("Lỗi tải Hệ Đào Tạo!!!", "ERROR");
+            cmb_nganh.ItemsSource = listnganh;
         }
 
         private void btn_xoa(object sender, RoutedEventArgs e)
@@ -153,7 +155,7 @@ namespace Wpf_DangKyMonHoc.PageQL
 
         private void btn_sua(object sender, RoutedEventArgs e)
         {
-            if (listLop.SelectedValue.ToString() == null)
+            if (listLop.SelectedValue == null)
                 return;
             Lop lop = listLop.SelectedItem as Lop;
             lop.TenLop = txt_tenlop.Text;

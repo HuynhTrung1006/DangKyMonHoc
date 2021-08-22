@@ -129,16 +129,20 @@ namespace API.Controllers
                         trangthaitaolop = true
                     }) ;
                 }
-                list.Add(new MonHocDuocMoCus
+                else
                 {
-                    Id = a.Id,
-                    MaCdk = a.MaCdk,
-                    MaMh = a.MaMh,
-                    Trangthai = a.Trangthai,
-                    Soluong=b.Count,
-                    NkapDung=a.NkapDung,
-                    trangthaitaolop=false
-                });
+                    list.Add(new MonHocDuocMoCus
+                    {
+                        Id = a.Id,
+                        MaCdk = a.MaCdk,
+                        MaMh = a.MaMh,
+                        Trangthai = a.Trangthai,
+                        Soluong = b.Count,
+                        NkapDung = a.NkapDung,
+                        trangthaitaolop = false
+                    });
+                }    
+                
             }
             return Ok(list);
         }

@@ -73,7 +73,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_suaChucVu(object sender, RoutedEventArgs e)
         {
-            if (txt_macv.Text == "") { return; }
+            if (listChucVu.SelectedItem==null) { return; }
             ChucVu cv = new ChucVu();
             cv.MaChucVu = txt_macv.Text;
             cv.TenChucVu = txt_tencv.Text;
@@ -91,7 +91,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_xoaChucVu(object sender, RoutedEventArgs e)
         {
-            if (txt_macv.Text == "") { return; }
+            if (listChucVu.SelectedItem ==null) { return; }
             MessageBoxResult result=MessageBox.Show("Bạn có chắn chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
             switch (result)
             {

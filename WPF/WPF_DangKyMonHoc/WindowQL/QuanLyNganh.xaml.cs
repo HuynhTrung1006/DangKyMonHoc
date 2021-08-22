@@ -39,7 +39,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
             txt_maNganh.IsReadOnly = false;
             txt_maNganh.Text = "";
             txt_tenNganh.Text = "";
-           
+            cmb_Khoa.SelectedItem = null;
         }
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
@@ -82,7 +82,7 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_sua(object sender, RoutedEventArgs e)
         {
-            if (txt_maNganh.Text == "") { return; }
+            if (listNganh.SelectedItem==null) { return; }
             Nganh n = new Nganh
             {
                 MaKhoa = cmb_Khoa.SelectedValue.ToString(),
@@ -103,17 +103,19 @@ namespace Wpf_DangKyMonHoc.WindowQL
 
         private void btn_xoa(object sender, RoutedEventArgs e)
         {
-            if (txt_maNganh.Text == "") { return; }
+            if (listNganh.SelectedItem==null) { return; }
+            var a = listNganh.SelectedItem as Nganh;
             MessageBoxResult result = MessageBox.Show("Bạn có chắn chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
             switch (result)
             {
                 case MessageBoxResult.No:
                     break;
                 case MessageBoxResult.Yes:
-                    var kq = XLNganh.delete(txt_maNganh.Text);
+                    var kq = XLNganh.delete(a.MaNganh);
                     if (kq == false)
                     {
                         MessageBox.Show("Không thể xóa dữ liệu do đã được sử dụng ở chức năng khác!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                        return;
                     }
                     MessageBox.Show("Xóa Thành Công", "Thông Báo");
                     clean();
@@ -127,7 +129,10 @@ namespace Wpf_DangKyMonHoc.WindowQL
             List<Khoa> listcmb = XLKhoa.getds();
             if (listcmb == null) MessageBox.Show("Lỗi tải Server!!!", "ERROR");
             cmb_Khoa.ItemsSource = listcmb;
-            
+            txt_maNganh.Text = "";
+            txt_tenNganh.Text = "";
+            listNganh.SelectedItem = null;
+            clean();
         }
 
         private void btn_thoat(object sender, RoutedEventArgs e)

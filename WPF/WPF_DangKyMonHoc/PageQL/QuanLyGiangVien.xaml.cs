@@ -72,6 +72,10 @@ namespace Wpf_DangKyMonHoc.Page
 		}
 		private void btn_them(object sender, RoutedEventArgs e)
 		{
+            if (txt_ma.Text == null || txt_ten.Text == "" || txt_diachi.Text == "")
+            {
+				return;
+            }
 			HocHam hh = cmb_hocham.SelectedItem as HocHam;
 			if (xlc.isValidEmail(txt_email.Text) == false)
 			{
@@ -107,7 +111,7 @@ namespace Wpf_DangKyMonHoc.Page
 				Hocham=hh.tenHocHam
 			};
 			var result = XLGiangVien.PostThemGiangVien(sv);
-			if (result == false)
+			if (result == null)
 			{
 				MessageBox.Show("Thêm SINH VIÊN không thành công, Bạn kiểm tra lại dữ liệu nhập vào", "Thông báo");
 				return;
@@ -120,7 +124,7 @@ namespace Wpf_DangKyMonHoc.Page
 
 				FileUpload x = new FileUpload
 				{
-					tenhinh = txt_ma.Text.Trim(),
+					tenhinh = result.MaGv.Trim(),
 					hinh = ms.ToArray(),
 					name = "GiangVien"
 				};
@@ -134,6 +138,7 @@ namespace Wpf_DangKyMonHoc.Page
 
 		private void btn_sua(object sender, RoutedEventArgs e)
 		{
+			if (listgiangvien.SelectedItem == null) return;
 			if (xlc.isValidEmail(txt_email.Text) == false)
 			{
 				MessageBox.Show("Email nhập sai! Vui lòng nhập chính xác. VD:abc@123.com", "Thông báo"); return;
@@ -168,6 +173,21 @@ namespace Wpf_DangKyMonHoc.Page
 			{
 				MessageBox.Show("Sửa không thành công !", "Thông báo");
 				return;
+			}
+			if (imgHinh.Source != null)
+			{
+				BitmapImage bm = imgHinh.Source as BitmapImage;
+				MemoryStream ms = bm.StreamSource as MemoryStream;
+				//bool okihinh = xulyhocvien.themhinhhocvien(a.hinh, ms.ToArray());
+
+				FileUpload x = new FileUpload
+				{
+					tenhinh = b.MaGv.Trim(),
+					hinh = ms.ToArray(),
+					name = "GiangVien"
+				};
+				bool okihinh = XLAnh.puthinh(b.MaGv.Trim(), x);
+				if (okihinh == false) MessageBox.Show("ERROR Write Image!!");
 			}
 			MessageBox.Show("Sửa thành công", "Thông báo");
 			clean();
@@ -228,13 +248,13 @@ namespace Wpf_DangKyMonHoc.Page
 				btn_trangthai.IsChecked = false;
 			}
 
-			HocHam a = xlc.hienthihh(sv.Hocham);
+			HocHam a = xlc.hienthihh(sv.Hocham.Trim());
 			cmb_hocham.SelectedValue = a.ID;
 			cmb_khoa.SelectedValue = sv.MaKhoa;
 
 			txt_ma.IsReadOnly = true;
 			//txt_matkhau.IsReadOnly = true;
-			if (sv.Hinhanh.Trim() == "")
+			if (sv.Hinhanh == null)
 			{
 				imgHinh.Source = null;
 			}

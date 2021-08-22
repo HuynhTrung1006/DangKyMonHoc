@@ -62,13 +62,13 @@ namespace Wpf_DangKyMonHoc.PageQL
 
 			txt_masv.IsReadOnly = true;
 			//txt_matkhau.IsReadOnly = true;
-            if (sv.Hinhanh.Trim() == "")
+            if (sv.Hinhanh == null)
             {
 				imgHinh.Source = null;
             }
 			else
             {
-				byte[] buf = XLAnh.gethinh(sv.MaSv);
+				byte[] buf = XLAnh.gethinh(sv.Hinhanh);
 				if (buf == null) MessageBox.Show("Không có hình trên hệ thống!","Thông báo");
 				else
 				{
@@ -115,6 +115,11 @@ namespace Wpf_DangKyMonHoc.PageQL
 		}
 		private void btn_them(object sender, RoutedEventArgs e)
 		{
+			if (txt_cmnd.Text == "" || txt_diachi.Text == "" || txt_masv.Text == "" || txt_sdt.Text == "" || txt_ten.Text == "" || date_ngaysinh.SelectedDate == null || cmb_Lop.SelectedItem == null || cmb_phai.SelectedItem == null)
+			{
+				MessageBox.Show("Thông tin nhập vào còn trống ! Vui lòng kiểm tra lại ");
+				return;
+			}
 			GioiTinh gt = cmb_phai.SelectedItem as GioiTinh;
 			if (xlc.isValidEmail(txt_email.Text) == false)
 			{
@@ -144,11 +149,11 @@ namespace Wpf_DangKyMonHoc.PageQL
 				Ngaysinh = date_ngaysinh.SelectedDate.Value,
 				MaLop = cmb_Lop.SelectedValue.ToString(),
 				Phai = gt.ID,
-				Hinhanh = (imgHinh.Source==null)?"":txt_masv.Text.Trim(),
+				Hinhanh = "",
 				Trangthai = btn_trangthai.IsChecked == true ? true : false
 			};
 			var result = XLSinhVien.PostThemSinhVien(sv);
-			if (result == false)
+			if (result == null)
 			{
 				MessageBox.Show("Thêm SINH VIÊN không thành công, Bạn kiểm tra lại dữ liệu nhập vào", "Thông báo");
 				return;
@@ -162,7 +167,7 @@ namespace Wpf_DangKyMonHoc.PageQL
 
 				FileUpload x = new FileUpload
 				{
-					tenhinh = txt_masv.Text.Trim(),
+					tenhinh = result.MaSv.Trim(),
 					hinh = ms.ToArray(),
 					name = "SinhVien"
 				};
@@ -177,6 +182,10 @@ namespace Wpf_DangKyMonHoc.PageQL
 
 		private void btn_sua(object sender, RoutedEventArgs e)
 		{
+			if (listsinhvien.SelectedItem == null)
+			{
+				return;
+			}
 			GioiTinh gt = cmb_phai.SelectedItem as GioiTinh;
 			if (xlc.isValidEmail(txt_email.Text.Trim()) == false)
 			{
@@ -209,9 +218,23 @@ namespace Wpf_DangKyMonHoc.PageQL
             {
                 MessageBox.Show("Sửa không thành công !", "Thông báo");
                 return;
-
             }
-            MessageBox.Show("Sửa thành công", "Thông báo");
+			if (imgHinh.Source != null)
+			{
+				BitmapImage bm = imgHinh.Source as BitmapImage;
+				MemoryStream ms = bm.StreamSource as MemoryStream;
+				//bool okihinh = xulyhocvien.themhinhhocvien(a.hinh, ms.ToArray());
+
+				FileUpload x = new FileUpload
+				{
+					tenhinh = sv.MaSv.Trim(),
+					hinh = ms.ToArray(),
+					name = "SinhVien"
+				};
+				bool okihinh = XLAnh.puthinh(sv.MaSv.Trim(),x);
+				if (okihinh == false) MessageBox.Show("ERROR Write Image!!");
+			}
+			MessageBox.Show("Sửa thành công", "Thông báo");
             clean();
             getLoad();
 
@@ -221,6 +244,7 @@ namespace Wpf_DangKyMonHoc.PageQL
 
 		private void btn_xoa(object sender, RoutedEventArgs e)
 		{
+			
 			SinhVien sv = listsinhvien.SelectedItem as SinhVien;
 			if (sv == null) return;
 			MessageBoxResult result = MessageBox.Show("Bạn có chắn chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);

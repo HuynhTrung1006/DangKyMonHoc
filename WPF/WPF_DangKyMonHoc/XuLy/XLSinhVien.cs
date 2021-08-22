@@ -22,19 +22,26 @@ namespace Wpf_DangKyMonHoc.XuLy
 			var list = ok.ReadAsAsync<List<SinhVien>>();
 			return list.Result.ToList();
 		}
-		public static bool PostThemSinhVien(SinhVien a)
+		public static SinhVien PostThemSinhVien(SinhVien a)
 		{
 			try
 			{
 				string url = xlc.local()+"SinhVien";
 				var kq = hc.PostAsJsonAsync(url, a);
 				kq.Wait();
-				return kq.Result.IsSuccessStatusCode;
+				var ok = kq.Result.Content;
+                if (kq.Result.IsSuccessStatusCode)
+                {
+					var list = ok.ReadAsAsync<SinhVien>();
+					return list.Result;
+				}
+
+				return null;
 
 			}
 			catch (Exception)
 			{
-				return false;
+				return null;
 			}
 		}
 		public static bool DeleteXoaSinhVien(string id)

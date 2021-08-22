@@ -59,8 +59,8 @@ namespace API.Controllers
             {
                 return BadRequest();
             }
-            var a = dc.Lops.Where(x => x.MaNk == id);
-            if (a != null) return BadRequest();
+            var a = dc.Lops.Where(x => x.MaNk.Trim() == n.MaNk).Count();
+            if (a>0) return BadRequest();
             dc.NienKhoas.Remove(n);
             dc.SaveChanges();
             return Ok();

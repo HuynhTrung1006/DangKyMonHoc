@@ -11,6 +11,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Wpf_DangKyMonHoc.Models;
+using Wpf_DangKyMonHoc.WindowQL;
 using Wpf_DangKyMonHoc.Xuly;
 using Wpf_DangKyMonHoc.XuLy;
 
@@ -22,6 +23,7 @@ namespace Wpf_DangKyMonHoc
 	public partial class Page_QLMonhoc
 	{
 		private Xuly_Chung xlc = new Xuly_Chung();
+		private List<MonHoc> listMH= Xuly_Monhoc.getAllMonHoc();
 		public Page_QLMonhoc()
 		{
 			InitializeComponent();
@@ -38,7 +40,6 @@ namespace Wpf_DangKyMonHoc
 				MessageBox.Show("Khối kiến thức không có dữ liệu", "Thông báo");
 			cboKhoiKienThuc.ItemsSource = listKkt;
 			CboThucHanh.ItemsSource = xlc.getThuocTinh();
-
 
 		}
 		public void Clear()
@@ -74,6 +75,12 @@ namespace Wpf_DangKyMonHoc
 
 		private void btnThemMonHoc_Click(object sender, RoutedEventArgs e)
 		{
+			if (txtMamonHoc.Text == "" || txtHesoHP.Text == "" || txtTenMonhoc.Text == "" || txtSotinchi.Text == "" || cboKhoiKienThuc.SelectedItem == null || CboThucHanh.SelectedItem == null)
+
+			{
+				MessageBox.Show("Vui lòng điền đầy đủ thông tin !", "Thông báo");
+				return;
+			}
 			BatBuoc batbuoc = CboThucHanh.SelectedItem as BatBuoc;
 			MonHoc a = new MonHoc
 			{
@@ -103,6 +110,13 @@ namespace Wpf_DangKyMonHoc
 
 		private void btnSuaMonHoc_Click(object sender, RoutedEventArgs e)
 		{
+			if (listMonhoc.SelectedItem == null)
+				return;
+			if (txtMamonHoc.Text == "" || txtHesoHP.Text == "" || txtTenMonhoc.Text == "" || txtSotinchi.Text == "" || cboKhoiKienThuc.SelectedItem == null || CboThucHanh.SelectedItem == null)
+			{
+				MessageBox.Show("Vui lòng điền đầy đủ thông tin !", "Thông báo");
+				return;
+			}
 			BatBuoc batbuoc = new BatBuoc();
 			MonHoc a = listMonhoc.SelectedItem as MonHoc;
 			a.TenMh = txtTenMonhoc.Text;
@@ -125,6 +139,8 @@ namespace Wpf_DangKyMonHoc
 
 		private void btnXoaMonHoc_Click(object sender, RoutedEventArgs e)
 		{
+			if (listMonhoc.SelectedItem == null)
+				return;
 			MonHoc a = listMonhoc.SelectedItem as MonHoc;
 			MessageBoxResult result = MessageBox.Show("Bạn có chắn chắn muốn xóa?", "Thông báo", MessageBoxButton.YesNo);
 			switch (result)
@@ -150,5 +166,33 @@ namespace Wpf_DangKyMonHoc
 		{
 			Clear();
 		}
-	}
+
+        private void txtSotinchi_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+			xlc.textNumber(e);
+		}
+
+        private void txtHesoHP_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+			xlc.textNumber(e);
+		}
+
+        private void btn_KhoiKienThuc(object sender, RoutedEventArgs e)
+        {
+			var n = new Khoikienthuc_Window();
+			n.ShowDialog();
+			List<KhoiKienThuc> listKkt = Xuly_KhoiKienThuc.getAllKhoiKienThuc();
+			if (listKkt == null)
+				MessageBox.Show("Khối kiến thức không có dữ liệu", "Thông báo");
+			cboKhoiKienThuc.ItemsSource = listKkt;
+		}
+
+        private void btn_Tim(object sender, RoutedEventArgs e)
+        {
+			if (txt_tkMonhoc.Text == null) { getload(); }
+			List<MonHoc> listtk = listMH.FindAll(x => x.MaMh.Contains(txt_tkMonhoc.Text));
+			listMonhoc.ItemsSource = null;
+            listMonhoc.ItemsSource = listtk;
+		}
+    }
 }

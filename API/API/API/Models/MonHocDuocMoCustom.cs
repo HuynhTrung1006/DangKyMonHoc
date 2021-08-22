@@ -14,6 +14,7 @@ namespace API.Models
         public int sotinchi { get; set; }
         public int hesohp { get; set; }
         public string TenMh { get; set; }
-        
+        public string  MaSH { get; set; }
+
     }
 }

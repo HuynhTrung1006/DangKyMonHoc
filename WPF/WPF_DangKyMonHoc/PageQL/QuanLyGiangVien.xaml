@@ -141,7 +141,7 @@
         </materialDesign:Card>-->
         <materialDesign:Card  Margin="5" HorizontalAlignment="Center">
             <ScrollViewer  VerticalScrollBarVisibility="Auto" HorizontalScrollBarVisibility="Auto">
-                <ListView Height="200" Name="listgiangvien" SelectedValuePath="MaGv" SelectionChanged="listnhanvien_SelectionChanged" Width="792">
+                <ListView  Width="1150" Height="380" Name="listgiangvien" SelectedValuePath="MaGv" SelectionChanged="listnhanvien_SelectionChanged" >
                     <ListView.View>
                         <GridView>
                             <GridViewColumn Header="Mã " DisplayMemberBinding="{Binding MaGv}"></GridViewColumn>
@@ -154,7 +154,7 @@
                             <!--<GridViewColumn Header="Mật Khẩu" ></GridViewColumn>-->
                             <GridViewColumn Header="Trạng thái" DisplayMemberBinding="{Binding Trangthai}"></GridViewColumn>
                             <!--<GridViewColumn Header="Hình ảnh" ></GridViewColumn>-->
-                            <GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding MaChucVu}"></GridViewColumn>
+                            <!--<GridViewColumn Header="Chức vụ" DisplayMemberBinding="{Binding MaChucVu}"></GridViewColumn>-->
                             <GridViewColumn Header="Khoa" DisplayMemberBinding="{Binding MaKhoa}"></GridViewColumn>
                         </GridView>
                     </ListView.View>

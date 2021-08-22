@@ -25,7 +25,7 @@
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Chọn cổng đăng ký:     "/>
             <ComboBox Grid.Column="1" Grid.Row="0" Name="cmb_CDK" SelectionChanged="ComboBox_SelectionChanged" SelectedValuePath="MaCdk" DisplayMemberPath="TenCdk" Margin="0,0,0,3" VerticalAlignment="Bottom"/>
         </Grid>
-        <GroupBox Header="Thông tin lớp môn học">
+        <GroupBox Margin="10" Header="Thông tin lớp môn học">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition/>
@@ -51,11 +51,11 @@
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Mã môn học :"/>
                 <TextBlock Grid.Row="2" Grid.Column="2" HorizontalAlignment="Right" VerticalAlignment="Center"
     Style="{StaticResource MaterialDesignBody2TextBlock}" Text="Sỉ số :"/>
-                <TextBox Name="txtMaLopMh" Grid.Column="1" Grid.Row="0"/>
-                <TextBox Name="txtTenLopMh" Grid.Column="1" Grid.Row="1"/>
-                <TextBox Name="txtMaCDK" Grid.Column="3" Grid.Row="0"/>
-                <TextBox Name="txtMaMh" Grid.Column="3" Grid.Row="1"/>
-                <TextBox Name="txtSiSo" Grid.Column="3" Grid.Row="2"/>
+                <TextBox Name="txtMaLopMh" Grid.Column="1" Grid.Row="0" IsReadOnly="True"/>
+                <TextBox Name="txtTenLopMh" Grid.Column="1" Grid.Row="1" IsReadOnly="True"/>
+                <TextBox Name="txtMaCDK" Grid.Column="3" Grid.Row="0" IsReadOnly="True"/>
+                <TextBox Name="txtMaMh" Grid.Column="3" Grid.Row="1" IsReadOnly="True"/>
+                <TextBox Name="txtSiSo" Grid.Column="3" Grid.Row="2" IsReadOnly="True"/>
                 <Button Grid.Column="5" Grid.Row="1" Content="Chỉnh sừa" Click="Button_Click"/>
             </Grid>
         </GroupBox>

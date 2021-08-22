@@ -32,7 +32,7 @@ namespace API.Controllers
 			if (a != null)
 				return BadRequest();
 
-			monHoc.MaMh = monHoc.MaKhoi.Trim() + monHoc.MaMh;
+			
 			db.MonHocs.Add(monHoc);
 			await db.SaveChangesAsync();
 			return Ok();
@@ -62,6 +62,7 @@ namespace API.Controllers
 				return BadRequest();
 			a.TenMh = monHoc.TenMh;
 			a.Sotinchi = monHoc.Sotinchi;
+			a.HesoHp = monHoc.HesoHp;
 			a.Thuchanh = monHoc.Thuchanh;
 			a.MaSh = monHoc.MaSh;
 			a.MaTq = monHoc.MaTq;
@@ -103,6 +104,8 @@ namespace API.Controllers
 
 			//var check = congdangky.Find(x => x.Trangthai == true);
 			if (congdangky == null) return BadRequest();
+			TimeSpan check_ngay = (TimeSpan)(congdangky.ThoigianKetThuc - DateTime.Now);
+			if (check_ngay.Days < 0) return BadRequest(); 
 			//lấy sanh sách môn học  thuộc cổng đang ký đó
 			List<MonHocDuocMo> listmonhocduocmo = db.MonHocDuocMos.Where(x => x.MaCdk == congdangky.MaCdk && x.NkapDung == nienkhoa.MaNk).ToList();
 			List<MonHocDuocMoCustom> listmonhoc = new List<MonHocDuocMoCustom>();
@@ -118,7 +121,8 @@ namespace API.Controllers
 					hesohp = b.HesoHp,
 					Soluong = a.Soluong,
 					MaCdk = a.MaCdk,
-					Trangthai = true
+					Trangthai = true,
+					MaSH=b.MaSh
 				};
 				listmonhoc.Add(c);
 			}
